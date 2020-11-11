@@ -54,7 +54,7 @@ ROOT_URLCONF = 'startup_pur_beurre.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,9 +76,21 @@ WSGI_APPLICATION = 'startup_pur_beurre.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',        
     }
 }
+#          moi je devrai utiliser postgresql :
+# 'ENGINE': 'django.db.backends.postgresql',
+# 'NAME': 'pur_beurre_db',
+# 'USER': 'client',
+# 'PASSWORD': 'tatayoyo77',
+# 'HOST': '127.0.0.1',
+# 'PORT': '5432',
+#          mais par defaut c'est :
+# 'ENGINE': 'django.db.backends.sqlite3',
+# 'NAME': BASE_DIR / 'db.sqlite3',
+
+
 
 
 # Password validation
