@@ -1,7 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 from django.shortcuts import render
 
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'pages/home.html')
 
 def results_of_research(request):
     return render(request, 'pages/results_of_research.html')
