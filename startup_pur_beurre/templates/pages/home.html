@@ -1,10 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 
 <html>
 
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" type="text/css" href="" media="all"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}" media="all"/>
         <title>Pur Beurre</title>
     </head>
 
@@ -38,8 +39,10 @@
             A vrai dire, elle n’avait même pas cherché. Tous deux se souvinrent alors que nombre de leurs clients leur avaient compté, 
             entre deux verres, qu’il était difficile de trouver des substituts aux cochonneries que nous mangions dès le petit déjeuner. 
             Pourquoi ne pas lancer une plateforme web en ce sens ? Voici votre mission !</p>
-            <img id="colette" src="/static/icons/colette.png">
-            <img id="rémy" src="/static/icons/rémy.jpg">
+            <div id='colette et rémy'>
+                <img id="colette" src="/static/icons/colette.png">
+                <img id="rémy" src="/static/icons/rémy.png">
+            </div>
         </div>
 
         <div id="contact_div">

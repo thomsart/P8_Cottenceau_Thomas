@@ -14,8 +14,8 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
+# BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -77,21 +77,21 @@ WSGI_APPLICATION = 'startup_pur_beurre.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',        
+        'NAME': 'db.sqlite3', # BASE_DIR /  c'etait apres les deux points à l'origine 
     }
 }
-#          moi je devrai utiliser postgresql :
-# 'ENGINE': 'django.db.backends.postgresql',
-# 'NAME': 'pur_beurre_db',
-# 'USER': 'client',
-# 'PASSWORD': 'tatayoyo77',
-# 'HOST': '127.0.0.1',
-# 'PORT': '5432',
-#          mais par defaut c'est :
-# 'ENGINE': 'django.db.backends.sqlite3',
-# 'NAME': BASE_DIR / 'db.sqlite3',
 
-
+# moi je devrai utiliser postgresql :
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'pur_beurre_db',
+#         'USER': 'client',
+#         'PASSWORD': 'tatayoyo77',
+#         'HOST': '127.0.0.1',
+#         'PORT': '5432',
+#     }
+# }
 
 
 # Password validation
@@ -131,6 +131,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-# STATICFILES_DIRS = {
-#     os.path.join(BASE_DIR, 'static'),
-# }
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)

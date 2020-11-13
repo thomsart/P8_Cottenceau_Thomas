@@ -1,6 +1,32 @@
-(color #345a61 sinon en RGB  52, 90, 97 & color  #c45525 196, 85, 37)
-les titres en : Open Sans
+/* (color #345a61 sinon en RGB  52, 90, 97 & color  #c45525 196, 85, 37)
+les titres en : Open Sans */
+nav {
+    color: black;
+}
 
+head {
+    margin: auto;
+}
+
+body {
+    background-color: #c45525;
+}
+
+#background-photo {  
+    /* Préserve le ratio de l'image */
+    background-image: url(/static/icons/kawin.jpg);
+    max-width: 100%;
+    height: auto;
+}
+
+#history_div{
+    display: inline-flex;
+    flex-direction: column;
+}
+#rémy{
+    max-width: 3em;
+    height: auto;
+}
 
 
  
