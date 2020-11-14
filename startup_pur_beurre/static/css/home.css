@@ -1,7 +1,27 @@
 /* (color #345a61 sinon en RGB  52, 90, 97 & color  #c45525 196, 85, 37)
 les titres en : Open Sans */
-nav {
+h1 {
     color: black;
+    text-align: center;
+    font-size: 4em;
+}
+h2 {
+    color: black;
+    text-align: center;
+    font-size: 3em;
+}
+h3 {
+    color: black;
+    text-align: center;
+    font-size: 2em;
+}
+p {
+    color:black;
+    max-width: 80%;
+    text-align: justify;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 2em;
 }
 
 head {
@@ -12,21 +32,50 @@ body {
     background-color: #c45525;
 }
 
-#background-photo {  
-    /* Préserve le ratio de l'image */
-    background-image: url(/static/icons/kawin.jpg);
-    max-width: 100%;
-    height: auto;
+nav {
+    color: black;
 }
 
-#history_div{
-    display: inline-flex;
+#research_div {
+    display: flex;
     flex-direction: column;
 }
-#rémy{
+
+#background-photo {
+    max-width: 80%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
+
+#history_div {
+    display: flex;
+    flex-direction: column;
+}
+
+#colette_et_rémy {
+    margin-left: auto;
+    margin-right: auto;
+}
+#rémy {
     max-width: 3em;
     height: auto;
 }
 
 
  
+
+#contact_div {
+    display: flex;
+    flex-direction: column;
+}
+
+#contact_icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
