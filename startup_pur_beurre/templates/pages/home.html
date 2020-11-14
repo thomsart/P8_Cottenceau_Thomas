@@ -11,34 +11,42 @@
 
     <body>
         <nav>
-            <h1>Pur Beurre !</h1>
+            <img id="petit_beurre_icon" src="/static/icons/icon_petit_beurre.png">
+            <h3>Pur Beurre</h3>
+            <form id="nav_form"></form>
+                <input type="text" id="nav_input" name="research" placeholder="Chercher" size=50" maxlength="70"></input>
+            </form>
+            <img id="user_icon" src="/static/icons/user.png">
+            <img id="saved_food_icon" src="/static/icons/carrot.png">
+            <img id="logout_icon" src="/static/icons/logout.png">
         </nav>
 
         <div id="research_div">
-            <img id="background-photo" src="/static/icons/kawin.jpg">
-            <h1>Du gras, oui mais de qualité !</h1>
-            <h2>Trouvez un produit de substitution<br>pour ceux que vous consommez tout les jours.</h2>
-            <form id="question">
-                <input type="text" id="research" name="research" placeholder="Produit" size=50" maxlength="70"></input>
-                <input type="submit" value="Chercher"></input>
-                <!-- <img src="static/images/loader.gif" class="loader"> -->
-            </form>
+            <img id="background_photo" src="/static/icons/kawin.jpg">
+            <div id="research_field">
+                <h1>Du gras, oui mais de qualité !</h1>
+                <h2>Trouvez un produit de substitution<br>pour ceux que vous consommez tout les jours.</h2>
+                <form id="research_div_form">
+                    <input type="text" id="research_input" name="research" placeholder="Produit" size=50" maxlength="70"></input>
+                    <input type="submit" id="research_button", value="Chercher"></input>
+                    <!-- <img src="static/images/loader.gif" class="loader"> -->
+                </form>
+            </div>
         </div>
 
         <div id="history_div">
             <h2>Colette et Rémy</h2>
-            <p>Nous sommes une jeune startup fondée par Remy et Colette Tatou, deux restaurateurs de renom. 
-            Notre restaurant, situé à Montmartre (Paris), compte une cinquantaine de couverts et ne désemplit pas. Notre spécialité, 
-            la ratatouille, nous attire une clientèle internationale charmée par les délices de ce plat typique.
-            Remy et Colette sont amoureux de la gastronomie française (on ne peut les blâmer !). Travaillant quotidiennement 
+            <p>Pur Beurre est une jeune startup fondée par Remy et Colette Tatou, deux restaurateurs de renom. 
+            Leur restaurant, situé à Montmartre, compte une cinquantaine de couverts et ne désemplit pas. Leur spécialité, 
+            la ratatouille, leurs attire une clientèle internationale charmée par les délices de ce plat typique.
+            Amoureux de la gastronomie française, ils travaillent quotidiennement 
             avec les meilleurs produits du terroir, ils affectionnent particulièrement la bonne chaire et aiment partager leur 
             passion. Il est donc normal que Remy ait sauté au plafond quand Colette, un jour de déprime, sortit du placard un 
-            kilo de Nutella et l’attaqua à la petite cuillère. Pourquoi ne pas opter pour une pâte à tartiner aux noisettes, 
-            plus consistante et moins sucrée ? Pourquoi, oh pourquoi s’infliger une telle souffrance ? Rémy était sidéré. 
-            La réponse de Colette fut simple : elle n’avait pas trouvé de substitut assez convainquant. 
+            pot de Nutella et l’attaqua à la petite cuillère. Pourquoi ne pas opter pour une pâte à tartiner aux noisettes, 
+            plus consistante et moins sucrée ? La réponse de Colette fut simple : elle n’avait pas trouvé de substitut assez convainquant. 
             A vrai dire, elle n’avait même pas cherché. Tous deux se souvinrent alors que nombre de leurs clients leur avaient compté, 
-            entre deux verres, qu’il était difficile de trouver des substituts aux cochonneries que nous mangions dès le petit déjeuner. 
-            Pourquoi ne pas lancer une plateforme web en ce sens ? Voici votre mission !</p>
+            entre deux verres, qu’il était difficile de trouver des substituts aux cochonneries que nous mangeons. 
+            Voici donc la raison de cette plateforme web: substituer les aliments mauvais pour la santé.</p>
             <div id='colette_et_rémy'>
                 <img id="colette" src="/static/icons/colette.png">
                 <img id="rémy" src="/static/icons/rémy.png">
@@ -48,8 +56,14 @@
         <div id="contact_div">
             <h2 id="h2_contact">Contactez-nous !</h2>
             <div id="contact_icons">
-                <img id="telephone" src="/static/icons/telephone.png">
-                <img id="mail" src="/static/icons/mail.png">
+                <div id="telephone">
+                    <img src="/static/icons/telephone.png" >
+                    <p id="contact">01 ## ## ## ##</p>
+                </div>
+                <div id="mail">
+                    <img src="/static/icons/mail.png" ="toto">
+                    <p id="contact">contact@gmail.com</p>
+                </div>
             </div>
         </div>
 

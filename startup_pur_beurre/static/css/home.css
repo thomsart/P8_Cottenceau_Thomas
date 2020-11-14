@@ -1,21 +1,28 @@
 /* (color #345a61 sinon en RGB  52, 90, 97 & color  #c45525 196, 85, 37)
 les titres en : Open Sans */
-h1 {
+h1
+{
     color: black;
     text-align: center;
     font-size: 4em;
 }
-h2 {
+
+h2
+{
     color: black;
     text-align: center;
     font-size: 3em;
 }
-h3 {
+
+h3
+{
     color: black;
     text-align: center;
     font-size: 2em;
 }
-p {
+
+p
+{
     color:black;
     max-width: 80%;
     text-align: justify;
@@ -24,58 +31,165 @@ p {
     font-size: 2em;
 }
 
-head {
+head
+{
     margin: auto;
 }
 
-body {
+body
+{
     background-color: #c45525;
 }
 
-nav {
-    color: black;
-}
-
-#research_div {
+nav
+{
+    background-color: #f08355;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-around;
+    max-width: 80%;
+    height: 5em;
+    margin-left: auto;
+    margin-right: auto;
+}
+nav h3
+{
+    margin-top: auto;
+    margin-bottom: auto
 }
 
-#background-photo {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#nav_input
+{
+    height: 2em;
+    width: 20em;
+    margin-top: auto;
+    margin-bottom: auto
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#research_div
+{
+    display: flex;
+}
+
+#background_photo
+{
+    position: relative;
     max-width: 80%;
     height: auto;
     margin-left: auto;
     margin-right: auto;
 }
 
+#research_field
+{
+    position: absolute;
+    max-width: 60%;
+    margin-top: 15%;
+    margin-left: 20%;
+}
+
+#research_field h1, #research_field h2
+{
+    text-shadow: 0 0 0.2em whitesmoke, 0 0 0.2em whitesmoke, 0 0 0.2em whitesmoke;
+}
+
+#research_div_form
+{
+    margin-left: 30%;
+}
+
+#research_input
+{
+    height: 2em;
+    width: 20em;
+    justify-content: center;   
+}
+
+#research_button
+{
+    height: 2em;
+    width: 6em;
+}
 
 
 
 
-#history_div {
+
+
+
+
+
+
+
+
+
+#history_div
+{
     display: flex;
     flex-direction: column;
 }
 
-#colette_et_rémy {
+#colette_et_rémy
+{
     margin-left: auto;
     margin-right: auto;
 }
-#rémy {
+
+#rémy
+{
     max-width: 3em;
     height: auto;
 }
 
-
- 
-
-#contact_div {
+#contact_div
+{
     display: flex;
     flex-direction: column;
 }
 
-#contact_icons {
+#contact_icons
+{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+
+#telephone, #mail
+{
+    display: flex;
+    flex-direction: column;
+}
+
+#telephone p, #mail p
+{
+    font-size: 1em;
+    text-align: justify;
 }
