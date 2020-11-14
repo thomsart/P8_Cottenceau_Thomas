@@ -1,1 +1,39 @@
-<h1>Page résultat de la recherche de substitution du produit</h1>
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}" media="all"/>
+        <title>Pur Beurre</title>
+    </head>
+
+    <body>
+        <nav>
+            <img id="petit_beurre_icon" src="/static/icons/icon_petit_beurre.png">
+            <h3>Pur Beurre</h3>
+            <form id="nav_form"></form>
+                <input type="text" id="nav_input" name="research" placeholder="Chercher" size=50" maxlength="70"></input>
+            </form>
+            <img id="user_icon" src="/static/icons/user.png">
+            <img id="saved_food_icon" src="/static/icons/carrot.png">
+            <img id="logout_icon" src="/static/icons/logout.png">
+        </nav>
+
+        <div id="product_to_substitute_div">
+            
+        </div>
+
+        <div id="products_proposed_div">
+            <h2>Vous pouvez remplacer cet aliment par :</h2>
+            
+        </div>
+
+        <footer>
+            <h3>&copy; Copyright {% now 'Y' %} Pur Beurre &middot; All rights reserved !</h3>
+        </footer>
+    </body>
+
+</html>
+
