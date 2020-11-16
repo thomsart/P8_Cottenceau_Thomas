@@ -21,7 +21,6 @@ h3
 
 p
 {
-    color:black;
     max-width: 80%;
     text-align: justify;
     margin-left: auto;
@@ -39,16 +38,33 @@ body
     background-color: #c45525;
 }
 
+
+
+
+
+
+
+#block_page
+{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+
 nav
 {
-    background-color: #f08355;
     display: flex;
     flex-direction: row;
+    background-color: #f08355;
     justify-content: space-around;
     max-width: 80%;
     height: 5em;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 nav h3
 {
@@ -64,3 +80,375 @@ nav h3
     margin-bottom: auto
 }
 
+
+
+
+
+#product_to_substitute_div
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color:black;
+    height: 40em;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#product_to_substitute_div p2
+{
+    color:  #c45525;
+    font-size: 3em;
+    text-align: center;
+}
+
+#photo_product_to_substitute_div
+{
+    display: flex;
+    justify-content: center;
+}
+
+#photo_product_to_substitute
+{
+    height: 25em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+#products_proposed_div
+{
+    /* border: solid black 1px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 60em;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#substitutes_row_of_columns
+{
+    /* border: solid black 1px; */
+    display: flex;
+    flex-direction: row;
+    height: 40em;
+    justify-content: space-around;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#substitutes_column_1
+{
+    /* border: solid black 1px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 40em;
+}
+
+#substitute_p1_div
+{
+    /* border: solid black 1px; */
+    display: flex;
+    flex-direction: column;
+    width: 15em;
+}
+
+#photo_p1_div
+{
+    position: relative;
+    background-color: black;
+    height: 14em;
+}
+
+#photo_p1
+{
+    position: absolute;
+    height: 14em;
+}
+
+#nut_p1_div
+{
+    position: absolute;
+    padding-left: 13em;
+    z-index: 1;
+}
+
+#title_p1
+{
+    height: 2.5em;
+    text-align: center;
+}
+
+#checkbox_p1
+{
+    height: 1.5em;
+    text-align: center;
+}
+
+#substitute_p4_div
+{
+    /* border: solid black 1px; */
+    display: flex;
+    flex-direction: column;
+    width: 15em;
+}
+
+#photo_p4_div
+{
+    position: relative;
+    background-color: black;
+    height: 14em;
+}
+
+#photo_p4
+{
+    position: absolute;
+    height: 14em;
+}
+
+#nut_p4_div
+{
+    position: absolute;
+    padding-left: 13em;
+    z-index: 1;
+}
+
+#title_p4
+{
+    height: 2.5em;
+    text-align: center;
+}
+
+#checkbox_p4
+{
+    height: 1.5em;
+    text-align: center;
+}
+
+
+
+
+
+#substitutes_column_2
+{
+    /* border: solid black 1px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 40em;
+}
+
+#substitute_p2_div
+{
+    /* border: solid black 1px; */
+    display: flex;
+    flex-direction: column;
+    width: 15em;
+}
+
+#photo_p2_div
+{
+    position: relative;
+    background-color: black;
+    height: 14em;
+}
+
+#photo_p2
+{
+    position: absolute;
+    height: 14em;
+}
+
+#nut_p2_div
+{
+    position: absolute;
+    padding-left: 13em;
+    z-index: 1;
+}
+
+#title_p2
+{
+    height: 2.5em;
+    text-align: center;
+}
+
+#checkbox_p2
+{
+    height: 1.5em;
+    text-align: center;
+}
+
+#substitute_p5_div
+{
+    /* border: solid black 1px; */
+    display: flex;
+    flex-direction: column;
+    width: 15em;
+}
+
+#photo_p5_div
+{
+    position: relative;
+    background-color: black;
+    height: 14em;
+}
+
+#photo_p5
+{
+    position: absolute;
+    height: 14em;
+}
+
+#nut_p5_div
+{
+    position: absolute;
+    padding-left: 13em;
+    z-index: 1;
+}
+
+#title_p5
+{
+    height: 2.5em;
+    text-align: center;
+}
+
+#checkbox_p5
+{
+    height: 1.5em;
+    text-align: center;
+}
+
+
+
+
+
+#substitutes_column_3
+{
+    /* border: solid black 1px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 40em;
+}
+
+#substitute_p3_div
+{
+    /* border: solid black 1px; */
+    display: flex;
+    flex-direction: column;
+    width: 15em;
+}
+
+#photo_p3_div
+{
+    position: relative;
+    background-color: black;
+    height: 14em;
+}
+
+#photo_p3
+{
+    position: absolute;
+    height: 14em;
+}
+
+#nut_p3_div
+{
+    position: absolute;
+    padding-left: 13em;
+    z-index: 1;
+}
+
+#title_p3
+{
+    height: 2.5em;
+    text-align: center;
+}
+
+#checkbox_p3
+{
+    height: 1.5em;
+    text-align: center;
+}
+
+#substitute_p6_div
+{
+    /* border: solid black 1px; */
+    display: flex;
+    flex-direction: column;
+    width: 15em;
+}
+
+#photo_p6_div
+{
+    position: relative;
+    background-color: black;
+    height: 14em;
+}
+
+#photo_p6
+{
+    position: absolute;
+    height: 14em;
+}
+
+#nut_p6_div
+{
+    position: absolute;
+    padding-left: 13em;
+    z-index: 1;
+}
+
+#title_p6
+{
+    height: 2.5em;
+    text-align: center;
+}
+
+#checkbox_p6
+{
+    height: 1.5em;
+    text-align: center;
+}
+
+
+
+
+
+footer
+{
+    position: relative;
+    height: 6em;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
