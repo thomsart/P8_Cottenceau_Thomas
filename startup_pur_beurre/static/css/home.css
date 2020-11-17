@@ -2,6 +2,7 @@ body
 {
     background-color: #c45525;
 }
+
 #block_page
 {
     display: flex;
@@ -49,7 +50,6 @@ p
     font-size: 2em;
 }
 
-
 nav
 {
     background-color: #f08355;
@@ -73,15 +73,11 @@ nav h3
     margin-bottom: auto
 }
 
-
 footer
 {
     position: relative;
     height: 6em;
 }
-
-
-
 
 
 /* ##################################################################################### */

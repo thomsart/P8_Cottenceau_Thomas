@@ -2,6 +2,7 @@ body
 {
     background-color: #c45525;
 }
+
 #block_page
 {
     display: flex;
@@ -49,7 +50,6 @@ p
     font-size: 2em;
 }
 
-
 nav
 {
     background-color: #f08355;
@@ -62,7 +62,7 @@ nav
 nav h3
 {
     margin-top: auto;
-    margin-bottom: auto
+    margin-bottom: auto;
 }
 
 #nav_input
@@ -70,7 +70,7 @@ nav h3
     height: 2em;
     width: 20em;
     margin-top: auto;
-    margin-bottom: auto
+    margin-bottom: auto;
 }
 
 
@@ -81,13 +81,7 @@ footer
 }
 
 
-
-
-
 /* ##################################################################################### */
-
-
-
 
 
 #product_to_substitute_div
@@ -123,341 +117,112 @@ footer
 
 #products_proposed_div
 {
-    /* border: solid black 1px; */
+    border: solid black 1px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     height: 60em;
+}
+@media screen and (max-width: 1024px)
+{
+    #products_proposed_div
+    {
+        height: 300em;       
+    }
+}
+
+#products_proposed_div h2
+{
+    border: solid green 1px;
+    height: 20%;
+}
+@media screen and (max-width: 1024px)
+{
+    #products_proposed_div h2
+    {
+        height: 5%;
+    }
 }
 
 #substitutes_row_of_columns
 {
-    /* border: solid black 1px; */
+    border: solid black 1px;
     display: flex;
     flex-direction: row;
-    height: 40em;
     justify-content: space-around;
+    height: 80%;
+}
+@media screen and (max-width: 1024px)
+{
+    #substitutes_row_of_columns
+    {
+        flex-direction: column;        
+    }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#substitutes_column_1
+#substitutes_column_1, #substitutes_column_2, #substitutes_column_3
 {
-    /* border: solid black 1px; */
+    border: solid black 1px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 40em;
+    height: 100%;
+    width: 20%;
+}
+@media screen and (max-width: 1024px)
+{
+    #substitutes_column_1, #substitutes_column_2, #substitutes_column_3
+    {
+        width: 50%;
+        margin-left: 25%;
+    }
 }
 
-#substitute_p1_div
+#substitute_p1_div, #substitute_p2_div, #substitute_p3_div, #substitute_p4_div, #substitute_p5_div, #substitute_p6_div
 {
-    /* border: solid black 1px; */
+    border: solid rgb(145, 5, 5) 1px;
     display: flex;
     flex-direction: column;
-    width: 15em;
+    height: 50%;
+    width: 100%;
 }
 
-#photo_p1_div
+#photo_p1_div, #photo_p2_div, #photo_p3_div, #photo_p4_div, #photo_p5_div, #photo_p6_div
 {
+    border: solid rgb(145, 5, 5) 1px;
     position: relative;
     background-color: black;
-    height: 14em;
+    height: 70%;
+    width: 100%;
 }
 
-#photo_p1
+#photo_p1, #photo_p2, #photo_p3, #photo_p4, #photo_p5, #photo_p6
 {
     position: absolute;
     max-height: 100%;
     max-width: 100%;
 }
 
-#nut_p1_div
+#nut_p1_div, #nut_p2_div, #nut_p3_div, #nut_p4_div, #nut_p5_div, #nut_p6_div
 {
+    border: solid rgb(145, 5, 5) 1px;
     position: absolute;
-    padding-left: 13em;
+    width: 16%;
+    height: 10%;
+    padding-left: 90%;
     z-index: 1;
 }
 
-#title_p1
+#title_p1, #title_p2, #title_p3, #title_p4, #title_p5, #title_p6
 {
-    height: 2.5em;
+    border: solid rgb(145, 5, 5) 1px;
     text-align: center;
+    height: 15%;
+    width: 100%;
 }
 
-#checkbox_p1
+#checkbox_p1, #checkbox_p2, #checkbox_p3, #checkbox_p4, #checkbox_p5, #checkbox_p6
 {
-    height: 1.5em;
+    border: solid rgb(145, 5, 5) 1px;
     text-align: center;
-}
-
-#substitute_p4_div
-{
-    /* border: solid black 1px; */
-    display: flex;
-    flex-direction: column;
-    width: 15em;
-}
-
-#photo_p4_div
-{
-    position: relative;
-    background-color: black;
-    height: 14em;
-}
-
-#photo_p4
-{
-    position: absolute;
-    max-height: 100%;
-    max-width: 100%;
-}
-
-#nut_p4_div
-{
-    position: absolute;
-    padding-left: 13em;
-    z-index: 1;
-}
-
-#title_p4
-{
-    height: 2.5em;
-    text-align: center;
-}
-
-#checkbox_p4
-{
-    height: 1.5em;
-    text-align: center;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#substitutes_column_2
-{
-    /* border: solid black 1px; */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 40em;
-}
-
-#substitute_p2_div
-{
-    /* border: solid black 1px; */
-    display: flex;
-    flex-direction: column;
-    width: 15em;
-}
-
-#photo_p2_div
-{
-    position: relative;
-    background-color: black;
-    height: 14em;
-}
-
-#photo_p2
-{
-    position: absolute;
-    max-height: 100%;
-    max-width: 100%;
-}
-
-#nut_p2_div
-{
-    position: absolute;
-    padding-left: 13em;
-    z-index: 1;
-}
-
-#title_p2
-{
-    height: 2.5em;
-    text-align: center;
-}
-
-#checkbox_p2
-{
-    height: 1.5em;
-    text-align: center;
-}
-
-#substitute_p5_div
-{
-    /* border: solid black 1px; */
-    display: flex;
-    flex-direction: column;
-    width: 15em;
-}
-
-#photo_p5_div
-{
-    position: relative;
-    background-color: black;
-    height: 14em;
-}
-
-#photo_p5
-{
-    position: absolute;
-    max-height: 100%;
-    max-width: 100%;
-}
-
-#nut_p5_div
-{
-    position: absolute;
-    padding-left: 13em;
-    z-index: 1;
-}
-
-#title_p5
-{
-    height: 2.5em;
-    text-align: center;
-}
-
-#checkbox_p5
-{
-    height: 1.5em;
-    text-align: center;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#substitutes_column_3
-{
-    /* border: solid black 1px; */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 40em;
-}
-
-#substitute_p3_div
-{
-    /* border: solid black 1px; */
-    display: flex;
-    flex-direction: column;
-    width: 15em;
-}
-
-#photo_p3_div
-{
-    position: relative;
-    background-color: black;
-    height: 14em;
-}
-
-#photo_p3
-{
-    position: absolute;
-    max-height: 100%;
-    max-width: 100%;
-}
-
-#nut_p3_div
-{
-    position: absolute;
-    padding-left: 13em;
-    z-index: 1;
-}
-
-#title_p3
-{
-    height: 2.5em;
-    text-align: center;
-}
-
-#checkbox_p3
-{
-    height: 1.5em;
-    text-align: center;
-}
-
-#substitute_p6_div
-{
-    /* border: solid black 1px; */
-    display: flex;
-    flex-direction: column;
-    width: 15em;
-}
-
-#photo_p6_div
-{
-    position: relative;
-    background-color: black;
-    height: 14em;
-}
-
-#photo_p6
-{
-    position: absolute;
-    max-height: 100%;
-    max-width: 100%;
-}
-
-#nut_p6_div
-{
-    position: absolute;
-    padding-left: 13em;
-    z-index: 1;
-}
-
-#title_p6
-{
-    height: 2.5em;
-    text-align: center;
-}
-
-#checkbox_p6
-{
-    height: 1.5em;
-    text-align: center;
+    height: 10%;
+    width: 100%;
 }
