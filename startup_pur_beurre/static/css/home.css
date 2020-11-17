@@ -7,14 +7,14 @@ body
 {
     display: flex;
     flex-direction: column;
-    max-width: 80%;
+    width: 80%;
     padding-left: 10%;
 }
 @media screen and (max-width: 1024px)
 {
     #block_page
     {
-        max-width: 100%;
+        width: 100%;
         padding-left: 0%;
     }
 }
