@@ -1,3 +1,23 @@
+body
+{
+    background-color: #c45525;
+}
+#block_page
+{
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+    padding-left: 10%;
+}
+@media screen and (max-width: 1024px)
+{
+    #block_page
+    {
+        max-width: 100%;
+        padding-left: 0%;
+    }
+}
+
 h1
 {
     color: black;
@@ -22,35 +42,12 @@ h3
 p
 {
     color:black;
-    max-width: 80%;
+    max-width: 90%;
     text-align: justify;
     margin-left: auto;
     margin-right: auto;
     font-size: 2em;
 }
-
-head
-{
-    margin: auto;
-}
-
-body
-{
-    background-color: #c45525;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 nav
@@ -59,11 +56,9 @@ nav
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    max-width: 80%;
     height: 5em;
-    margin-left: auto;
-    margin-right: auto;
 }
+
 nav h3
 {
     margin-top: auto;
@@ -79,13 +74,17 @@ nav h3
 }
 
 
+footer
+{
+    position: relative;
+    height: 6em;
+}
 
 
 
 
 
-
-
+/* ##################################################################################### */
 
 
 
@@ -99,18 +98,24 @@ nav h3
 #background_photo
 {
     position: relative;
-    max-width: 80%;
     height: auto;
-    margin-left: auto;
-    margin-right: auto;
 }
+
 
 #research_field
 {
     position: absolute;
-    max-width: 60%;
-    margin-top: 15%;
-    margin-left: 20%;
+    margin-top: 16%;
+    margin-left: 10%;
+}
+@media screen and (max-width: 1024px)
+{
+    #research_field
+    {
+        max-width: 90%;
+        margin-top: 8%;
+        margin-left: 5%;
+    }
 }
 
 #research_field h1, #research_field h2
@@ -127,7 +132,6 @@ nav h3
 {
     height: 2em;
     width: 20em;
-    justify-content: center;   
 }
 
 #research_button
@@ -142,26 +146,23 @@ nav h3
 
 
 
-
-
-
-
-
-
 #history_div
 {
+    border: solid black 1px;
     display: flex;
     flex-direction: column;
 }
 
 #colette_et_rémy
 {
+    border: solid black 1px;
     margin-left: auto;
     margin-right: auto;
 }
 
 #rémy
 {
+    border: solid black 1px;
     max-width: 3em;
     height: auto;
 }
@@ -171,25 +172,16 @@ nav h3
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 #contact_div
 {
+    border: solid black 1px;
     display: flex;
     flex-direction: column;
 }
 
 #contact_icons
 {
+    border: solid black 1px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -197,12 +189,14 @@ nav h3
 
 #telephone, #mail
 {
+    border: solid black 1px;
     display: flex;
     flex-direction: column;
 }
 
 #telephone p, #mail p
 {
+    border: solid black 1px;
     font-size: 1em;
     text-align: justify;
 }
