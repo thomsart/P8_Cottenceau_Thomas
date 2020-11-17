@@ -1,1 +1,39 @@
-<h1>Page de vérification du produit à substituer</h1>
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/selected_product.css' %}" media="all"/>
+        <title>Pur Beurre</title>
+    </head>
+    <body>
+        <div id="block_page">
+            <nav>
+                <img id="petit_beurre_icon" src="/static/icons/icon_petit_beurre.png">
+                <h3>Pur Beurre</h3>
+                <form id="nav_form"></form>
+                    <input type="text" id="nav_input" name="research" placeholder="Chercher" size=50" maxlength="70"></input>
+                </form>
+                <img id="user_icon" src="/static/icons/user.png">
+                <img id="saved_food_icon" src="/static/icons/carrot.png">
+                <img id="logout_icon" src="/static/icons/logout.png">
+            </nav>
+
+            <div id="product_to_substitute_div">
+                <p2>Voici Le produit que vous voulez substituer !</p2>
+                <div id="photo_product_to_substitute_div">
+                    <img id="photo_product_to_substitute" src="/static/icons/corn_flakes.jpg">
+                </div>
+            </div>
+
+            <div id="products_features_div">
+                
+            </div>
+
+            <footer>
+                <h3>&copy; Copyright {% now 'Y' %} Pur Beurre &middot; All rights reserved !</h3>
+            </footer>
+        </div>
+    </body>
+</html>
