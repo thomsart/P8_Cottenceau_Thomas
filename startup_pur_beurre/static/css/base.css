@@ -73,8 +73,19 @@ nav h3
     margin-bottom: auto
 }
 
+#petit_beurre_icon:hover, #user_icon:hover, #saved_food_icon:hover, #logout_icon:hover
+{
+    height: 5em;
+    background-color: #c45525;
+}
+
 footer
 {
     position: relative;
     height: 6em;
+}
+
+footer a h3:hover
+{
+    height: 2em;
 }
