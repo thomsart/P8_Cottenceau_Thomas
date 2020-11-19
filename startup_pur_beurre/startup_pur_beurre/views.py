@@ -17,3 +17,12 @@ def selected_product(request):
 
 def user_account(request):
     return render(request, 'pages/user_account.html')
+
+def mentions_legales(request):
+    return render(request, 'pages/mentions_legales.html')
+
+def error_404(request):
+    return render(request, 'errors/error_404.html')
+
+def error_500(request):
+    return render(request, 'errors/error_500.html')

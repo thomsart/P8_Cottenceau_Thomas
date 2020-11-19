@@ -55,10 +55,7 @@
 }
 
 
-
-
-
-#history_div
+#history_div, #contact_div, #telephone_div, #mail_div
 {
     /* border: solid black 1px; */
     display: flex;
@@ -79,18 +76,7 @@
     height: auto;
 }
 
-
-
-
-
-#contact_div
-{
-    /* border: solid black 1px; */
-    display: flex;
-    flex-direction: column;
-}
-
-#contact_icons
+#contact_icons_div
 {
     /* border: solid black 1px; */
     display: flex;
@@ -98,14 +84,7 @@
     justify-content: space-around;
 }
 
-#telephone, #mail
-{
-    /* border: solid black 1px; */
-    display: flex;
-    flex-direction: column;
-}
-
-#telephone p, #mail p
+#telephone_div p, #mail_div p
 {
     /* border: solid black 1px; */
     font-size: 1em;
