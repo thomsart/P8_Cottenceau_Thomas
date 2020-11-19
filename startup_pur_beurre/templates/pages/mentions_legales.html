@@ -1,12 +1,38 @@
+{% load static %}
 
+<!DOCTYPE html>
 
-<h2>Voici la liste des partenaires qui font que ce site existe: </h2>
-<ul>
-    <li>Jackie et Michel</li>
-    <li>A.F.P</li>
-    <li>La Famille Wood</li>
-    <li>Dieu Le Père</li>
-    <li>Psychoïd</li>
-    <li>La Science</li>
-</ul>
+<html>
 
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/mentions_legales.css' %}" media="all"/>
+        <title>Pur Beurre</title>
+    </head>
+
+    <body>
+        <div id="block_page">
+
+            <div id="petit_beurre_div">
+                <a href="/">
+                    <span title="page d'accueil">
+                        <img id="petit_beurre" src="/static/icons/petit beurre.png">
+                    </span>
+                </a>
+            </div>
+            <h3>Voici la liste des partenaires qui font que ce site existe: </h3>
+            <div id="partners">
+                <ul>
+                    <li>Jackie et Michel</li>
+                    <li>A.F.P</li>
+                    <li>La Famille Wood</li>
+                    <li>Dieu Le Père</li>
+                    <li>Psychoïd</li>
+                    <li>La Science</li>
+                </ul>
+            </div>
+
+        </div>
+    </body>
+
+</html>
