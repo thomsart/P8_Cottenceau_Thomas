@@ -1,39 +1,19 @@
-{% load static %}
-<!DOCTYPE html>
+{% extends 'layouts/base.html' %}
+{%  load static %}
 
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" type="text/css" href="{% static 'css/user_account.css' %}" media="all"/>
-        <title>Pur Beurre</title>
-    </head>
-    <body>
-        <div id="block_page">
-            <nav>
-                <img id="petit_beurre_icon" src="/static/icons/icon_petit_beurre.png">
-                <h3>Pur Beurre</h3>
-                <form id="nav_form"></form>
-                    <input type="text" id="nav_input" name="research" placeholder="Chercher" size=50" maxlength="70"></input>
-                </form>
-                <img id="user_icon" src="/static/icons/user.png">
-                <img id="saved_food_icon" src="/static/icons/carrot.png">
-                <img id="logout_icon" src="/static/icons/logout.png">
-            </nav>
+{% block content %}
 
-            <div id="user_div">
-                <p2>Bonjour !</p2>
-                <div id="photo_user_div">
-                    <img id="photo_user" src="/static/icons/user.jpg">
-                </div>
-            </div>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/user_account.css' %}" media="all"/>
 
-            <div id="mail_div">
-                
-            </div>
-
-            <footer>
-                <h3>&copy; Copyright {% now 'Y' %} Pur Beurre &middot; All rights reserved !</h3>
-            </footer>
+    <div id="user_div">
+        <p2>Bonjour !</p2>
+        <div id="photo_user_div">
+            <img id="photo_user" src="/static/icons/user.jpg">
         </div>
-    </body>
-</html>
+    </div>
+
+    <div id="mail_div">
+        
+    </div>
+
+{% endblock content %}

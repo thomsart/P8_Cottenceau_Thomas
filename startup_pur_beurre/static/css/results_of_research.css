@@ -1,89 +1,3 @@
-body
-{
-    background-color: #c45525;
-}
-
-#block_page
-{
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    padding-left: 10%;
-}
-@media screen and (max-width: 1024px)
-{
-    #block_page
-    {
-        width: 100%;
-        padding-left: 0%;
-    }
-}
-
-h1
-{
-    color: black;
-    text-align: center;
-    font-size: 4em;
-}
-
-h2
-{
-    color: black;
-    text-align: center;
-    font-size: 3em;
-}
-
-h3
-{
-    color: black;
-    text-align: center;
-    font-size: 2em;
-}
-
-p
-{
-    color:black;
-    max-width: 90%;
-    text-align: justify;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 2em;
-}
-
-nav
-{
-    background-color: #f08355;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    height: 5em;
-}
-
-nav h3
-{
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
-#nav_input
-{
-    height: 2em;
-    width: 20em;
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
-
-footer
-{
-    position: relative;
-    height: 6em;
-}
-
-
-/* ##################################################################################### */
-
-
 #product_to_substitute_div
 {
     display: flex;
@@ -117,7 +31,7 @@ footer
 
 #products_proposed_div
 {
-    border: solid black 1px;
+    /* border: solid black 1px; */
     display: flex;
     flex-direction: column;
     height: 60em;
@@ -132,7 +46,7 @@ footer
 
 #products_proposed_div h2
 {
-    border: solid green 1px;
+    /* border: solid green 1px; */
     height: 20%;
 }
 @media screen and (max-width: 1024px)
@@ -145,15 +59,15 @@ footer
 
 #substitutes_products_div
 {
+    /* border: solid goldenrod 1px; */
     display: flex;
     flex-direction: column;
     height: 80%;
-    border: solid goldenrod 1px;
 }
 
 #substitutes_row_1, #substitutes_row_2
 {
-    border: solid blue 1px;
+    /* border: solid blue 1px; */
     display: flex;
     justify-content: space-around;
     height: 50%;
@@ -169,7 +83,7 @@ footer
 
 #substitute_p1_div, #substitute_p2_div, #substitute_p3_div, #substitute_p4_div, #substitute_p5_div, #substitute_p6_div
 {
-    border: solid rgb(145, 5, 5) 1px;
+    /* border: solid rgb(145, 5, 5) 1px; */
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -187,7 +101,7 @@ footer
 
 #photo_p1_div, #photo_p2_div, #photo_p3_div, #photo_p4_div, #photo_p5_div, #photo_p6_div
 {
-    border: solid rgb(145, 5, 5) 1px;
+    /* border: solid rgb(145, 5, 5) 1px; */
     position: relative;
     background-color: black;
     height: 70%;
@@ -203,7 +117,7 @@ footer
 
 #nut_p1_div, #nut_p2_div, #nut_p3_div, #nut_p4_div, #nut_p5_div, #nut_p6_div
 {
-    border: solid rgb(145, 5, 5) 1px;
+    /* border: solid rgb(145, 5, 5) 1px; */
     position: absolute;
     width: 16%;
     height: 10%;
@@ -213,7 +127,7 @@ footer
 
 #title_p1, #title_p2, #title_p3, #title_p4, #title_p5, #title_p6
 {
-    border: solid rgb(145, 5, 5) 1px;
+    /* border: solid rgb(145, 5, 5) 1px; */
     text-align: center;
     height: 15%;
     width: 100%;
@@ -221,7 +135,7 @@ footer
 
 #checkbox_p1, #checkbox_p2, #checkbox_p3, #checkbox_p4, #checkbox_p5, #checkbox_p6
 {
-    border: solid rgb(145, 5, 5) 1px;
+    /* border: solid rgb(145, 5, 5) 1px; */
     text-align: center;
     height: 10%;
     width: 100%;
