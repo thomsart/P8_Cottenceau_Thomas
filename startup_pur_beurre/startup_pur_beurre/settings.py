@@ -77,24 +77,24 @@ WSGI_APPLICATION = 'startup_pur_beurre.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'db.sqlite3', # BASE_DIR /  c'etait apres les deux points à l'origine 
-    }
-}
-
-# moi je devrai utiliser postgresql :
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'pur_beurre_db',
-#         'USER': 'client',
-#         'PASSWORD': 'tatayoyo77',
-#         'HOST': '127.0.0.1',
-#         'PORT': '5432',
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': 'db.sqlite3', # BASE_DIR /  c'etait apres les deux points à l'origine 
 #     }
 # }
+
+# moi j'utilise postgresql :
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'pur_beurre_db',
+        'USER': 'postgres',
+        'PASSWORD': 'metalspirit77+',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }
+}
 
 
 # Password validation
