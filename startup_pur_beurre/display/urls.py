@@ -27,5 +27,4 @@ urlpatterns = [
     path('mentions_legales/', views.mentions_legales),
     path('error_404/', views.error_404),
     path('error_500/', views.error_500),
-    path('admin/', admin.site.urls),
 ]

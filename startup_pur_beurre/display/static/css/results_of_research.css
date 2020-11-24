@@ -101,11 +101,12 @@
 
 #photo_p1_div, #photo_p2_div, #photo_p3_div, #photo_p4_div, #photo_p5_div, #photo_p6_div
 {
-    /* border: solid rgb(145, 5, 5) 1px; */
+    border: solid rgb(145, 5, 5) 1px;
     position: relative;
     background-color: black;
-    height: 70%;
-    width: 100%;
+    max-height: 70%;
+    max-width: 100%;
+    justify-items: center;
 }
 
 #photo_p1, #photo_p2, #photo_p3, #photo_p4, #photo_p5, #photo_p6

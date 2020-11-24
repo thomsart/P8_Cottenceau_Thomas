@@ -11,8 +11,8 @@ class Users(models.Model):
 
 class Products(models.Model):
     cat = models.CharField(max_length=20)
-    name = models.CharField(max_length=40)
-    brand = models.CharField(max_length=40)
+    name = models.TextField()
+    brand = models.TextField()
     store = models.TextField()
     nutriscore = models.CharField(max_length=1)
     fat_lipids_100g = models.CharField(max_length=10)
