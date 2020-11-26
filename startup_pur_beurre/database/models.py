@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 from django.db import models
 
 # Create your models here.
@@ -8,6 +11,9 @@ class Users(models.Model):
     sex = models.CharField(max_length=1)
     e_mail = models.EmailField()
     password = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.last_name
 
 class Products(models.Model):
     cat = models.CharField(max_length=20)
@@ -21,6 +27,9 @@ class Products(models.Model):
     salt_100g = models.CharField(max_length=10)
     photo = models.ImageField()
 
+    def __str__(self):
+        return self.name
+
 class SavedProducts(models.Model):
-    user = models.ManyToManyField(Users, verbose_name="User ID")
-    product = models.ManyToManyField(Products, verbose_name="Product ID")
+    user_id = models.ForeignKey(Users, on_delete=models.CASCADE, null=True)
+    product_id = models.ForeignKey(Products, models.SET_NULL, null=True)
