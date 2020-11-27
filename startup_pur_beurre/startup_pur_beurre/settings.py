@@ -77,14 +77,7 @@ WSGI_APPLICATION = 'startup_pur_beurre.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': 'db.sqlite3', # BASE_DIR /  c'etait apres les deux points à l'origine 
-#     }
-# }
 
-# moi j'utilise postgresql :
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',

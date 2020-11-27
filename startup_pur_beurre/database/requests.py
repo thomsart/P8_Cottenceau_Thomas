@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-
 import requests
 
-from . import models as mdl
+import models as mdl
 
 ################################################################################
 
@@ -61,6 +60,7 @@ def main():
                 product.nutriscore, product.fat_lipids_100g, product.saturated_fatty_acids_100g,
                 product.sugar_100g, product.salt_100g]
                 print(product_list)
+                
 
             except Exception:
                 """
