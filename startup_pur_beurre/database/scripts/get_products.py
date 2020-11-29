@@ -3,22 +3,18 @@
 
 import requests
 
-import models as mdl
+from database.models import Products
 
 ################################################################################
 
-def main():
+def run():
     """
-    We take from Openfoodfact Api a 'category' of food we want and put it in a
-    list of values in order to fill the table made for it in our database.
-    For that we create a for loop in fonction of the number of pages
-    'nb_page' of the product on the Api, and we put all datas in the table
-    we want with the argument 'table'.It's allows us to not repet for
-    exemple 20 times the same request.
+    
     """
 
     category = input("Quelle categorie ?\n")
-    nb_pages = int(input("Combien de page ?\n"))
+    nb_pages = input("Combien de page ?\n")
+    nb_pages = int(nb_pages)
     print("Ok c'est parti !")
 
     for i in range(nb_pages):
@@ -27,8 +23,7 @@ def main():
         'category' and the number of pages we want with 'nb_pages'. Be carefull
         to not take more than there are pages on the Api.
         """
-        url = 'https://fr-en.openfoodfacts.org/category/' + category + '/'
-        + str(i) + '.json'
+        url = 'https://fr-en.openfoodfacts.org/category/' + category + '/' + str(i + 1) + '.json'
         response = requests.get(url)
         data = response.json()
         key = data.get("products")
@@ -37,13 +32,13 @@ def main():
 
         while count < number_of_product:
             """
-            Now we do a while loop to browse and catch all the vallues which
-            we need for our table.
+            Now we do a while loop to browse and catch all the values which
+            we need for our table 'products'.
             """
             try:
 
                 productApi = key[count]
-                product = mdl.Products()
+                product = Products()
 
                 product.cat = category
                 product.name = productApi['product_name']
@@ -60,19 +55,16 @@ def main():
                 product.nutriscore, product.fat_lipids_100g, product.saturated_fatty_acids_100g,
                 product.sugar_100g, product.salt_100g]
                 print(product_list)
-                
+                product.save()                
 
             except Exception:
                 """
-                We choose to not take product which don't have the headers that we need.
+                We choose to not take products for which the headers are empty or missed.
                 """
+                print("Ca merde !")
                 count += 1
                 continue
 
             count += 1
 
     return
-
-
-if __name__ == "__main__":
-    main()
