@@ -35,6 +35,7 @@ def run():
             Now we do a while loop to browse and catch all the values which
             we need for our table 'products'.
             """
+            print(count)
             try:
 
                 productApi = key[count]
@@ -61,10 +62,10 @@ def run():
                 """
                 We choose to not take products for which the headers are empty or missed.
                 """
-                print("Ca merde !")
+                print("Produit non conforme !")
                 count += 1
                 continue
 
             count += 1
 
-    return
+    return print("Requète terminée.")
