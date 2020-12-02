@@ -29,8 +29,6 @@ def run():
     #     data = response.json()
 
     name_file = input("quel json veux tu traiter ?")
-    category = input("Quel category ?")
-
 
     with open("database/json_folder/"+name_file+"", encoding='utf-8') as js:
 
@@ -49,7 +47,7 @@ def run():
                 productApi = key[count]
                 product = Products()
 
-                product.cat = category
+                product.cat = ""
                 product.name = productApi['product_name']
                 product.brand = productApi['brands']
                 product.store = productApi['stores']
@@ -73,9 +71,10 @@ def run():
 
                 product_list = [product.cat, product.name, product.brand, product.store,
                 product.nutriscore, product.fat_lipids_100g, product.saturated_fatty_acids_100g,
-                product.sugar_100g, product.salt_100g]
+                product.sugar_100g, product.salt_100g, product.photo]
                 print(product_list)
                 print("\n\n\n")
+                
                 product.save()
 
             except Exception:
