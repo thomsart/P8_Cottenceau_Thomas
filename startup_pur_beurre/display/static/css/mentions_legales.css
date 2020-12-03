@@ -9,26 +9,37 @@ body
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 40em;
+    height: 30em;
     width: 100%;
 }
 
-h3
-{
-    color: black;
-    text-align: center;
-    font-size: 2em;
-}
-
-#petit_beurre_div, #partners
+#petit_beurre_div, #partners_div
 {
     /* border: solid black 1px; */
-    height: 30%;
+    height: 20%;
     width: 20%;
-    padding-left: 40%;
+    padding-left: 44%;
 }
 
 #petit_beurre:hover
 {
     height: 13em;
+}
+
+#title_div
+{
+    /* border: solid black 1px; */
+    margin: auto;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+/* ####################################### */
+/* ##### This part is for login.html ##### */
+/* ####################################### */
+
+#login_form
+{
+    /* border: solid black 1px; */
+    margin: auto;
 }

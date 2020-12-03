@@ -21,9 +21,10 @@ from . import views
 urlpatterns = [
     path('', views.home),
     path('results_of_research/', views.results_of_research),
-    path('saved_products/', views.saved_products),
     path('selected_product/', views.selected_product),
+    path('login/', views.login),
     path('user_account/', views.user_account),
+    path('saved_products/', views.saved_products),
     path('mentions_legales/', views.mentions_legales),
     path('error_404/', views.error_404),
     path('error_500/', views.error_500),
