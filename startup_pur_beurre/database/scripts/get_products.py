@@ -18,6 +18,10 @@ def run():
     # nb_pages = int(nb_pages)
     # print("Ok c'est parti !")
 
+
+
+
+
     # for i in range(nb_pages):
     #     """
     #     We choose the food we want to put in the database by the argument
