@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from database.models import Users, Products, SavedProducts
-from .login import *
+from display.login import *
 
 # Create your views here.
 
@@ -26,12 +26,6 @@ def create_account(request):
     form_account = AccountForm()
     context = {'form': form_account}
     return render(request, 'pages/create_account.html', context)
-
-def user_account(request):
-    return render(request, 'pages/user_account.html')
-
-def saved_products(request):
-    return render(request, 'pages/saved_products.html')
 
 def mentions_legales(request):
     return render(request, 'pages/mentions_legales.html')
