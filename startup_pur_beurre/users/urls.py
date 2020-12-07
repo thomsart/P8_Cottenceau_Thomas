@@ -16,18 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from display import views as display_views
 from . import views
 
 urlpatterns = [
-    path('', display_views.home),
-    path('results_of_research/', display_views.results_of_research),
-    path('selected_product/', display_views.selected_product),
-    
+    path('login/', views.login),
+    path('create_account/', views.create_account),
     path('account/', views.account),
     path('saved_products/', views.saved_products),
-
-    path('mentions_legales/', display_views.mentions_legales),
-    path('error_404/', display_views.error_404),
-    path('error_500/', display_views.error_500),
 ]
