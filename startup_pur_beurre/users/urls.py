@@ -19,8 +19,14 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    path('home/', views.home),
+    path('results_of_research/', views.results_of_research),
+    path('selected_product/', views.selected_product),
     path('login/', views.login),
     path('create_account/', views.create_account),
     path('account/', views.account),
     path('saved_products/', views.saved_products),
+    path('mentions_legales/', views.mentions_legales),
+    path('error_404/', views.error_404),
+    path('error_500/', views.error_500),
 ]
