@@ -14,7 +14,7 @@
         <div id="block_page">
 
             <div id="petit_beurre_div">
-                <a href="/home/">
+                <a href="/">
                     <span title="Page d'accueil">
                         <img id="petit_beurre" src="/static/icons/petit beurre.png">
                     </span>
@@ -25,9 +25,10 @@
                 <h2>Pour créer un compte remplis les champs ci-dessous !</h2>
             </div>
 
-            <form id="login_form" action="" method="POST">
-                {{form}}
-                <input type="submit">
+            <form id="account_form" action="" method="POST">
+                {% csrf_token %}
+                {{form_account.as_p}}
+                <button type="submit">Enregistrer</button>
             </form>
 
         </div>
