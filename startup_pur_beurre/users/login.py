@@ -1,18 +1,19 @@
-from django.forms import ModelForm
+from django import forms
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
-from database.models import Users
+from database.models import ClientUser
+
 
 # Create your models here.
 
-class LoginForm(ModelForm):
-    class Meta:
-        model = Users
-        fields = [
-            'e_mail',
-            'password'
-            ]
+class AccountForm(UserCreationForm):
 
-class AccountForm(ModelForm):
     class Meta:
-        model = Users
-        fields = '__all__'
+        model = ClientUser
+        fields = ('__all__')
+
+class LoginForm(UserChangeForm):
+
+    class Meta:
+        model = ClientUser
+        fields = ('email', 'password')

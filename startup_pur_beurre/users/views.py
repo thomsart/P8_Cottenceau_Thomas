@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate
 from django.contrib import messages
 
-from database.models import Users, Products, SavedProducts
+from database.models import ClientUser, Products, SavedProducts
 from .login import *
 
 # Create your views here.
