@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate
+from django.contrib import messages
 
 from database.models import Users, Products, SavedProducts
 from .login import *
@@ -23,21 +25,23 @@ def selected_product(request):
 
 
 
-
-
-
-
 def login(request):
+
     form_login = LoginForm()
     context = {'form_login': form_login}
 
-    # la je ferai mes conditions en fonction des vérifications dans la base de donnée
+    if request.method == 'POST':
+        e_mail = request.POST['e_mail']
+        password = request.POST['password']
+        user = authenticate(username=e_mail, password=password)
 
-
+        if user is not None:
+            return redirect("home")
+        else:
+            messages.error(request, "Erreur d'authentification")
+            return render(request, 'pages/login.html', context)
 
     return render(request, 'pages/login.html', context)
-
-
 
 
 
@@ -52,14 +56,10 @@ def create_account(request):
     context = {'form_account': form_account}
 
     if request.method == 'POST':
-        form_account = AccountForm(request.POST)     # .save() pour les sauvegarder
+        form_account = AccountForm(request.POST).save()     # .save() pour les sauvegarder
         return render(request, 'pages/account.html', context)
     else:
         return render(request, 'pages/create_account.html', context)
-
-
-
-
 
 
 
