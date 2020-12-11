@@ -1,20 +1,13 @@
-{% extends 'layouts/base.html' %}
-{% load static %}
+{% extends 'base.html' %}
+{%  load static %}
 
 {% block content %}
 
-    <link rel="stylesheet" type="text/css" href="{% static 'css/results_of_research.css' %}" media="all"/>
-
-    <div id="product_to_substitute_div">
-        <p2>Voici Le produit que vous voulez substituer !</p2>
-        <div id="photo_product_to_substitute_div">
-            <img id="photo_product_to_substitute" src="/static/icons/corn_flakes.jpg">
-        </div>
-    </div>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/saved_products.css' %}" media="all"/>
 
     <div id="products_proposed_div">
 
-        <h2><br>Vous pouvez remplacer cet aliment par :</h2>
+        <h2><br>Voici tout vos produits enregistrés:</h2>
 
         <div id="substitutes_products_div">
 

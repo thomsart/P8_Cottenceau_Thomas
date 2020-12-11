@@ -22,21 +22,21 @@
             </div>
 
             <div id="title_div">
-                <h2>Voici la liste des partenaires de la société Pur Beurre: </h2>
+                <h2>Tu es un menbre ?<br>Alors connecte-toi !</h2>
             </div>
 
-            <div id="partners_div">
-                <ul>
-                    <li>Jackie et Michel</li>
-                    <li>A.F.P</li>
-                    <li>La Famille Wood</li>
-                    <li>Dieu Le Père</li>
-                    <li>Psychoïd</li>
-                    <li>La Science</li>
-                </ul>
+            <form id="login_form" action="" method="POST">
+                {% csrf_token %}
+                {{form_login.as_p}}
+                <input type="submit">
+            </form>
+
+            <div id="title_div">
+                <a href="/signup/" >
+                    <h3>Sinon inscris-toi ici !</h3>
+                </a>
             </div>
 
         </div>
     </body>
-
 </html>

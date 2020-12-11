@@ -47,7 +47,7 @@ def run():
                 productApi = key[count]
                 product = Products()
 
-                product.cat = ""
+                product.cat = "spaghetti"
                 product.name = productApi['product_name']
                 product.brand = productApi['brands']
                 product.store = productApi['stores']
