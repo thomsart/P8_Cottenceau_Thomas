@@ -23,37 +23,6 @@ def results_of_research(request):
 def selected_product(request):
     return render(request, 'selected_product.html')
 
-
-# def login(request):
-
-#     form_login = LoginForm()
-#     context = {'form_login': form_login}
-
-#     if request.method == 'POST':
-#         e_mail = request.POST['e_mail']
-#         password = request.POST['password']
-#         user = authenticate(username=e_mail, password=password)
-
-#         if user is not None:
-#             return redirect("home")
-#         else:
-#             messages.error(request, "Erreur d'authentification")
-#             return render(request, 'registration/login.html', context)
-
-#     return render(request, 'registration/login.html', context)
-
-# def signup(request):
-
-#     form_account = AccountForm()
-#     context = {'form_account': form_account}
-
-#     if request.method == 'POST':
-#         form_account = AccountForm(request.POST).save()     # .save() pour les sauvegarder
-#         return render(request, 'account.html', context)
-#     else:
-#         return render(request, 'registration/signup.html', context)
-
-
 def account(request):
     return render(request, 'account.html')
 
@@ -62,9 +31,3 @@ def saved_products(request):
 
 def mentions_legales(request):
     return render(request, 'mentions_legales.html')
-
-def error_404(request):
-    return render(request, 'error_404.html')
-
-def error_500(request):
-    return render(request, 'error_500.html')
