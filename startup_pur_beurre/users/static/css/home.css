@@ -37,18 +37,18 @@
     text-shadow: 0 0 0.2em whitesmoke, 0 0 0.2em whitesmoke, 0 0 0.2em whitesmoke;
 }
 
-#research_div_form
+#search_product
 {
     margin-left: 30%;
 }
 
-#research_input
+#search_input
 {
     height: 2em;
     width: 20em;
 }
 
-#research_button
+#search_button
 {
     height: 2em;
     width: 6em;
