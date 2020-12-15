@@ -20,10 +20,10 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name="home"),
-    path('results_of_research/', views.results_of_research),
-    path('selected_product/', views.selected_product),
     path('signup/', views.SignUpView.as_view(), name='signup'),
     path('account/', views.account),
+    path('selected_product/', views.selected_product),
+    path('proposed_products/', views.proposed_products),
     path('saved_products/', views.saved_products),
     path('mentions_legales/', views.mentions_legales),
 ]

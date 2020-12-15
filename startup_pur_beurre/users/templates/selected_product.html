@@ -8,12 +8,21 @@
     <div id="product_selected_div">
         <p2>Voici Le produit que vous voulez substituer !</p2>
         <div id="photo_product_selected_div">
-            <img id="photo_product_selected" src="/static/icons/corn_flakes.jpg">
+            <img id="photo_product_selected" src={{photo}}>
         </div>
     </div>
 
     <div id="product_features_div">
-        
-    </di>
+        <ul id="product_features">
+            <li>Name : {{name}} </li>
+            <li>Brand : {{brand}} </li>
+            <li>Store : {{store}} </li>
+            <li>Nutriscore : {{nutriscore}} </li>
+            <li>Fat lipids/100g : {{fat_lipids_100g}} </li>
+            <li>Saturated fatty acids/100g : {{saturated_fatty_acids_100g}} </li>
+            <li>Sugar/100g : {{sugar_100g}} </li>
+            <li>Salt/100g : {{salt_100g}} </li>                
+        </ul>
+    </div>
 
 {% endblock content %}

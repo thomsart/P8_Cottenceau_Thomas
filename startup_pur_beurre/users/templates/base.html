@@ -38,7 +38,7 @@
                     </a>
 
                     <a href="{% url 'logout' %}">
-                        <span title="Me Déconnecter">
+                        <span title="Déconnexion">
                             <img id="logout_icon" " src="/static/icons/logout.png">
                         </span>
                     </a>
@@ -46,25 +46,24 @@
                 {% else %}
 
                     <a href="{% url 'login' %}">
-                        <span title="Me Connecter">
+                        <span title="Connexion">
                             <img id="logout_icon" src="/static/icons/user.png">
                         </span>
                     </a>
                     <a href="{% url 'signup' %}">
-                        <span title="Créer un compte">
+                        <span title="Inscription">
                             <img id="logout_icon" src="/static/icons/new_user.png">
                         </span>
                     </a>
 
                 {% endif %}
 
-                
-                
+
             </nav>
 
             {% block content %}
             {% endblock content %}
-            
+
             <footer>
                 <a href="/mentions_legales/">
                     <h3>&copy; Copyright {% now 'Y' %} Pur Beurre &middot; All rights reserved !</h3>
