@@ -22,11 +22,7 @@ class SearchProductForm(forms.Form):
 
     product_name = forms.CharField(label='', max_length=70)
 
-    pass
 
-
-class SearchForm(forms.Form):
-
-    search = forms.CharField(label='aucune idée', max_length=100)
-
-    pass
+class SubstituteForm(forms.Form):
+    
+    product_name = forms.CharField(label='', max_length=70)

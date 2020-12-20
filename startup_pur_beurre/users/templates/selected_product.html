@@ -25,4 +25,12 @@
         </ul>
     </div>
 
+    <div id="input_to_substitute_div">
+        <form id="substitute_form" name="substitute_form" method="post">
+            {% csrf_token %}
+            {{ substitute_form }}
+            <input type="submit" value="Substituer">
+        </form>
+    </div>
+
 {% endblock content %}

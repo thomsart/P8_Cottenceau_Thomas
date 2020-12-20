@@ -12,20 +12,14 @@
         <div id="research_field">
             <h1>Du gras, oui mais de qualité !</h1>
             <h2>Trouvez un produit de substitution<br>pour ceux que vous consommez tout les jours.</h2>
-            <form id="search_product" method="post">
+            <form id="search_product" method="get">
                 <!-- action="/results_of_research/" -->
                 {% csrf_token %}
                 {{ search_product }}
                 <input type="submit" value="Envoyer">
             </form>
-            <!-- <form id="search_product" method="post" action="/results_of_research.html/">
-                <input id="search_input" type="text" value="{{ product_name }}" placeholder="nom du produit" size=50" maxlength="70"></input>
-                <input id="search_button" type="submit" value="Chercher"></input>
-                <img src="static/images/loader.gif" class="loader">
-            </form> -->
         </div>
     </div>
-
 
     <div id="history_div">
         <h2>Colette et Rémy</h2>
@@ -46,7 +40,6 @@
             <img id="rémy" src="/static/icons/rémy.png">
         </div>
     </div>
-
 
     <div id="contact_div">
         <h2 id="h2_contact">Contactez-nous !</h2>
