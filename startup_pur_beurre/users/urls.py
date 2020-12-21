@@ -22,8 +22,8 @@ urlpatterns = [
     path('', views.home, name="home"),
     path('signup/', views.SignUpView.as_view(), name='signup'),
     path('account/', views.account),
-    path('selected_product/', views.selected_product),
-    path('proposed_products/', views.proposed_products),
+    path('selected_product/<product_id>/', views.selected_product, name='selected_product/'),
+    path('selected_product/<product_id>/proposed_products/', views.proposed_products, name='proposed_products/'),
     path('saved_products/', views.saved_products),
     path('mentions_legales/', views.mentions_legales),
 ]

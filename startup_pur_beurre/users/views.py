@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate
 from django.contrib import messages
@@ -28,14 +31,16 @@ def home(request):
     context = {'search_product': product_wanted}
 
     if request.method == 'GET':
-
+        
         if product_wanted.is_valid():
             product_name = product_wanted.cleaned_data['product_name']
             product = Products.objects.filter(name__iexact=product_name).values()
+            # print(product)
 
             if product:
                 product_id = product[0]['id']
-                print(product_id)
+                product_id = int(product_id)
+                
                 return redirect('selected_product/', product_id=product_id)
 
             else:
@@ -57,55 +62,53 @@ def selected_product(request, product_id):
 
     product = Products.objects.filter(id=product_id).values()
 
-    cat = product['category']
-    name = product['name']
-    brand = product['brand']
-    store = product['store']
-    nutriscore = product['nutriscore']
-    fat_lipids_100g = product['fat_lipids_100g']
-    saturated_fatty_acids_100g = product['saturated_fatty_acids_100g']
-    sugar_100g = product['sugar_100g']
-    salt_100g = product['salt_100g']
-    photo = product['photo']
+    product = {
+        'cat': product[0]['cat'],
+        'name': product[0]['name'],
+        'brand': product[0]['brand'],
+        'store': product[0]['store'],
+        'nutriscore': product[0]['nutriscore'],
+        'fat_lipids_100g': product[0]['fat_lipids_100g'],
+        'saturated_fatty_acids_100g': product[0]['saturated_fatty_acids_100g'],
+        'sugar_100g': product[0]['sugar_100g'],
+        'salt_100g': product[0]['salt_100g'],
+        'photo': product[0]['photo'],
+    }
 
-    substitute_form = SubstituteForm(request.GET)
-    context = {'substitute_form': substitute_form}
+    context = {'product': product}
 
-    if request.method == 'GET':
-        if substitute_form.is_valid():
-            print("OK")
-            return redirect('proposed_products/', cat, nutriscore)
-        else:
-            substitute_form = SubstituteForm()
+    return render(request, 'selected_product.html', context)
 
-    return render(request, 'selected_product.html', context, name, brand, store, nutriscore, fat_lipids_100g, saturated_fatty_acids_100g, sugar_100g, salt_100g, photo)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def proposed_products(request, cat, nutriscore):
+def proposed_products(request, product_id):
     """
     This view
     """
+    product = Products.objects.filter(id=product_id).values()
+
+    product = {
+        'id': product[0]['id'],
+        'cat': product[0]['cat'],
+        'name': product[0]['name'],
+        'brand': product[0]['brand'],
+        'store': product[0]['store'],
+        'nutriscore': product[0]['nutriscore'],
+        'fat_lipids_100g': product[0]['fat_lipids_100g'],
+        'saturated_fatty_acids_100g': product[0]['saturated_fatty_acids_100g'],
+        'sugar_100g': product[0]['sugar_100g'],
+        'salt_100g': product[0]['salt_100g'],
+        'photo': product[0]['photo'],
+    }
+
+    context = {'product': product}
+
+    return render(request, 'proposed_products.html', context)
 
 
 
-    return render(request, 'proposed_products.html')
+
+
+
+
 
 
 
@@ -138,3 +141,5 @@ def mentions_legales(request):
 
 
     return render(request, 'mentions_legales.html')
+
+

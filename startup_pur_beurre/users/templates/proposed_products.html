@@ -6,9 +6,9 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/results_of_research.css' %}" media="all"/>
 
     <div id="product_to_substitute_div">
-        <p2>Voici Le produit que vous voulez substituer !</p2>
+        <p2>Voici Le produit dont l'ID est {{product.id}} que vous voulez substituer !</p2>
         <div id="photo_product_to_substitute_div">
-            <img id="photo_product_to_substitute" src="/static/icons/corn_flakes03.jpg">
+            <img id="photo_product_selected" src='{{product.photo}}'>
         </div>
     </div>
 

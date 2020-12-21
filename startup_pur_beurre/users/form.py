@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 from django import forms
 from django.contrib.auth.forms import forms, UserCreationForm, UserChangeForm
 
@@ -20,9 +23,4 @@ class LoginForm(UserChangeForm):
 
 class SearchProductForm(forms.Form):
 
-    product_name = forms.CharField(label='', max_length=70)
-
-
-class SubstituteForm(forms.Form):
-    
     product_name = forms.CharField(label='', max_length=70)
