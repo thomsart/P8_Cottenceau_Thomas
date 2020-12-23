@@ -8,12 +8,6 @@ from users.models import ClientUser
 
 # Create your models here.
 
-# class ClientUser(AbstractUser):
-#     pass
-
-#     def __str__(self):
-#         return self.user_name
-
 class Products(models.Model):
     cat = models.CharField(max_length=20)
     name = models.TextField(null=True)

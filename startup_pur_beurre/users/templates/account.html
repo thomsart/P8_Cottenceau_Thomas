@@ -6,14 +6,18 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/account.css' %}" media="all"/>
 
     <div id="user_div">
-        <p2>Bonjour !</p2>
+        <p2>Bonjour {{user.username}}!</p2>
         <div id="photo_user_div">
             <img id="photo_user" src="/static/icons/user.jpg">
         </div>
     </div>
 
-    <div id="mail_div">
-        
+    <div id="info_div">
+        <p2>Username: {{user.username}}</p2>
+        <p2>E-mail: {{user.email}}</p2>
+        <p2>Prénom: {{user.first_name}}</p2>
+        <p2>Nom: {{user.last_name}}</p2>
+        <p2>ID: {{user.id}}</p2>
     </div>
 
 {% endblock content %}

@@ -22,6 +22,7 @@ class SignUpView(CreateView):
     success_url = reverse_lazy('login')
     template_name = 'registration/signup.html'
 
+
 def home(request):
     """
     This view
@@ -35,12 +36,9 @@ def home(request):
         if product_wanted.is_valid():
             product_name = product_wanted.cleaned_data['product_name']
             product = Products.objects.filter(name__iexact=product_name).values()
-            print(product)
-            print("\n\n\n")
 
             if product:
-                product_id = product[0]['id']
-                product_id = int(product_id)
+                product_id = int(product[0]['id'])
 
                 return redirect('selected_product/', product_id=product_id)
 
@@ -55,6 +53,7 @@ def home(request):
             product_wanted = SearchProductForm(request.GET)
 
     return render(request, 'home.html', context)
+
 
 def selected_product(request, product_id):
     """
@@ -79,23 +78,6 @@ def selected_product(request, product_id):
     context = {'product': product}
 
     return render(request, 'selected_product.html', context)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 def proposed_products(request, product_id):
@@ -167,36 +149,44 @@ def proposed_products(request, product_id):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 def account(request):
     """
     This view
     """
 
-
     return render(request, 'account.html')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 def saved_products(request):
     """
     This view
     """
-
+    
 
     return render(request, 'saved_products.html')
-
 
 def mentions_legales(request):
     """
@@ -205,100 +195,3 @@ def mentions_legales(request):
 
 
     return render(request, 'mentions_legales.html')
-
-
-
-
-
-
-# product = {
-#         'id': product[0]['id'],
-#         'cat': product[0]['cat'],
-#         'name': product[0]['name'],
-#         'brand': product[0]['brand'],
-#         'store': product[0]['store'],
-#         'nutriscore': product[0]['nutriscore'],
-#         'fat_lipids_100g': product[0]['fat_lipids_100g'],
-#         'saturated_fatty_acids_100g': product[0]['saturated_fatty_acids_100g'],
-#         'sugar_100g': product[0]['sugar_100g'],
-#         'salt_100g': product[0]['salt_100g'],
-#         'photo': product[0]['photo'],
-#     }
-# substitute_1 = {
-#         'id': products[0]['id'],
-#         'cat': products[0]['cat'],
-#         'name': products[0]['name'],
-#         'brand': products[0]['brand'],
-#         'store': products[0]['store'],
-#         'nutriscore': products[0]['nutriscore'],
-#         'fat_lipids_100g': products[0]['fat_lipids_100g'],
-#         'saturated_fatty_acids_100g': products[0]['saturated_fatty_acids_100g'],
-#         'sugar_100g': products[0]['sugar_100g'],
-#         'salt_100g': products[0]['salt_100g'],
-#         'photo': products[0]['photo'],
-#     }
-#     substitute_2 = {
-#         'id': products[1]['id'],
-#         'cat': products[1]['cat'],
-#         'name': products[1]['name'],
-#         'brand': products[1]['brand'],
-#         'store': products[1]['store'],
-#         'nutriscore': products[1]['nutriscore'],
-#         'fat_lipids_100g': products[1]['fat_lipids_100g'],
-#         'saturated_fatty_acids_100g': products[1]['saturated_fatty_acids_100g'],
-#         'sugar_100g': products[1]['sugar_100g'],
-#         'salt_100g': products[1]['salt_100g'],
-#         'photo': products[1]['photo'],
-#     }
-#     substitute_3 = {
-#         'id': products[2]['id'],
-#         'cat': products[2]['cat'],
-#         'name': products[2]['name'],
-#         'brand': products[2]['brand'],
-#         'store': products[2]['store'],
-#         'nutriscore': products[2]['nutriscore'],
-#         'fat_lipids_100g': products[2]['fat_lipids_100g'],
-#         'saturated_fatty_acids_100g': products[2]['saturated_fatty_acids_100g'],
-#         'sugar_100g': products[2]['sugar_100g'],
-#         'salt_100g': products[2]['salt_100g'],
-#         'photo': products[2]['photo'],
-#     }
-#     substitute_4 = {
-#         'id': products[3]['id'],
-#         'cat': products[3]['cat'],
-#         'name': products[3]['name'],
-#         'brand': products[3]['brand'],
-#         'store': products[3]['store'],
-#         'nutriscore': products[3]['nutriscore'],
-#         'fat_lipids_100g': products[3]['fat_lipids_100g'],
-#         'saturated_fatty_acids_100g': products[3]['saturated_fatty_acids_100g'],
-#         'sugar_100g': products[3]['sugar_100g'],
-#         'salt_100g': products[3]['salt_100g'],
-#         'photo': products[3]['photo'],
-#     }
-#     substitute_5 = {
-#         'id': products[4]['id'],
-#         'cat': products[4]['cat'],
-#         'name': products[4]['name'],
-#         'brand': products[4]['brand'],
-#         'store': products[4]['store'],
-#         'nutriscore': products[4]['nutriscore'],
-#         'fat_lipids_100g': products[4]['fat_lipids_100g'],
-#         'saturated_fatty_acids_100g': products[4]['saturated_fatty_acids_100g'],
-#         'sugar_100g': products[4]['sugar_100g'],
-#         'salt_100g': products[4]['salt_100g'],
-#         'photo': products[4]['photo'],
-#     }
-    # substitute_6 = {
-    #     'id': products[5]['id'],
-    #     'cat': products[5]['cat'],
-    #     'name': products[5]['name'],
-    #     'brand': products[5]['brand'],
-    #     'store': products[5]['store'],
-    #     'nutriscore': products[5]['nutriscore'],
-    #     'fat_lipids_100g': products[5]['fat_lipids_100g'],
-    #     'saturated_fatty_acids_100g': products[5]['saturated_fatty_acids_100g'],
-    #     'sugar_100g': products[5]['sugar_100g'],
-    #     'salt_100g': products[5]['salt_100g'],
-    #     'photo': products[5]['photo'],
-    # }
