@@ -17,7 +17,6 @@ class SignUpView(CreateView):
     """
     This view
     """
-
     form_class = AccountForm
     success_url = reverse_lazy('login')
     template_name = 'registration/signup.html'
@@ -27,7 +26,6 @@ def home(request):
     """
     This view
     """
-
     product_wanted = SearchProductForm(request.GET)
     context = {'search_product': product_wanted}
 
@@ -59,9 +57,7 @@ def selected_product(request, product_id):
     """
     This view
     """
-
     product = Products.objects.filter(id=product_id).values()
-
     product = {
         'cat': product[0]['cat'],
         'name': product[0]['name'],
@@ -74,7 +70,6 @@ def selected_product(request, product_id):
         'salt_100g': product[0]['salt_100g'],
         'photo': product[0]['photo'],
     }
-
     context = {'product': product}
 
     return render(request, 'selected_product.html', context)
@@ -84,7 +79,6 @@ def proposed_products(request, product_id):
     """
     This view
     """
-
     product = Products.objects.filter(id=product_id).values()
 
     def substitute(substitute, substitute_nb):
@@ -102,7 +96,7 @@ def proposed_products(request, product_id):
             'salt_100g' : substitute[substitute_nb]['salt_100g'],
             'photo' : substitute[substitute_nb]['photo'],
         }
-
+        
         return features
 
     all_proposed_products = []
@@ -116,7 +110,6 @@ def proposed_products(request, product_id):
             for el in proposed_products:
                 all_proposed_products.append(el)
             i += 1
-
     # print(all_proposed_products)
 
     list_of_substitutes = []
@@ -184,7 +177,6 @@ def saved_products(request):
     """
     This view
     """
-    
 
     return render(request, 'saved_products.html')
 
