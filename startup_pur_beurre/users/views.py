@@ -96,7 +96,7 @@ def proposed_products(request, product_id):
             'salt_100g' : substitute[substitute_nb]['salt_100g'],
             'photo' : substitute[substitute_nb]['photo'],
         }
-        
+
         return features
 
     all_proposed_products = []
@@ -136,12 +136,6 @@ def proposed_products(request, product_id):
     return render(request, 'proposed_products.html', context)
 
 
-
-
-
-
-
-
 def account(request):
     """
     This view
@@ -166,19 +160,13 @@ def account(request):
 
 
 
-
-
-
-
-
-
-
 def saved_products(request):
     """
     This view
     """
 
     return render(request, 'saved_products.html')
+
 
 def mentions_legales(request):
     """
