@@ -24,6 +24,14 @@ class SignUpView(CreateView):
     template_name = 'registration/signup.html'
 
 
+
+def index(request):
+    return render(request, 'index.html')
+
+
+
+
+
 def home(request):
     """
     This view
@@ -147,9 +155,8 @@ def proposed_products(request, product_id):
     }
 
 
-    if HttpResponse() == 'POST':
-        response = HttpResponse.content
-        return print(response)
+    # if HttpResponse() == 'POST':
+
 
 
 
