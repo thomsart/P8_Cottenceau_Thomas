@@ -6,10 +6,12 @@ from django.contrib.auth import authenticate
 from django.contrib import messages
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect
+import requests
 
 from database.models import Products, SavedProducts
 from .form import *
+
 
 # Create your views here.
 
@@ -75,6 +77,17 @@ def selected_product(request, product_id):
     return render(request, 'selected_product.html', context)
 
 
+
+
+
+
+
+
+
+
+
+
+
 def proposed_products(request, product_id):
     """
     This view
@@ -133,31 +146,36 @@ def proposed_products(request, product_id):
         'substitute_6': list_of_substitutes[5],
     }
 
+
+    if HttpResponse() == 'POST':
+        response = HttpResponse.content
+        return print(response)
+
+
+
+
+
+
+
+
+
+
+
+
     return render(request, 'proposed_products.html', context)
+
+
+
+
+
+
 
 
 def account(request):
     """
     This view
     """
-
     return render(request, 'account.html')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 def saved_products(request):
