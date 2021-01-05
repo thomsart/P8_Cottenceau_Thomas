@@ -26,10 +26,34 @@ class SignUpView(CreateView):
 
 
 def index(request):
-    return render(request, 'index.html')
+    """
+    This view
+    """
+    product_wanted = SearchProductForm(request.GET)
+    context = {'search_product': product_wanted}
 
+    if request.method == 'GET':
 
+        if product_wanted.is_valid():
+            product_name = product_wanted.cleaned_data['product_name']
+            product = Products.objects.filter(name__iexact=product_name).values()
 
+            if product:
+                product_id = int(product[0]['id'])
+
+                return redirect('selected_product/', product_id=product_id)
+
+            else:
+                """
+                If this product is not in the database we have to do something to make the user aware
+                """
+                print("aucun produit n'as été trouvé")
+
+        else:
+            print("Non valide")
+            product_wanted = SearchProductForm(request.GET)
+
+    return render(request, 'index.html', context)
 
 
 def home(request):
