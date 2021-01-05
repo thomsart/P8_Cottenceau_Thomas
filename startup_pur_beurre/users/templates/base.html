@@ -30,22 +30,21 @@
                 <a href="/">
                     <img id="petit_beurre_icon" src="/static/icons/icon_petit_beurre.png">
                 </a>
-                
-                <a class="navbar-brand js-scroll-trigger" href="#page-top">Pur Beurre</a>
+                <a class="navbar-brand js-scroll-trigger" href="#page-top"><h3>Pur Beurre</h3></a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                         {% if user.is_authenticated %}
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/saved_products/">Carotte</a></li>
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/account/">Compte</a></li>
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'logout' %}">Déconnexion</a></li>
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Info</a></li>
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/saved_products/"><h3>Carotte</h3></a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/account/"><h3>Compte</h3></a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'logout' %}"><h3>Déconnexion</h3></a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about"><h3>Info</h3></a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact"><h3>Contact</h3></a></li>
                         {% else %}
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'login' %}">Connexion</a></li>
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'signup' %}">Inscription</a></li>
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Info</a></li>
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'login' %}"><h3>Connexion</h3></a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'signup' %}"><h3>Inscription</h3></a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about"><h3>Info</h3></a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact"><h3>Contact</h3></a></li>
                         {% endif %}
                     </ul>
                 </div>
