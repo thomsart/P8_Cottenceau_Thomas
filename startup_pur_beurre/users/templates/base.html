@@ -28,14 +28,14 @@
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container">
                 <a href="/">
-                    <img id="petit_beurre_icon" src="/static/icons/icon_petit_beurre.png">
+                    <img id="petit_beurre_icon" src="/static/icons/icon_petit_beurre.png" title="Accueil">
                 </a>
-                <a class="navbar-brand js-scroll-trigger" href="#page-top"><h3>Pur Beurre</h3></a>
+                <a class="navbar-brand js-scroll-trigger" href="#page-top"><h3 title="Haut-de-page">Pur Beurre</h3></a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                         {% if user.is_authenticated %}
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/saved_products/"><h3>Carotte</h3></a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/saved_products/"><img id="carrot" src="/static/icons/zcarrot-r.png" title="Tes Produits"></a></li>
                             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/account/"><h3>Compte</h3></a></li>
                             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'logout' %}"><h3>Déconnexion</h3></a></li>
                             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about"><h3>Info</h3></a></li>
