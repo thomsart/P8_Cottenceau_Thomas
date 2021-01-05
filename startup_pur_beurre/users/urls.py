@@ -26,5 +26,4 @@ urlpatterns = [
     path('selected_product/<product_id>/proposed_products/', views.proposed_products, name='proposed_products/'),
     path('saved_products/', views.saved_products),
     path('mentions_legales/', views.mentions_legales),
-    path('index/', views.index, name="index"),
 ]
