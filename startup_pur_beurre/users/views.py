@@ -6,7 +6,8 @@ from django.contrib.auth import authenticate
 from django.contrib import messages
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpRequest, HttpResponse, HttpResponseRedirect, JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 import requests
 
 from database.models import Products, SavedProducts
@@ -53,7 +54,7 @@ def home(request):
             product_wanted = SearchProductForm(request.GET)
 
     return render(request, 'home.html', context)
-    
+
 
 def selected_product(request, product_id):
     """
@@ -75,6 +76,25 @@ def selected_product(request, product_id):
     context = {'product': product}
 
     return render(request, 'selected_product.html', context)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -146,22 +166,37 @@ def proposed_products(request, product_id):
         'substitute_6': list_of_substitutes[5],
     }
 
-
-    # if HttpResponse() == 'POST':
-
-
-
-
-
-
-
-
-
-
-
-
-
     return render(request, 'proposed_products.html', context)
+
+@csrf_exempt
+def save_product(request, product_id):
+
+    if request.method == 'POST':
+        product = request.form["id_product_1_form"]
+
+        print("La reponse de type {} est: {}".format(type(product), product))
+
+        
+        
+
+    return render(request, 'proposed_products.html')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -177,12 +212,12 @@ def account(request):
     return render(request, 'account.html')
 
 
-def saved_products(request):
+def user_substitutes(request):
     """
     This view
     """
 
-    return render(request, 'saved_products.html')
+    return render(request, 'user_substitutes.html')
 
 
 def mentions_legales(request):

@@ -4,7 +4,6 @@
 {% block content %}
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/proposed_products.css' %}" media="all"/>
-    <script defer src="{% static 'js/proposed_products.js' %}"></script>
     
     <!-- Masthead-->
     <header class="masthead">
@@ -31,9 +30,9 @@
                 </div>
                 <div id="title_p1">
                     <p3><br>{{substitute_1.name}}<br>{{substitute_1.brand}}</p3>
-                    <p4 id="id_product_1">n° {{substitute_1.id}}</p4>
+                    <p4 id="id_product_1">{{substitute_1.id}}</p4>
                 </div>
-                <form>
+                <form id="id_product_1_form">
                     <input id="input_1" type="button" value="Sauvegarder" method="POST">
                 </form>
             </div>

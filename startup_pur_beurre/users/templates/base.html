@@ -35,7 +35,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                         {% if user.is_authenticated %}
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/saved_products/"><img id="carrot" src="/static/icons/zcarrot-r.png" title="Tes Produits"></a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/user_substitutes/"><img id="carrot" src="/static/icons/zcarrot-r.png" title="Tes Produits"></a></li>
                             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/account/"><h3>Compte</h3></a></li>
                             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'logout' %}"><h3>Déconnexion</h3></a></li>
                             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about"><h3>Info</h3></a></li>
@@ -70,7 +70,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <script src="{% static 'js/scripts.js' %}"></script>
 
     </body>
 
