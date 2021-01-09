@@ -94,5 +94,3 @@ btn.addEventListener('click', function(event) {
     console.log(id)
     postFormData('save_product/', {'id': id})
 });
-
-console.log(id.classList);
