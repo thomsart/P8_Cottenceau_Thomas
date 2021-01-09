@@ -10,8 +10,10 @@ from django.http import HttpRequest, HttpResponse, HttpResponseRedirect, JsonRes
 from django.views.decorators.csrf import csrf_exempt
 import requests
 
+import json
 from database.models import Products, SavedProducts
 from .form import *
+
 
 
 # Create your views here.
@@ -172,12 +174,10 @@ def proposed_products(request, product_id):
 def save_product(request, product_id):
 
     if request.method == 'POST':
-        product = request.form["id_product_1_form"]
+        product = json.loads(request.body)
 
-        print("La reponse de type {} est: {}".format(type(product), product))
+        print(product["id"])
 
-        
-        
 
     return render(request, 'proposed_products.html')
 
