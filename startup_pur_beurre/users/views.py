@@ -175,9 +175,9 @@ def save_product(request, product_id):
 
     if request.method == 'POST':
         product = json.loads(request.body)
-
-        print(product["id"])
-
+        id_to_save = int(product["id"])
+        print(id_to_save)
+        # on instancie un produit a sauver pour le mettre dans la table des sauvegardes
 
     return render(request, 'proposed_products.html')
 

@@ -63,20 +63,6 @@
 })(jQuery); // End of use strict
 
 
-
-
-
-
-
-
-
-
-
-let idProduct = document.getElementById('id_product_1');
-let id = idProduct.textContent;
-
-const btn = document.getElementsByClassName('input');
-
 function postFormData(url, data){
     // we send the content of the form to the server.
     return fetch(url, {
@@ -88,9 +74,14 @@ function postFormData(url, data){
     .catch(error => console.log(error));
 }
 
-btn.addEventListener('click', function(event) {
-    event.preventDefault();
-    console.log("Il ecoute")
-    console.log(id)
-    postFormData('save_product/', {'id': id})
-});
+var btn = document.getElementsByClassName('input');
+
+for(var i = 0; i <= btn.length; i++) {
+    (function(index) {
+    btn[index].addEventListener("click", function() {
+      var id = btn[index].nextElementSibling.textContent;
+     console.log("Produit n°" + id + " enregistré.")
+     postFormData('save_product/', {'id': id})
+    })
+    })(i);
+}
