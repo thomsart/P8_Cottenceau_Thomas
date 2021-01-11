@@ -31,10 +31,13 @@
                 <div id="title_p1">
                     <p3><br>{{substitute_1.name}}<br>{{substitute_1.brand}}</p3>
                 </div>
-                <form>
-                    <input class="input" type="button" value="Sauvegarder" method="POST">
-                    <p6 class="id_product">{{substitute_1.id}}</p6>
-                </form>
+                {% if user.is_authenticated %}
+                    <form>
+                        <input class="input" type="button" value="Sauvegarder" method="POST">
+                        <p3 class="id_product">{{user.id}},{{substitute_1.id}}</p3>
+                    </form>
+                {% else %}
+                {% endif %}
             </div>
 
             <div id="substitute_p2_div">
@@ -47,10 +50,13 @@
                 <div id="title_p2">
                     <p3><br>{{substitute_2.name}}<br>{{substitute_2.brand}}</p3>
                 </div>
-                <form>
-                    <input class="input" type="button" value="Sauvegarder" method="POST">
-                    <p6 class="id_product">{{substitute_2.id}}</p6>
-                </form>
+                {% if user.is_authenticated %}
+                    <form>
+                        <input class="input" type="button" value="Sauvegarder" method="POST">
+                        <p3 class="id_product">{{user.id}},{{substitute_2.id}}</p3>
+                    </form>
+                {% else %}
+                {% endif %}
             </div>
 
             <div id="substitute_p3_div">
@@ -63,10 +69,13 @@
                 <div id="title_p3">
                     <p3><br>{{substitute_3.name}}<br>{{substitute_3.brand}}</p3>
                 </div>
-                <form>
-                    <input class="input" type="button" value="Sauvegarder" method="POST">
-                    <p6 class="id_product">{{substitute_3.id}}</p6>
-                </form>
+                {% if user.is_authenticated %}
+                    <form>
+                        <input class="input" type="button" value="Sauvegarder" method="POST">
+                        <p3 class="id_product">{{user.id}},{{substitute_3.id}}</p3>
+                    </form>
+                {% else %}
+                {% endif %}
             </div>
         </div>
 
@@ -83,10 +92,13 @@
                 <div id="title_p4">
                     <p3><br>{{substitute_4.name}}<br>{{substitute_4.brand}}</p3>
                 </div>
-                <form>
-                    <input class="input" type="button" value="Sauvegarder" method="POST">
-                    <p6 class="id_product">{{substitute_4.id}}</p6>
-                </form>
+                {% if user.is_authenticated %}
+                    <form>
+                        <input class="input" type="button" value="Sauvegarder" method="POST">
+                        <p3 class="id_product">{{user.id}},{{substitute_4.id}}</p3>
+                    </form>
+                {% else %}
+                {% endif %}
             </div>
 
             <div id="substitute_p5_div">
@@ -99,10 +111,13 @@
                 <div id="title_p5">
                     <p3><br>{{substitute_5.name}}<br>{{substitute_5.brand}}</p3>
                 </div>
-                <form>
-                    <input class="input" type="button" value="Sauvegarder" method="POST">
-                    <p6 class="id_product">{{substitute_5.id}}</p6>
-                </form>
+                {% if user.is_authenticated %}
+                    <form>
+                        <input class="input" type="button" value="Sauvegarder" method="POST">
+                        <p3 class="id_product">{{user.id}},{{substitute_5.id}}</p3>
+                    </form>
+                {% else %}
+                {% endif %}
             </div>
 
             <div id="substitute_p6_div">
@@ -115,10 +130,18 @@
                 <div id="title_p6">
                     <p3><br>{{substitute_6.name}}<br>{{substitute_6.brand}}</p3>
                 </div>
-                <form>
-                    <input class="input" type="button" value="Sauvegarder" method="POST">
-                    <p6 class="id_product">{{substitute_6.id}}</p6>
-                </form>
+                {% if user.is_authenticated %}
+                    <form>
+                        <input class="input" type="button" value="Sauvegarder" method="POST">
+                        <p3 class="id_product">{{user.id}},{{substitute_6.id}}</p3>
+                        {% if messages %}
+                            <p3 class="messages">
+                                {% for message in messages %}{{ message }}{% endfor %}
+                            </p3>
+                        {% endif %}
+                    </form>
+                {% else %}
+                {% endif %}
             </div>
 
         </div>

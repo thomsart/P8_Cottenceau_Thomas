@@ -3,6 +3,7 @@
 
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
@@ -11,9 +12,8 @@ from django.views.decorators.csrf import csrf_exempt
 import requests
 
 import json
-from database.models import Products, SavedProducts
+from database.models import Products, SavedProducts, ClientUser
 from .form import *
-
 
 
 # Create your views here.
@@ -80,36 +80,6 @@ def selected_product(request, product_id):
     return render(request, 'selected_product.html', context)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 def proposed_products(request, product_id):
     """
     This view
@@ -170,41 +140,33 @@ def proposed_products(request, product_id):
 
     return render(request, 'proposed_products.html', context)
 
+
+@login_required
 @csrf_exempt
 def save_product(request, product_id):
-
+    """
+    This view
+    """
     if request.method == 'POST':
-        product = json.loads(request.body)
-        id_to_save = int(product["id"])
-        print(id_to_save)
-        # on instancie un produit a sauver pour le mettre dans la table des sauvegardes
+        id_user_id_product = json.loads(request.body)
+        id_user_id_product = id_user_id_product["id"]
+        lst = id_user_id_product.split(",")
+        userId = ClientUser.objects.get(id=lst[0])
+        productId = Products.objects.get(id=lst[1])
+
+        is_product = SavedProducts.objects.filter(product_id=productId.id, user_id=userId.id)
+
+        if is_product:
+            print("Ce produit à déjà été sauvegardé")
+        else:
+            product_to_save = SavedProducts(product_id=productId, user_id=userId)
+            product_to_save.save()
+            print("Produit enregistré")
 
     return render(request, 'proposed_products.html')
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@login_required
 def account(request):
     """
     This view
@@ -212,10 +174,25 @@ def account(request):
     return render(request, 'account.html')
 
 
+@login_required
 def user_substitutes(request):
     """
     This view
     """
+    id_user = ClientUser.objects.get(username=request.user)
+    print(id_user)
+    # id_saved_products = 
+    # saved_products = Product
+
+    # context = {
+    #         'product': product[0],
+    #         'substitute_1': list_of_substitutes[0],
+    #         'substitute_2': list_of_substitutes[1],
+    #         'substitute_3': list_of_substitutes[2],
+    #         'substitute_4': list_of_substitutes[3],
+    #         'substitute_5': list_of_substitutes[4],
+    #         'substitute_6': list_of_substitutes[5],
+    #     }
 
     return render(request, 'user_substitutes.html')
 
@@ -224,6 +201,4 @@ def mentions_legales(request):
     """
     This view
     """
-
-
     return render(request, 'mentions_legales.html')
