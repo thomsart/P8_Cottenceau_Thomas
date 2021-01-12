@@ -178,16 +178,15 @@ def user_substitutes(request):
     """
     This view
     """
-    context = {}
     id_login_user = request.user.id
-    id_of_all_saved_products = SavedProducts.objects.filter(user_id=id_login_user).values('product_id_id')
+    all_id_of_saved_products = SavedProducts.objects.filter(user_id=id_login_user).all().values('product_id_id')
+    
+    all_ids = []
+    for id_save_product in all_id_of_saved_products:
+        for key, value in id_save_product.items():
+            all_ids.append(value)
 
-    list_of_id = []
-    for sets in id_of_all_saved_products:
-        list_of_id.append(sets['product_id_id'])
-    print(list_of_id)
-
-    for each_id in list_of_id:
+    for each_id in all_ids:
         product = Products.objects.filter(id=each_id).values()
         product = {
             'cat': product[0]['cat'],
@@ -201,8 +200,10 @@ def user_substitutes(request):
             'salt_100g': product[0]['salt_100g'],
             'photo': product[0]['photo'],
         }
-
-        print()
+        
+    context = {
+        'product': product
+    }
 
     return render(request, 'user_substitutes.html', context)
 

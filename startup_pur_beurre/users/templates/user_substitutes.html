@@ -18,57 +18,65 @@
         </div>
     </header>
 
+
+
     <div id="products_proposed_div">
 
         <div id="substitutes_products_div">
+
+
+
 
             <div id="substitutes_row_1">
 
                 <div id="substitute_p1_div">
                     <div id="photo_p1_div">
-                        <img id="photo_p1" src="/static/icons/corn_flakes.jpg">
+                        <img id="photo_p1" src={{product.photo}}>
                         <div id="nut_p1_div">
-                            <img id="nut_p1" src="/static/icons/nut_a.png">
+                            <img id="nut_p1" src="/static/icons/nut_{{product.nutriscore}}.png">
                         </div>
                     </div>
                     <div id="title_p1">
-                        <p3>Nom du produit et pourquoi pas aussi sa marque allé soyons fou !</p3>
+                        <p3>{{product.name}}<br>{{product.brand}}</p3>
                     </div>
-                    <div id="checkbox_p1">
-                        <input type="checkbox" id="scales_1" name="sauvergarde">
-                        <label for="scales">Sauvegarder</label>
+                    <div>
+                        <form>
+                            <input class="input" type="button" value="Supprimer" method="POST">
+                        </form>
                     </div>
                 </div>
 
                 <div id="substitute_p2_div">
                     <div id="photo_p2_div">
-                        <img id="photo_p2" src="/static/icons/corn_flakes03.jpg">
+                        <img id="photo_p2" src={{product.photo}}>
                         <div id="nut_p2_div">
-                            <img id="nut_p2" src="/static/icons/nut_b.png">
+                            <img id="nut_p2" src="/static/icons/nut_{{product.nutriscore}}.png">
                         </div>
                     </div>
                     <div id="title_p2">
-                        <p3>Nom du produit et pourquoi pas aussi sa marque allé soyons fou !</p3>
+                        <p3>{{product.name}}<br>{{product.brand}}</p3>
                     </div>
-                    <div id="checkbox_p2">
-                        <input type="checkbox" id="scales_2" name="sauvergarde">
-                        <label for="scales">Sauvegarder</label>
+                    <div>
+                        <form>
+                            <input class="input" type="button" value="Supprimer" method="POST">
+                        </form>
                     </div>
                 </div>
 
                 <div id="substitute_p3_div">
                     <div id="photo_p3_div">
-                        <img id="photo_p3" src="/static/icons/corn_flakes05.jpg">
+                        <img id="photo_p3" src={{product.photo}}>
                         <div id="nut_p3_div">
-                            <img id="nut_p3" src="/static/icons/nut_c.png">
+                            <img id="nut_p3" src="/static/icons/nut_{{product.nutriscore}}.png">
                         </div>
                     </div>
                     <div id="title_p3">
-                        <p3>Nom du produit et pourquoi pas aussi sa marque allé soyons fou !</p3>
+                        <p3>{{product.name}}<br>{{product.brand}}</p3>
                     </div>
-                    <div id="checkbox_p3">
-                        <input type="checkbox" id="scales_3" name="sauvergarde">
-                        <label for="scales">Sauvegarder</label>
+                    <div>
+                        <form>
+                            <input class="input" type="button" value="Supprimer" method="POST">
+                        </form>
                     </div>
                 </div>
             </div>
@@ -80,49 +88,52 @@
 
                 <div id="substitute_p4_div">
                     <div id="photo_p4_div">
-                        <img id="photo_p4" src="/static/icons/corn_flakes02.jpg">
+                        <img id="photo_p4" src={{product.photo}}>
                         <div id="nut_p4_div">
-                            <img id="nut_p4" src="/static/icons/nut_d.png">
+                            <img id="nut_p4" src="/static/icons/nut_{{product.nutriscore}}.png">
                         </div>
                     </div>
                     <div id="title_p4">
-                        <p3>Nom du produit et pourquoi pas aussi sa marque allé soyons fou !</p3>
+                        <p3>{{product.name}}<br>{{product.brand}}</p3>
                     </div>
-                    <div id="checkbox_p4">
-                        <input type="checkbox" id="scales_4" name="sauvergarde">
-                        <label for="scales">Sauvegarder</label>
+                    <div>
+                        <form>
+                            <input class="input" type="button" value="Supprimer" method="POST">
+                        </form>
                     </div>
                 </div>
 
                 <div id="substitute_p5_div">
                     <div id="photo_p5_div">
-                        <img id="photo_p5" src="/static/icons/corn_flakes04.jpg">
+                        <img id="photo_p5" src={{product.photo}}>
                         <div id="nut_p5_div">
-                            <img id="nut_p5" src="/static/icons/nut_e.png">
+                            <img id="nut_p5" src="/static/icons/nut_{{product.nutriscore}}.png">
                         </div>
                     </div>
                     <div id="title_p5">
-                        <p3>Nom du produit et pourquoi pas aussi sa marque allé soyons fou !</p3>
+                        <p3>{{product.name}}<br>{{product.brand}}</p3>
                     </div>
-                    <div id="checkbox_p5">
-                        <input type="checkbox" id="scales_5" name="sauvergarde">
-                        <label for="scales">Sauvegarder</label>
+                    <div>
+                        <form>
+                            <input class="input" type="button" value="Supprimer" method="POST">
+                        </form>
                     </div>
                 </div>
 
                 <div id="substitute_p6_div">
                     <div id="photo_p6_div">
-                        <img id="photo_p6" src="/static/icons/corn_flakes06.jpg">
+                        <img id="photo_p6" src={{product.photo}}>
                         <div id="nut_p6_div">
-                            <img id="nut_p6" src="/static/icons/nut_a.png">
+                            <img id="nut_p6" src="/static/icons/nut_{{product.nutriscore}}.png">
                         </div>
                     </div>
                     <div id="title_p6">
-                        <p3>Nom du produit et pourquoi pas aussi sa marque allé soyons fou !</p3>
+                        <p3>{{product.name}}<br>{{product.brand}}</p3>
                     </div>
-                    <div id="checkbox_p6">
-                        <input type="checkbox" id="scales_6" name="sauvergarde">
-                        <label for="scales">Sauvegarder</label>
+                    <div>
+                        <form>
+                            <input class="input" type="button" value="Supprimer" method="POST">
+                        </form>
                     </div>
                 </div>
             </div>
