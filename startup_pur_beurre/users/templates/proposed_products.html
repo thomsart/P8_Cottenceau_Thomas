@@ -34,7 +34,8 @@
                 {% if user.is_authenticated %}
                     <form>
                         <input class="input" type="button" value="Sauvegarder" method="POST">
-                        <p3 class="id_product">{{user.id}},{{substitute_1.id}}</p3>
+                        <p3 class="id_product">{{substitute_1.id}}</p3>
+
                     </form>
                 {% else %}
                 {% endif %}
@@ -53,7 +54,8 @@
                 {% if user.is_authenticated %}
                     <form>
                         <input class="input" type="button" value="Sauvegarder" method="POST">
-                        <p3 class="id_product">{{user.id}},{{substitute_2.id}}</p3>
+                        <p3 class="id_product">{{substitute_2.id}}</p3>
+
                     </form>
                 {% else %}
                 {% endif %}
@@ -72,7 +74,8 @@
                 {% if user.is_authenticated %}
                     <form>
                         <input class="input" type="button" value="Sauvegarder" method="POST">
-                        <p3 class="id_product">{{user.id}},{{substitute_3.id}}</p3>
+                        <p3 class="id_product">{{substitute_3.id}}</p3>
+
                     </form>
                 {% else %}
                 {% endif %}
@@ -95,7 +98,8 @@
                 {% if user.is_authenticated %}
                     <form>
                         <input class="input" type="button" value="Sauvegarder" method="POST">
-                        <p3 class="id_product">{{user.id}},{{substitute_4.id}}</p3>
+                        <p3 class="id_product">{{substitute_4.id}}</p3>
+
                     </form>
                 {% else %}
                 {% endif %}
@@ -114,7 +118,8 @@
                 {% if user.is_authenticated %}
                     <form>
                         <input class="input" type="button" value="Sauvegarder" method="POST">
-                        <p3 class="id_product">{{user.id}},{{substitute_5.id}}</p3>
+                        <p3 class="id_product">{{substitute_5.id}}</p3>
+
                     </form>
                 {% else %}
                 {% endif %}
@@ -133,12 +138,8 @@
                 {% if user.is_authenticated %}
                     <form>
                         <input class="input" type="button" value="Sauvegarder" method="POST">
-                        <p3 class="id_product">{{user.id}},{{substitute_6.id}}</p3>
-                        {% if messages %}
-                            <p3 class="messages">
-                                {% for message in messages %}{{ message }}{% endfor %}
-                            </p3>
-                        {% endif %}
+                        <p3 class="id_product">{{substitute_6.id}}</p3>
+
                     </form>
                 {% else %}
                 {% endif %}

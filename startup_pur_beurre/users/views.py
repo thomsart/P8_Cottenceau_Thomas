@@ -139,18 +139,18 @@ def save_product(request, product_id):
     This view
     """
     if request.method == 'POST':
-        id_user_id_product = json.loads(request.body)
-        id_user_id_product = id_user_id_product["id"]
-        lst = id_user_id_product.split(",")
-        userId = ClientUser.objects.get(id=lst[0])
-        productId = Products.objects.get(id=lst[1])
-
-        is_product = SavedProducts.objects.filter(product_id=productId.id, user_id=userId.id)
+        productId = json.loads(request.body)
+        productId = productId["id"]
+        id_product = Products.objects.get(id=productId)
+        userId = request.user.id
+        id_login_user = ClientUser.objects.get(id=userId)
+        
+        is_product = SavedProducts.objects.filter(product_id=id_product, user_id=id_login_user)
 
         if is_product:
             print("Ce produit à déjà été sauvegardé")
         else:
-            product_to_save = SavedProducts(product_id=productId, user_id=userId)
+            product_to_save = SavedProducts(product_id=id_product, user_id=id_login_user)
             product_to_save.save()
             print("Produit enregistré")
 
