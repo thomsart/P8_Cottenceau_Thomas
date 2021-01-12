@@ -293,10 +293,7 @@ header.masthead h1 {
 
 
 
-
-
-
-#products_proposed_div
+.saved_product_div
 {
     /* border: solid black 1px; */
     display: flex;
@@ -305,29 +302,13 @@ header.masthead h1 {
 }
 @media screen and (max-width: 1024px)
 {
-    #products_proposed_div
+    .saved_product_div
     {
         height: 300em;       
     }
 }
 
-#substitutes_row_1, #substitutes_row_2
-{
-    /* border: solid blue 1px; */
-    display: flex;
-    justify-content: space-around;
-    height: 50%;
-}
-@media screen and (max-width: 1024px)
-{
-    #substitutes_row_1, #substitutes_row_2
-    {
-        flex-direction: column;
-        width: 100%;
-    }
-}
-
-#substitute_p1_div, #substitute_p2_div, #substitute_p3_div, #substitute_p4_div, #substitute_p5_div, #substitute_p6_div
+.substitute_div
 {
     /* border: solid rgb(145, 5, 5) 1px; */
     display: flex;
@@ -337,7 +318,7 @@ header.masthead h1 {
 }
 @media screen and (max-width: 1024px)
 {
-    #substitute_p1_div, #substitute_p2_div, #substitute_p3_div, #substitute_p4_div, #substitute_p5_div, #substitute_p6_div
+    .substitute_div
     {
         height: 70%;
         width: 50%;
@@ -345,7 +326,7 @@ header.masthead h1 {
     }
 }
 
-#photo_p1_div, #photo_p2_div, #photo_p3_div, #photo_p4_div, #photo_p5_div, #photo_p6_div
+.photo_div
 {
     /* border: solid rgb(145, 5, 5) 1px; */
     position: relative;
@@ -354,14 +335,14 @@ header.masthead h1 {
     width: 100%;
 }
 
-#photo_p1, #photo_p2, #photo_p3, #photo_p4, #photo_p5, #photo_p6
+.photo
 {
     position: absolute;
     max-height: 100%;
     max-width: 100%;
 }
 
-#nut_p1_div, #nut_p2_div, #nut_p3_div, #nut_p4_div, #nut_p5_div, #nut_p6_div
+.nut_div
 {
     /* border: solid rgb(145, 5, 5) 1px; */
     position: absolute;
@@ -371,122 +352,10 @@ header.masthead h1 {
     z-index: 1;
 }
 
-#title_p1, #title_p2, #title_p3, #title_p4, #title_p5, #title_p6
+.title
 {
     /* border: solid rgb(145, 5, 5) 1px; */
     text-align: center;
     height: 15%;
-    width: 100%;
-}
-
-#checkbox_p2, #checkbox_p3, #checkbox_p4, #checkbox_p5, #checkbox_p6
-{
-    /* border: solid rgb(145, 5, 5) 1px; */
-    text-align: center;
-    height: 10%;
-    width: 100%;
-}
-
-
-
-
-
-
-#products_proposed_div
-{
-    /* border: solid black 1px; */
-    display: flex;
-    flex-direction: column;
-    height: 60em;
-}
-@media screen and (max-width: 1024px)
-{
-    #products_proposed_div
-    {
-        height: 300em;       
-    }
-}
-
-#substitutes_products_div
-{
-    /* border: solid goldenrod 1px; */
-    display: flex;
-    flex-direction: column;
-    height: 80%;
-}
-
-#substitutes_row_1, #substitutes_row_2
-{
-    /* border: solid blue 1px; */
-    display: flex;
-    justify-content: space-around;
-    height: 50%;
-}
-@media screen and (max-width: 1024px)
-{
-    #substitutes_row_1, #substitutes_row_2
-    {
-        flex-direction: column;
-        width: 100%;
-    }
-}
-
-#substitute_p1_div, #substitute_p2_div, #substitute_p3_div, #substitute_p4_div, #substitute_p5_div, #substitute_p6_div
-{
-    /* border: solid rgb(145, 5, 5) 1px; */
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 20%;
-}
-@media screen and (max-width: 1024px)
-{
-    #substitute_p1_div, #substitute_p2_div, #substitute_p3_div, #substitute_p4_div, #substitute_p5_div, #substitute_p6_div
-    {
-        height: 70%;
-        width: 50%;
-        margin-left: 25%;
-    }
-}
-
-#photo_p1_div, #photo_p2_div, #photo_p3_div, #photo_p4_div, #photo_p5_div, #photo_p6_div
-{
-    /* border: solid rgb(145, 5, 5) 1px; */
-    position: relative;
-    background-color: black;
-    height: 70%;
-    width: 100%;
-}
-
-#photo_p1, #photo_p2, #photo_p3, #photo_p4, #photo_p5, #photo_p6
-{
-    position: absolute;
-    max-height: 100%;
-    max-width: 100%;
-}
-
-#nut_p1_div, #nut_p2_div, #nut_p3_div, #nut_p4_div, #nut_p5_div, #nut_p6_div
-{
-    /* border: solid rgb(145, 5, 5) 1px; */
-    position: absolute;
-    width: 16%;
-    height: 10%;
-    padding-left: 90%;
-    z-index: 1;
-}
-
-#title_p1, #title_p2, #title_p3, #title_p4, #title_p5, #title_p6
-{
-    /* border: solid rgb(145, 5, 5) 1px; */
-    text-align: center;
-    height: 15%;
-    width: 100%;
-}
-
-#checkbox_p1, #checkbox_p2, #checkbox_p3, #checkbox_p4, #checkbox_p5, #checkbox_p6
-{
-    /* border: solid rgb(145, 5, 5) 1px; */
-    text-align: center;
-    height: 10%;
     width: 100%;
 }

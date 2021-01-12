@@ -5,13 +5,13 @@
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/user_substitutes.css' %}" media="all"/>
     <script defer src="{% static 'js/proposed_products.js' %}"></script>
-    
+
     <!-- Masthead-->
     <header class="masthead">
         <div class="container h-100">
             <div class="row h-100 align-items-center justify-content-center text-center">
                 <div class="col-lg-10 align-self-end">
-                    <h1 class="text-white font-weight-bold">Voici vos substitus.</h1>
+                    <h1 class="text-white font-weight-bold">{% if products %}Voici vos substitus.{% else %}Pour l'instant vous n'avez aucun substitus.{% endif %}</h1>
                     <hr class="divider my-4" />
                 </div>
             </div>
@@ -19,125 +19,27 @@
     </header>
 
 
+    <div class="saved_product_div">
 
-    <div id="products_proposed_div">
-
-        <div id="substitutes_products_div">
-
-
-
-
-            <div id="substitutes_row_1">
-
-                <div id="substitute_p1_div">
-                    <div id="photo_p1_div">
-                        <img id="photo_p1" src={{product.photo}}>
-                        <div id="nut_p1_div">
-                            <img id="nut_p1" src="/static/icons/nut_{{product.nutriscore}}.png">
-                        </div>
-                    </div>
-                    <div id="title_p1">
-                        <p3>{{product.name}}<br>{{product.brand}}</p3>
-                    </div>
-                    <div>
-                        <form>
-                            <input class="input" type="button" value="Supprimer" method="POST">
-                        </form>
+        {% for product in products %}
+            <div class="substitute_div">
+                <div class="photo_div">
+                    <img class="photo" src={{product.photo}}>
+                    <div class="nut_div">
+                        <img id="nut" src="/static/icons/nut_{{product.nutriscore}}.png">
                     </div>
                 </div>
-
-                <div id="substitute_p2_div">
-                    <div id="photo_p2_div">
-                        <img id="photo_p2" src={{product.photo}}>
-                        <div id="nut_p2_div">
-                            <img id="nut_p2" src="/static/icons/nut_{{product.nutriscore}}.png">
-                        </div>
-                    </div>
-                    <div id="title_p2">
-                        <p3>{{product.name}}<br>{{product.brand}}</p3>
-                    </div>
-                    <div>
-                        <form>
-                            <input class="input" type="button" value="Supprimer" method="POST">
-                        </form>
-                    </div>
+                <div class="title">
+                    <p3>{{product.name}}<br>{{product.brand}}</p3>
                 </div>
-
-                <div id="substitute_p3_div">
-                    <div id="photo_p3_div">
-                        <img id="photo_p3" src={{product.photo}}>
-                        <div id="nut_p3_div">
-                            <img id="nut_p3" src="/static/icons/nut_{{product.nutriscore}}.png">
-                        </div>
-                    </div>
-                    <div id="title_p3">
-                        <p3>{{product.name}}<br>{{product.brand}}</p3>
-                    </div>
-                    <div>
-                        <form>
-                            <input class="input" type="button" value="Supprimer" method="POST">
-                        </form>
-                    </div>
+                <div>
+                    <form>
+                        <input class="input" type="button" value="Supprimer{{product.id}}" method="POST">
+                    </form>
                 </div>
             </div>
+        {% endfor %}
 
-
-
-
-            <div id="substitutes_row_2">
-
-                <div id="substitute_p4_div">
-                    <div id="photo_p4_div">
-                        <img id="photo_p4" src={{product.photo}}>
-                        <div id="nut_p4_div">
-                            <img id="nut_p4" src="/static/icons/nut_{{product.nutriscore}}.png">
-                        </div>
-                    </div>
-                    <div id="title_p4">
-                        <p3>{{product.name}}<br>{{product.brand}}</p3>
-                    </div>
-                    <div>
-                        <form>
-                            <input class="input" type="button" value="Supprimer" method="POST">
-                        </form>
-                    </div>
-                </div>
-
-                <div id="substitute_p5_div">
-                    <div id="photo_p5_div">
-                        <img id="photo_p5" src={{product.photo}}>
-                        <div id="nut_p5_div">
-                            <img id="nut_p5" src="/static/icons/nut_{{product.nutriscore}}.png">
-                        </div>
-                    </div>
-                    <div id="title_p5">
-                        <p3>{{product.name}}<br>{{product.brand}}</p3>
-                    </div>
-                    <div>
-                        <form>
-                            <input class="input" type="button" value="Supprimer" method="POST">
-                        </form>
-                    </div>
-                </div>
-
-                <div id="substitute_p6_div">
-                    <div id="photo_p6_div">
-                        <img id="photo_p6" src={{product.photo}}>
-                        <div id="nut_p6_div">
-                            <img id="nut_p6" src="/static/icons/nut_{{product.nutriscore}}.png">
-                        </div>
-                    </div>
-                    <div id="title_p6">
-                        <p3>{{product.name}}<br>{{product.brand}}</p3>
-                    </div>
-                    <div>
-                        <form>
-                            <input class="input" type="button" value="Supprimer" method="POST">
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
 {% endblock content %}
