@@ -27,6 +27,10 @@ class SignUpView(CreateView):
     template_name = 'registration/signup.html'
 
 
+
+
+
+
 def home(request):
     """
     This view
@@ -58,6 +62,10 @@ def home(request):
     return render(request, 'home.html', context)
 
 
+
+
+
+
 def selected_product(request, product_id):
     """
     This view
@@ -80,65 +88,48 @@ def selected_product(request, product_id):
     return render(request, 'selected_product.html', context)
 
 
+
+
+
+
 def proposed_products(request, product_id):
     """
     This view
     """
-    product = Products.objects.filter(id=product_id).values()
-
-    def substitute(substitute, substitute_nb):
-
-        features = {
-            'id' : substitute[substitute_nb]['id'],
-            'cat' : substitute[substitute_nb]['cat'],
-            'name' : substitute[substitute_nb]['name'],
-            'brand' : substitute[substitute_nb]['brand'],
-            'store' : substitute[substitute_nb]['store'],
-            'nutriscore' : substitute[substitute_nb]['nutriscore'],
-            'fat_lipids_100g' : substitute[substitute_nb]['fat_lipids_100g'],
-            'saturated_fatty_acids_100g' : substitute[substitute_nb]['saturated_fatty_acids_100g'],
-            'sugar_100g' : substitute[substitute_nb]['sugar_100g'],
-            'salt_100g' : substitute[substitute_nb]['salt_100g'],
-            'photo' : substitute[substitute_nb]['photo'],
-        }
-
-        return features
+    product_to_substitute = Products.objects.filter(id=product_id).values()
 
     all_proposed_products = []
     indices = ['a', 'b', 'c', 'd', 'e']
-    i = 0
-    while i < 5:
-        if indices[i] == product[0]['nutriscore']:
-            i = 5
-        else:
-            proposed_products = Products.objects.filter(cat=product[0]['cat'],nutriscore=indices[i]).all().values()
-            for el in proposed_products:
-                all_proposed_products.append(el)
-            i += 1
-    # print(all_proposed_products)
-
-    list_of_substitutes = []
-    i = 0
-    for each_product in all_proposed_products:
-        if i == 6:
+    for indice in indices:
+        if indice == product_to_substitute[0]['nutriscore'] or len(all_proposed_products) == 12:
             break
         else:
-            list_of_substitutes.append(substitute(all_proposed_products, i))
-            i += 1
-
-    # print(list_of_substitutes)
+            proposed_products = Products.objects.filter(cat=product_to_substitute[0]['cat'],nutriscore=indice).all().values()
+            for each_product in proposed_products:
+                all_proposed_products.append(each_product)
+    print(all_proposed_products)
 
     context = {
-        'product': product[0],
-        'substitute_1': list_of_substitutes[0],
-        'substitute_2': list_of_substitutes[1],
-        'substitute_3': list_of_substitutes[2],
-        'substitute_4': list_of_substitutes[3],
-        'substitute_5': list_of_substitutes[4],
-        'substitute_6': list_of_substitutes[5],
+        'product': product_to_substitute[0],
+        'substitute_1': all_proposed_products[0],
+        'substitute_2': all_proposed_products[1],
+        'substitute_3': all_proposed_products[2],
+        'substitute_4': all_proposed_products[3],
+        'substitute_5': all_proposed_products[4],
+        'substitute_6': all_proposed_products[5],
+        'substitute_7': all_proposed_products[6],
+        'substitute_8': all_proposed_products[7],
+        'substitute_9': all_proposed_products[8],
+        'substitute_10': all_proposed_products[9],
+        'substitute_11': all_proposed_products[10],
+        'substitute_12': all_proposed_products[11],
     }
 
     return render(request, 'proposed_products.html', context)
+
+
+
+
 
 
 @login_required
@@ -166,12 +157,20 @@ def save_product(request, product_id):
     return render(request, 'proposed_products.html')
 
 
+
+
+
+
 @login_required
 def account(request):
     """
-    This view
+    This view just show all the account details of the user.
     """
     return render(request, 'account.html')
+
+
+
+
 
 
 @login_required
@@ -179,22 +178,37 @@ def user_substitutes(request):
     """
     This view
     """
-    id_user = ClientUser.objects.get(username=request.user)
-    print(id_user)
-    # id_saved_products = 
-    # saved_products = Product
+    context = {}
+    id_login_user = request.user.id
+    id_of_all_saved_products = SavedProducts.objects.filter(user_id=id_login_user).values('product_id_id')
 
-    # context = {
-    #         'product': product[0],
-    #         'substitute_1': list_of_substitutes[0],
-    #         'substitute_2': list_of_substitutes[1],
-    #         'substitute_3': list_of_substitutes[2],
-    #         'substitute_4': list_of_substitutes[3],
-    #         'substitute_5': list_of_substitutes[4],
-    #         'substitute_6': list_of_substitutes[5],
-    #     }
+    list_of_id = []
+    for sets in id_of_all_saved_products:
+        list_of_id.append(sets['product_id_id'])
+    print(list_of_id)
 
-    return render(request, 'user_substitutes.html')
+    for each_id in list_of_id:
+        product = Products.objects.filter(id=each_id).values()
+        product = {
+            'cat': product[0]['cat'],
+            'name': product[0]['name'],
+            'brand': product[0]['brand'],
+            'store': product[0]['store'],
+            'nutriscore': product[0]['nutriscore'],
+            'fat_lipids_100g': product[0]['fat_lipids_100g'],
+            'saturated_fatty_acids_100g': product[0]['saturated_fatty_acids_100g'],
+            'sugar_100g': product[0]['sugar_100g'],
+            'salt_100g': product[0]['salt_100g'],
+            'photo': product[0]['photo'],
+        }
+
+        print()
+
+    return render(request, 'user_substitutes.html', context)
+
+
+
+
 
 
 def mentions_legales(request):
