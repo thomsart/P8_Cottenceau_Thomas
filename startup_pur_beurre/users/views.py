@@ -27,10 +27,6 @@ class SignUpView(CreateView):
     template_name = 'registration/signup.html'
 
 
-
-
-
-
 def home(request):
     """
     This view
@@ -62,10 +58,6 @@ def home(request):
     return render(request, 'home.html', context)
 
 
-
-
-
-
 def selected_product(request, product_id):
     """
     This view
@@ -88,10 +80,6 @@ def selected_product(request, product_id):
     return render(request, 'selected_product.html', context)
 
 
-
-
-
-
 def proposed_products(request, product_id):
     """
     This view
@@ -101,35 +89,21 @@ def proposed_products(request, product_id):
     all_proposed_products = []
     indices = ['a', 'b', 'c', 'd', 'e']
     for indice in indices:
-        if indice == product_to_substitute[0]['nutriscore'] or len(all_proposed_products) == 12:
+        if indice == product_to_substitute[0]['nutriscore']:
             break
         else:
             proposed_products = Products.objects.filter(cat=product_to_substitute[0]['cat'],nutriscore=indice).all().values()
             for each_product in proposed_products:
-                all_proposed_products.append(each_product)
-    print(all_proposed_products)
+                if each_product['store'] == '':
+                    continue
+                else:
+                    all_proposed_products.append(each_product)
 
     context = {
-        'product': product_to_substitute[0],
-        'substitute_1': all_proposed_products[0],
-        'substitute_2': all_proposed_products[1],
-        'substitute_3': all_proposed_products[2],
-        'substitute_4': all_proposed_products[3],
-        'substitute_5': all_proposed_products[4],
-        'substitute_6': all_proposed_products[5],
-        'substitute_7': all_proposed_products[6],
-        'substitute_8': all_proposed_products[7],
-        'substitute_9': all_proposed_products[8],
-        'substitute_10': all_proposed_products[9],
-        'substitute_11': all_proposed_products[10],
-        'substitute_12': all_proposed_products[11],
+        'products': all_proposed_products,
     }
 
     return render(request, 'proposed_products.html', context)
-
-
-
-
 
 
 @login_required
@@ -157,20 +131,12 @@ def save_product(request, product_id):
     return render(request, 'proposed_products.html')
 
 
-
-
-
-
 @login_required
 def account(request):
     """
     This view just show all the account details of the user.
     """
     return render(request, 'account.html')
-
-
-
-
 
 
 @login_required
@@ -209,10 +175,6 @@ def user_substitutes(request):
     }
 
     return render(request, 'user_substitutes.html', context)
-
-
-
-
 
 
 def mentions_legales(request):

@@ -17,135 +17,31 @@
         </div>
     </header>
 
-    <div id="products_proposed_div">
+    <div class="proposed_products_div">
 
-        <div id="substitutes_row_1">
-
-            <div id="substitute_p1_div">
-                <div id="photo_p1_div">
-                    <img id="photo_p1" src='{{substitute_1.photo}}'>
-                    <div id="nut_p1_div">
-                        <img id="nut_p1" src="/static/icons/nut_{{substitute_1.nutriscore}}.png">
+        {% for product in products %}
+            <div class="substitute_div">
+                <div class="photo_div">
+                    <img class="photo" src={{product.photo}}>
+                    <div class="nut_div">
+                        <img id="nut" src="/static/icons/nut_{{product.nutriscore}}.png">
                     </div>
                 </div>
-                <div id="title_p1">
-                    <p3><br>{{substitute_1.name}}<br>{{substitute_1.brand}}</p3>
+                <div class="title">
+                    <p3>{{product.name}}<br>{{product.brand}}<br>{{product.store}}</p3>
                 </div>
+                <div>
                 {% if user.is_authenticated %}
                     <form>
-                        <input class="input" type="button" value="Sauvegarder" method="POST">
-                        <p3 class="id_product">{{substitute_1.id}}</p3>
+                        <input class="input" type="button" value="Supprimer{{product.id}}" method="POST">
+                        <p3 class="id_product">{{product.id}}</p3>
 
                     </form>
                 {% else %}
                 {% endif %}
+                </div>
             </div>
-
-            <div id="substitute_p2_div">
-                <div id="photo_p2_div">
-                    <img id="photo_p2" src='{{substitute_2.photo}}'>
-                    <div id="nut_p2_div">
-                        <img id="nut_p2" src="/static/icons/nut_{{substitute_2.nutriscore}}.png">
-                    </div>
-                </div>
-                <div id="title_p2">
-                    <p3><br>{{substitute_2.name}}<br>{{substitute_2.brand}}</p3>
-                </div>
-                {% if user.is_authenticated %}
-                    <form>
-                        <input class="input" type="button" value="Sauvegarder" method="POST">
-                        <p3 class="id_product">{{substitute_2.id}}</p3>
-
-                    </form>
-                {% else %}
-                {% endif %}
-            </div>
-
-            <div id="substitute_p3_div">
-                <div id="photo_p3_div">
-                    <img id="photo_p3" src='{{substitute_3.photo}}'>
-                    <div id="nut_p3_div">
-                        <img id="nut_p3" src="/static/icons/nut_{{substitute_3.nutriscore}}.png">
-                    </div>
-                </div>
-                <div id="title_p3">
-                    <p3><br>{{substitute_3.name}}<br>{{substitute_3.brand}}</p3>
-                </div>
-                {% if user.is_authenticated %}
-                    <form>
-                        <input class="input" type="button" value="Sauvegarder" method="POST">
-                        <p3 class="id_product">{{substitute_3.id}}</p3>
-
-                    </form>
-                {% else %}
-                {% endif %}
-            </div>
-        </div>
-
-
-        <div id="substitutes_row_2">
-
-            <div id="substitute_p4_div">
-                <div id="photo_p4_div">
-                    <img id="photo_p4" src='{{substitute_4.photo}}'>
-                    <div id="nut_p4_div">
-                        <img id="nut_p4" src="/static/icons/nut_{{substitute_4.nutriscore}}.png">
-                    </div>
-                </div>
-                <div id="title_p4">
-                    <p3><br>{{substitute_4.name}}<br>{{substitute_4.brand}}</p3>
-                </div>
-                {% if user.is_authenticated %}
-                    <form>
-                        <input class="input" type="button" value="Sauvegarder" method="POST">
-                        <p3 class="id_product">{{substitute_4.id}}</p3>
-
-                    </form>
-                {% else %}
-                {% endif %}
-            </div>
-
-            <div id="substitute_p5_div">
-                <div id="photo_p5_div">
-                    <img id="photo_p5" src='{{substitute_5.photo}}'>
-                    <div id="nut_p5_div">
-                        <img id="nut_p5" src="/static/icons/nut_{{substitute_5.nutriscore}}.png">
-                    </div>
-                </div>
-                <div id="title_p5">
-                    <p3><br>{{substitute_5.name}}<br>{{substitute_5.brand}}</p3>
-                </div>
-                {% if user.is_authenticated %}
-                    <form>
-                        <input class="input" type="button" value="Sauvegarder" method="POST">
-                        <p3 class="id_product">{{substitute_5.id}}</p3>
-
-                    </form>
-                {% else %}
-                {% endif %}
-            </div>
-
-            <div id="substitute_p6_div">
-                <div id="photo_p6_div">
-                    <img id="photo_p6" src='{{substitute_6.photo}}'>
-                    <div id="nut_p6_div">
-                        <img id="nut_p6" src="/static/icons/nut_{{substitute_6.nutriscore}}.png">
-                    </div>
-                </div>
-                <div id="title_p6">
-                    <p3><br>{{substitute_6.name}}<br>{{substitute_6.brand}}</p3>
-                </div>
-                {% if user.is_authenticated %}
-                    <form>
-                        <input class="input" type="button" value="Sauvegarder" method="POST">
-                        <p3 class="id_product">{{substitute_6.id}}</p3>
-
-                    </form>
-                {% else %}
-                {% endif %}
-            </div>
-
-        </div>
+        {% endfor %}
         
     </div>
 
