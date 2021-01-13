@@ -20,29 +20,37 @@
     <div class="proposed_products_div">
 
         {% for product in products %}
-            <div class="substitute_div">
-                <div class="photo_div">
-                    <img class="photo" src={{product.photo}}>
-                    <div class="nut_div">
+
+            <div class="container">
+                
+                <div class="col-4 h-50">
+
+                    <div class="row">
+                        <img class="photo" src={{product.photo}}>
+                    </div>
+
+                    <div class="row">
                         <img id="nut" src="/static/icons/nut_{{product.nutriscore}}.png">
                     </div>
-                </div>
-                <div class="title">
-                    <p3>{{product.name}}<br>{{product.brand}}<br>{{product.store}}</p3>
-                </div>
-                <div>
-                {% if user.is_authenticated %}
-                    <form>
-                        <input class="input" type="button" value="Supprimer{{product.id}}" method="POST">
-                        <p3 class="id_product">{{product.id}}</p3>
+                
+                    <div class="row">
+                        <p3>{{product.name}}<br>{{product.brand}}<br>{{product.store}}</p3>
+                    </div>
 
-                    </form>
-                {% else %}
-                {% endif %}
+                    <div class="row">
+                        {% if user.is_authenticated %}
+                            <form>
+                                <input class="input" type="button" value="Enregistrer{{product.id}}" method="POST">
+                                <p3 class="id_product">{{product.id}}</p3>
+                            </form>
+                        {% else %}
+                        {% endif %}
+                    </div>
+                
                 </div>
+                
             </div>
         {% endfor %}
-        
     </div>
 
 {% endblock content %}

@@ -4,36 +4,107 @@
 {% block content %}
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/selected_product.css' %}" media="all"/>
-
+    
     <!-- Masthead-->
-    <header class="masthead">
-        <div class="container h-100">
-            <div class="row h-100 align-items-center justify-content-center text-center">
-                <div class="col-lg-10 align-self-end">
-                    <h1 class="text-white font-weight-bold">Voici Le produit que vous voulez substituer !</h1>
-                    <div id="photo_product_selected_div">
-                        <img id="photo_product_selected" src='{{product.photo}}'>
+    {% for product in product %}
+    
+        <header class="masthead">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center justify-content-center text-center">
+                    <div class="col-lg-10 align-self-end">
+                        <h1 class="text-white font-weight-bold">Voici Le produit que vous voulez substituer !</h1>
+                        <hr class="divider my-4" />
                     </div>
-                    <hr class="divider my-4" />
+                </div>
+
+                <div id="container">
+
+                    <div class="row h-10">
+                    </div>
+    
+                    <div class="row">
+                        <div class="col-2"></div>
+                        <div class="col-3"><img class="photo_product_selected" src={{product.photo}}></div>
+                        <div class="col-5">
+    
+                            <div class="row">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-4">Name :</div>
+                                <div class="col-md-1"></div>
+                                <div class="col-md-3">{{product.name}}</div>
+                                <div class="col-md-2"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-4">Brand :</div>
+                                <div class="col-md-1"></div>
+                                <div class="col-md-3">{{product.brand}}</div>
+                                <div class="col-md-2"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-4">Store :</div>
+                                <div class="col-md-1"></div>
+                                <div class="col-md-3">{{product.store}}</div>
+                                <div class="col-md-2"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-4">Nutriscore :</div>
+                                <div class="col-md-1"></div>
+                                <div class="col-md-3">{{product.nutriscore}}</div>
+                                <div class="col-md-2"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-4">Fat lipids/100g :</div>
+                                <div class="col-md-1"></div>
+                                <div class="col-md-3">{{product.fat_lipids_100g}}</div>
+                                <div class="col-md-2"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-4">Saturated fatty acids/100g :</div>
+                                <div class="col-md-1"></div>
+                                <div class="col-md-3">{{product.saturated_fatty_acids_100g}}</div>
+                                <div class="col-md-2"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-4">Sugar/100g :</div>
+                                <div class="col-md-1"></div>
+                                <div class="col-md-3">{{product.sugar_100g}}</div>
+                                <div class="col-md-2"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-4">Salt/100g :</div>
+                                <div class="col-md-1"></div>
+                                <div class="col-md-3">{{product.salt_100g}}</div>
+                                <div class="col-md-2"></div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-10"><a href="proposed_products/"><p1>Substitue le</p1></a></div>
+                                <div class="col-md-2"></div>
+                            </div>
+    
+                        </div>
+    
+                        <div class="col-2"></div>
+    
+                    </div>
+    
+                    <div class="row h-10">
+                    </div>
+    
                 </div>
             </div>
+
             
-            <div id="product_features_div">
-                <ul id="product_features">
-                    <li>Name : {{product.name}}</li>
-                    <li>Brand : {{product.brand}}</li>
-                    <li>Store : {{product.store}}</li>
-                    <li>Nutriscore : {{product.nutriscore}}</li>
-                    <li>Fat lipids/100g : {{product.fat_lipids_100g}}</li>
-                    <li>Saturated fatty acids/100g : {{product.saturated_fatty_acids_100g}}</li>
-                    <li>Sugar/100g : {{product.sugar_100g}}</li>
-                    <li>Salt/100g : {{product.salt_100g}}</li>
-                </ul>
-                <a href="proposed_products/">
-                    <p1>Substitue le</p1>
-                </a>
-            </div>
-        </div>
-    </header>
+
+        </header>
+    {% endfor %}
 
 {% endblock content %}

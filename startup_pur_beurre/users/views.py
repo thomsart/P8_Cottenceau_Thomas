@@ -62,20 +62,11 @@ def selected_product(request, product_id):
     """
     This view
     """
-    product = Products.objects.filter(id=product_id).values()
-    product = {
-        'cat': product[0]['cat'],
-        'name': product[0]['name'],
-        'brand': product[0]['brand'],
-        'store': product[0]['store'],
-        'nutriscore': product[0]['nutriscore'],
-        'fat_lipids_100g': product[0]['fat_lipids_100g'],
-        'saturated_fatty_acids_100g': product[0]['saturated_fatty_acids_100g'],
-        'sugar_100g': product[0]['sugar_100g'],
-        'salt_100g': product[0]['salt_100g'],
-        'photo': product[0]['photo'],
+    product = Products.objects.filter(id=product_id).all().values()
+
+    context = {
+        'product': product,
     }
-    context = {'product': product}
 
     return render(request, 'selected_product.html', context)
 
@@ -154,22 +145,9 @@ def user_substitutes(request):
 
     list_of_saved_products = []
     for each_id in all_ids:
-        product = Products.objects.filter(id=each_id).values()
-        product = {
-            'id': product[0]['id'],
-            'cat': product[0]['cat'],
-            'name': product[0]['name'],
-            'brand': product[0]['brand'],
-            'store': product[0]['store'],
-            'nutriscore': product[0]['nutriscore'],
-            'fat_lipids_100g': product[0]['fat_lipids_100g'],
-            'saturated_fatty_acids_100g': product[0]['saturated_fatty_acids_100g'],
-            'sugar_100g': product[0]['sugar_100g'],
-            'salt_100g': product[0]['salt_100g'],
-            'photo': product[0]['photo'],
-        }
-        list_of_saved_products.append(product)
-
+        product = Products.objects.filter(id=each_id).all().values()
+        list_of_saved_products.append(product[0])
+        
     context = {
         'products': list_of_saved_products,
     }
