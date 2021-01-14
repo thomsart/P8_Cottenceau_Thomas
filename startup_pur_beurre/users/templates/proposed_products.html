@@ -17,40 +17,33 @@
         </div>
     </header>
 
-    <div class="proposed_products_div">
+    <div class="container">
 
-        {% for product in products %}
+        <div class="row justify-content-between">
 
-            <div class="container">
-                
-                <div class="col-4 h-50">
+            {% for product in products %}
 
-                    <div class="row">
-                        <img class="photo" src={{product.photo}}>
+                <div class="col-4">
+                    <div class="card" style="width: 15em;">
+                        <div class="card-body">
+                            <img class="card-img-top" src={{product.photo}} alt="Card image cap" style="height: 16em;"><img src="/static/icons/nut_{{product.nutriscore}}.png">
+                            <h5 class="card-title">{{product.name}}</h5>
+                            <h6 class="card-title">De marque: {{product.brand}}<br>Chez: {{product.brand}}</h6>
+                            {% if user.is_authenticated %}
+                                <a href="#" class="btn btn-success">
+                                    <form>
+                                        <input class="input" type="button" value="Enregistrer" method="POST">
+                                        <p3 class="id_product">{{product.id}}</p3>
+                                    </form>
+                                </a>
+                            {% else %}
+                            {% endif %}
+                        </div>
                     </div>
-
-                    <div class="row">
-                        <img id="nut" src="/static/icons/nut_{{product.nutriscore}}.png">
-                    </div>
-                
-                    <div class="row">
-                        <p3>{{product.name}}<br>{{product.brand}}<br>{{product.store}}</p3>
-                    </div>
-
-                    <div class="row">
-                        {% if user.is_authenticated %}
-                            <form>
-                                <input class="input" type="button" value="Enregistrer{{product.id}}" method="POST">
-                                <p3 class="id_product">{{product.id}}</p3>
-                            </form>
-                        {% else %}
-                        {% endif %}
-                    </div>
-                
                 </div>
-                
-            </div>
-        {% endfor %}
+
+            {% endfor %}
+        </div>
     </div>
 
 {% endblock content %}
