@@ -10,7 +10,7 @@
         <div class="container h-100">
             <div class="row h-100 align-items-center justify-content-center text-center">
                 <div class="col-lg-10 align-self-end">
-                    <h1 class="text-white font-weight-bold">Voici des substituts de meilleurs qualités !</h1>
+                    <h1 class="text-white font-weight-bold">Voici des substituts plus sains !</h1>
                     <hr class="divider my-4" />
                 </div>
             </div>
@@ -18,10 +18,10 @@
     </header>
 
     <div class="container">
-        <div class="row justify-content-between">
+        <div class="row" style="justify-content: space-around;">
 
             {% for product in products %}
-                <div class="col-4" style="background-color:  #c45525;"> 
+                <div class="col-auto-10 col-md-4" style="background-color:  #c45525;"> 
                     <div class="card" style="width: 15em; background-color:  #c45525;">
                         <div class="card-body">
                             <img class="float-right" src="/static/icons/nut_{{product.nutriscore}}.png">
@@ -29,12 +29,10 @@
                             <h5 class="card-title">{{product.name}}</h5>
                             <h6 class="card-title">De marque: {{product.brand}}<br>Chez: {{product.brand}}</h6>
                             {% if user.is_authenticated %}
-                                <a href="#" class="btn btn-success">
-                                    <form>
-                                        <input class="input" type="button" value="Enregistrer" method="POST">
-                                        <p3 class="id_product">{{product.id}}</p3>
-                                    </form>
-                                </a>
+                                <form>
+                                    <bouton class="btn btn-primary" type="button" method="POST" style="background-color: steelblue;">Enregistrer</bouton>
+                                    <p3 id="id_product">{{product.id}}</p3>
+                                </form>
                             {% else %}
                             {% endif %}
                         </div>

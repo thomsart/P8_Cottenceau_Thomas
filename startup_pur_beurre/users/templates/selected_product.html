@@ -14,95 +14,70 @@
                     <div class="col-lg-10 align-self-end">
                         <h1 class="text-white font-weight-bold">Voici Le produit que vous voulez substituer !</h1>
                         <hr class="divider my-4" />
+                        <div class="row">
+                            <div class="col-3"></div>
+                            <div class="col-6">
+                                <img class="photo_product_selected" src={{product.photo}}>
+                            </div>
+                            <div class="col-3"></div>
+                        </div>
                     </div>
                 </div>
 
                 <div id="container">
+                    
 
-                    <div class="row h-10">
-                    </div>
-    
-                    <div class="row">
-                        <div class="col-2"></div>
-                        <div class="col-3">
-                            <img class="photo_product_selected" src={{product.photo}}>
-                        </div>
-                        <div class="col-1"><img class="float-left" src="/static/icons/nut_{{product.nutriscore}}.png"></div>
-                        <div class="col-4">
-    
-                            <div class="row">
-                                <div class="col-md-1"></div>
-                                <div class="col-md-6">Name :</div>
-                                <div class="col-md-3">{{product.name}}</div>
-                                <div class="col-md-2"></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-1"></div>
-                                <div class="col-md-6">Brand :</div>
-                                <div class="col-md-3">{{product.brand}}</div>
-                                <div class="col-md-2"></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-1"></div>
-                                <div class="col-md-6">Store :</div>
-                                <div class="col-md-3">{{product.store}}</div>
-                                <div class="col-md-2"></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-1"></div>
-                                <div class="col-md-6">Nutriscore :</div>
-                                <div class="col-md-3">{{product.nutriscore}}</div>
-                                <div class="col-md-2"></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-1"></div>
-                                <div class="col-md-6">Fat lipids/100g :</div>
-                                <div class="col-md-3">{{product.fat_lipids_100g}} g</div>
-                                <div class="col-md-2"></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-1"></div>
-                                <div class="col-md-6">Saturated fatty acids/100g :</div>
-                                <div class="col-md-3">{{product.saturated_fatty_acids_100g}} g</div>
-                                <div class="col-md-2"></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-1"></div>
-                                <div class="col-md-6">Sugar/100g :</div>
-                                <div class="col-md-3">{{product.sugar_100g}} g</div>
-                                <div class="col-md-2"></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-1"></div>
-                                <div class="col-md-6">Salt/100g :</div>
-                                <div class="col-md-3">{{product.salt_100g}} g</div>
-                                <div class="col-md-2"></div>
-                            </div>
+                    <div class="col-1"></div>
 
-                            <div class="row" style="height: 5em;"></div>
-                            
-                            <div class="row">
-                                <div class="col-md-3"></div>
-                                <div class="col-md-6">
-                                    <a href="proposed_products/" class="btn btn-primary btn-lg active" role="button" title="Lien 1" style="background-color: green;">Substituer</a>
-                                <div class="col-md-5"></div>
-                            </div>
-    
+                    <div class="col-auto-12 col-md-4">
+                        <div class="row">Nutriscore :</div>
+                        <div class="row">
+                            <div class="col-2"><img class="nutriscore" src="/static/icons/nutriscore-{{product.nutriscore}}.png"></div>
                         </div>
-    
-                        <div class="col-2"></div>
-    
+                        <div class="row">
+                            <div class="col-2">
+                                <a href="proposed_products/" class="btn btn-primary btn-lg active" role="button" title="Lien 1" style="background-color: steelblue;">Substituer</a>
+                            </div>
+                        </div>
                     </div>
-    
-                    <div class="row h-10">
+
+                    <div class="col-auto-12 col-md-4">
+                        <div class="row">
+                            <div class="col-8">Name :</div>
+                            <div class="col-4">{{product.name}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8">Brand :</div>
+                            <div class="col-4">{{product.brand}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8">Store :</div>
+                            <div class="col-4">{{product.store}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8">Fat lipids/100g :</div>
+                            <div class="col-4">{{product.fat_lipids_100g}} g</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8">Saturated fatty acids/100g :</div>
+                            <div class="col-4">{{product.saturated_fatty_acids_100g}} g</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8">Sugar/100g :</div>
+                            <div class="col-4">{{product.sugar_100g}} g</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8">Salt/100g :</div>
+                            <div class="col-4">{{product.salt_100g}} g</div>
+                        </div> 
                     </div>
-    
+
+                    
                 </div>
+
             </div>
-
-            
-
         </header>
+
     {% endfor %}
 
 {% endblock content %}

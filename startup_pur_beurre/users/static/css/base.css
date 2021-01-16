@@ -29,7 +29,6 @@
 }
 
 html {
-  font-family: sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -41,7 +40,7 @@ nav, header, section, footer {
 
 body {
   margin: 0;
-  font-family: "Merriweather", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "Scope One", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -53,7 +52,7 @@ body {
 h1, h2, h3 {
   color: #fff;
   margin-bottom: 0.5rem;
-  font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "Open Sans", sans-serif;
   font-weight: 500;
   line-height: 1.2;
   margin-top: 0;
@@ -101,12 +100,10 @@ button {
   border-radius: 0;border-radius: 0;
 }
 
+
 #carrot {
-  height: 2.5em;
+  height: 4em;
 }
-
-
-
 
 
 
@@ -309,6 +306,8 @@ button {
     max-width: 1140px;
   }
 }
+
+
 .was-validated .custom-control-input:valid:focus:not(:checked) ~ .custom-control-label::before, .custom-control-input.is-valid:focus:not(:checked) ~ .custom-control-label::before {
   border-color: #262c31;
 }
@@ -485,6 +484,17 @@ button {
   left: 0;
   z-index: 1030;
 }
+.bg-primary {
+  background-color: #c45525 !important;
+}
+
+
+
+
+
+
+
+
 
 @supports ((position: -webkit-sticky) or (position: sticky)) {
 }
@@ -551,6 +561,16 @@ button {
     page-break-inside: avoid;
   }
 
+  p,
+h2 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2 {
+    page-break-after: avoid;
+  }
+
   @page {
     size: a3;
   }
@@ -566,8 +586,61 @@ button {
     display: none;
   }
 }
+
+
+
+
+
+
 body,
 html {
   width: 100%;
   height: 100%;
+}
+
+hr.divider {
+  max-width: 3.25rem;
+  border-width: 0.2rem;
+  border-color: #f4623a;
+}
+
+.page-section {
+  padding: 8rem 0;
+}
+
+header.masthead {
+  padding-top: 10rem;
+  padding-bottom: calc(10rem - 4.5rem);
+  background: url("../assets/img/kawin.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
+header.masthead h1 {
+  font-size: 2.25rem;
+}
+
+
+
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.col-lg-10 {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 992px) {
+
+  .col-lg-10 {
+    flex: 0 0 83.3333333333%;
+    max-width: 83.3333333333%;
+  }
 }

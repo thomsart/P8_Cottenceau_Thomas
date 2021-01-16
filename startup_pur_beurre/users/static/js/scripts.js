@@ -74,7 +74,7 @@ function postFormData(url, data){
     .catch(error => console.log(error));
 }
 
-var btn = document.getElementsByClassName('input');
+var btn = document.getElementsByClassName("btn btn-primary");
 
 for(var i = 0; i <= btn.length; i++) {
     (function(index) {

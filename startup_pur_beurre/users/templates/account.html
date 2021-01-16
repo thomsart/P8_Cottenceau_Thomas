@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{%  load static %}
+{% load static %}
 
 {% block content %}
 
@@ -15,12 +15,40 @@
                 </div>
             </div>
             
-            <div id="info_div">
-                <p2>Username: {{user.username}}</p2>
-                <p2>Prénom: {{user.first_name}}</p2>
-                <p2>Nom: {{user.last_name}}</p2>
-                <p2>E-mail: {{user.email}}</p2>
+            <div id="container">
+                <div class="row" style="width: 100%;">
+
+                    <div class="col-2"></div>
+
+                    <div class="col-4">
+                        <div class="row">Photo :</div>
+                        <div class="row">
+                            <div class="col-2"><img src="/static/icons/user.png" style="height: 7em;"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="row">
+                            <div class="col-8">Username: </div>
+                            <div class="col-4">{{user.username}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8">Prénom: </div>
+                            <div class="col-4">{{user.first_name}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8">Nom: </div>
+                            <div class="col-4">{{user.last_name}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8">E-mail: </div>
+                            <div class="col-4">{{user.email}}</div>
+                        </div> 
+                    </div>
+
+                </div>
             </div>
+            
         </div>
     </header>
 
