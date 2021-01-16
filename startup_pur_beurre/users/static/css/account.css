@@ -50,11 +50,16 @@
 
 
 
-#container
-{
+#container {
   display: flex;
   justify-content: space-around;
   background-color: #c45525;
   height: 15em;
   padding-top: 2em;
+}
+@media (max-width: 992px) {
+  #container {
+    flex-direction: column;
+    height: 30em;    
+  }
 }
