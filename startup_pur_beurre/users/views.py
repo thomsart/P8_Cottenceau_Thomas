@@ -123,14 +123,6 @@ def save_product(request, product_id):
 
 
 @login_required
-def account(request):
-    """
-    This view just show all the account details of the user.
-    """
-    return render(request, 'account.html')
-
-
-@login_required
 def user_substitutes(request):
     """
     This view
@@ -153,6 +145,25 @@ def user_substitutes(request):
     }
 
     return render(request, 'user_substitutes.html', context)
+
+
+@login_required
+def delete_product(request, product_id):
+    """
+    This view
+    """
+    id_login_user = request.user.id
+    SavedProducts.objects.filter(user_id=id_login_user, product_id=product_id).delete()
+
+    return redirect('user_substitutes/')
+
+
+@login_required
+def account(request):
+    """
+    This view just show all the account details of the user.
+    """
+    return render(request, 'account.html')
 
 
 def mentions_legales(request):

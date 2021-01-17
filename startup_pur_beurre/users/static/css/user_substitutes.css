@@ -44,3 +44,12 @@
 .text-white {
   color: #fff !important;
 }
+
+
+
+
+
+#id_product
+{
+  visibility: hidden;
+}

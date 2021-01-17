@@ -31,7 +31,8 @@
                             <h5 class="card-title">{{product.name}}</h5>
                             <h6 class="card-title">De marque: {{product.brand}}<br>Chez: {{product.brand}}</h6>
                             <form>
-                                <bouton class="btn btn-primary" type="button" method="POST" style="background-color: red;">Supprimer</bouton>
+                                <a href="delete_product/{{product.id}}" class="btn btn-primary btn-lg active" role="button" style="background-color: red;">Supprimer</a>
+                                <p3 id="id_product">{{product.id}}</p3>
                             </form>
                         </div>
                     </div>
