@@ -36,16 +36,12 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                         {% if user.is_authenticated %}
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/user_substitutes/"><img id="carrot" src="/static/icons/zcarrot-r.png" title="Tes Produits"></a></li>
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/account/"><h3>Compte</h3></a></li>
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'logout' %}"><h3>Déconnexion</h3></a></li>
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about"><h3>Info</h3></a></li>
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact"><h3>Contact</h3></a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/user_substitutes/"><img id="carrot" src="/static/icons/carrot.png" title="Mes Produits"></a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/account/"><img src="/static/icons/icon_user_loged.png" title="Mon Compte"></a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'logout' %}"><img src="/static/icons/icon_logout.png" title="Déconnexion"></a></li>
                         {% else %}
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'login' %}"><h3>Connexion</h3></a></li>
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'signup' %}"><h3>Inscription</h3></a></li>
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about"><h3>Info</h3></a></li>
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact"><h3>Contact</h3></a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'login' %}"><img src="/static/icons/icon_login.png" title="Connexion"></a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'signup' %}"><img src="/static/icons/icon_register.png" title="Créer un compte"></a></li>
                         {% endif %}
                     </ul>
                 </div>
@@ -57,10 +53,13 @@
 
         <!-- Footer-->
         <footer class="bg-light py-5">
-            <div class="container">
-                <a href="/mentions_legales">
-                    <div class="small text-center text-muted">&copy; Copyright {% now 'Y' %} Pur Beurre &middot; All rights reserved !</div>
-                </a>
+            <div class="row">
+                <div class="col-lg-4 ml-auto text-center">
+                    <a href="/mentions_legales">Mentions Légales</a>
+                </div>
+                <div class="col-lg-4 mr-auto text-center">
+                    <a href="/#contact">Contact</a>
+                </div>
             </div>
         </footer>
 
