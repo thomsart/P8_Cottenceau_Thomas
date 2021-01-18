@@ -15,21 +15,22 @@ import json
 from database.models import Products, SavedProducts, ClientUser
 from .form import *
 
-
 # Create your views here.
 
+################################################################################
 class SignUpView(CreateView):
     """
-    This view
+    This view allows the user to login or create an account.
     """
     form_class = AccountForm
     success_url = reverse_lazy('login')
     template_name = 'registration/signup.html'
 
-
+################################################################################
 def home(request):
     """
-    This view
+    This view just generate the home-page and listen GET requests from the two
+    forms.
     """
     product_wanted = SearchProductForm(request.GET)
     context = {'search_product': product_wanted}
@@ -47,7 +48,8 @@ def home(request):
 
             else:
                 """
-                If this product is not in the database we have to do something to make the user aware
+                If this product is not in the database we have to do something
+                to make the user aware
                 """
                 print("aucun produit n'as été trouvé")
 
@@ -60,7 +62,7 @@ def home(request):
 
 def selected_product(request, product_id):
     """
-    This view
+    This view present the product the user wants to substitute.
     """
     product = Products.objects.filter(id=product_id).all().values()
 
@@ -70,10 +72,11 @@ def selected_product(request, product_id):
 
     return render(request, 'selected_product.html', context)
 
-
+################################################################################
 def proposed_products(request, product_id):
     """
-    This view
+    This view shows to the user all the healthier products that could replace
+    the product.
     """
     product_to_substitute = Products.objects.filter(id=product_id).values()
 
@@ -83,7 +86,9 @@ def proposed_products(request, product_id):
         if indice == product_to_substitute[0]['nutriscore']:
             break
         else:
-            proposed_products = Products.objects.filter(cat=product_to_substitute[0]['cat'],nutriscore=indice).all().values()
+            proposed_products = Products.objects.filter(
+                                cat=product_to_substitute[0]['cat'],
+                                nutriscore=indice).all().values()
             for each_product in proposed_products:
                 if each_product['store'] == '':
                     continue
@@ -96,12 +101,13 @@ def proposed_products(request, product_id):
 
     return render(request, 'proposed_products.html', context)
 
-
+################################################################################
 @login_required
 @csrf_exempt
 def save_product(request, product_id):
     """
-    This view
+    This view allows the user to save products if he wants. This required of
+    course from him to register to the site.  
     """
     if request.method == 'POST':
         productId = json.loads(request.body)
@@ -109,26 +115,29 @@ def save_product(request, product_id):
         id_product = Products.objects.get(id=productId)
         userId = request.user.id
         id_login_user = ClientUser.objects.get(id=userId)
-        
-        is_product = SavedProducts.objects.filter(product_id=id_product, user_id=id_login_user)
+
+        is_product = SavedProducts.objects.filter(product_id=id_product,
+                        user_id=id_login_user)
 
         if is_product:
             print("Ce produit à déjà été sauvegardé")
         else:
-            product_to_save = SavedProducts(product_id=id_product, user_id=id_login_user)
+            product_to_save = SavedProducts(product_id=id_product,
+                                user_id=id_login_user)
             product_to_save.save()
             print("Produit enregistré")
 
     return render(request, 'proposed_products.html')
 
-
+################################################################################
 @login_required
 def user_substitutes(request):
     """
-    This view
+    In this view the user can see all his substitutes.
     """
     id_login_user = request.user.id
-    all_id_of_saved_products = SavedProducts.objects.filter(user_id=id_login_user).all().values('product_id_id')
+    all_id_of_saved_products = SavedProducts.objects.filter(
+                            user_id=id_login_user).all().values('product_id_id')
     
     all_ids = []
     for id_save_product in all_id_of_saved_products:
@@ -146,28 +155,30 @@ def user_substitutes(request):
 
     return render(request, 'user_substitutes.html', context)
 
-
+################################################################################
 @login_required
 def delete_product(request, product_id):
     """
-    This view
+    This view allows the user to delete from his account a product he saved.
     """
     id_login_user = request.user.id
-    SavedProducts.objects.filter(user_id=id_login_user, product_id=product_id).delete()
+    SavedProducts.objects.filter(user_id=id_login_user,
+    product_id=product_id).delete()
 
     return redirect('user_substitutes/')
 
-
+################################################################################
 @login_required
 def account(request):
     """
-    This view just show all the account details of the user.
+    This view just show all the account details of the user like his name and
+    e-mail for exemple.
     """
     return render(request, 'account.html')
 
-
+################################################################################
 def mentions_legales(request):
     """
-    This view
+    This view just shows the Legales-Mentions of the site.
     """
     return render(request, 'mentions_legales.html')
