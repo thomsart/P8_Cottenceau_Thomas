@@ -22,6 +22,7 @@ urlpatterns = [
     path('', views.home, name="home"),
     path('signup/', views.SignUpView.as_view(), name='signup'),
     path('account/', views.account),
+    path('search_product/', views.search_product),
     path('selected_product/<product_id>/', views.selected_product, name='selected_product/'),
     path('selected_product/<product_id>/proposed_products/', views.proposed_products, name='proposed_products/'),
     path('selected_product/<product_id>/proposed_products/save_product/', views.save_product, name='save_product/'),

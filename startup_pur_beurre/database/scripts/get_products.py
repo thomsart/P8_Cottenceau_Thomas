@@ -57,6 +57,7 @@ def run():
                 product.sugar_100g = productApi['nutriments']['sugars_100g']
                 product.salt_100g = productApi['nutriments']['salt_100g']
                 product.photo = productApi['image_url']
+                product.link = productApi['url']
 
                 # print(category)
                 # print(productApi['product_name'])
@@ -74,7 +75,7 @@ def run():
                 product.sugar_100g, product.salt_100g, product.photo]
                 print(product_list)
                 print("\n\n\n")
-                
+
                 product.save()
 
             except Exception:

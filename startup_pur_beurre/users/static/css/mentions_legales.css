@@ -28,14 +28,3 @@
     justify-content: center;
     margin-top: 10%;
 }
-
-/* ####################################### */
-/* ##### This part is for login.html ##### */
-/* ####################################### */
-
-#login_form
-{
-    /* border: solid black 1px; */
-    margin: auto;
-    margin-top: 0%;
-}

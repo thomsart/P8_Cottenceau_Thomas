@@ -18,6 +18,7 @@ from .form import *
 # Create your views here.
 
 ################################################################################
+
 class SignUpView(CreateView):
     """
     This view allows the user to login or create an account.
@@ -27,6 +28,7 @@ class SignUpView(CreateView):
     template_name = 'registration/signup.html'
 
 ################################################################################
+
 def home(request):
     """
     This view just generate the home-page and listen GET requests from the two
@@ -59,6 +61,29 @@ def home(request):
 
     return render(request, 'home.html', context)
 
+################################################################################
+
+def search_product(request):
+    """
+    This view present the product the user wants to substitute.
+    """
+    if request.method == 'POST':
+        product_name = json.loads(request.body)
+
+
+        print(product_name)
+        print(product_name['name'])
+
+        # if product_wanted_nav_bar.is_valid():
+        #     product_name = product_wanted_nav_bar.cleaned_data['product_name']
+        #     product = Products.objects.filter(name__iexact=product_name).values()
+
+        #     if product:
+        #         product_id = int(product[0]['id'])
+
+        return redirect('selected_product/')
+
+################################################################################
 
 def selected_product(request, product_id):
     """
@@ -73,6 +98,7 @@ def selected_product(request, product_id):
     return render(request, 'selected_product.html', context)
 
 ################################################################################
+
 def proposed_products(request, product_id):
     """
     This view shows to the user all the healthier products that could replace
@@ -102,6 +128,7 @@ def proposed_products(request, product_id):
     return render(request, 'proposed_products.html', context)
 
 ################################################################################
+
 @login_required
 @csrf_exempt
 def save_product(request, product_id):
@@ -130,6 +157,7 @@ def save_product(request, product_id):
     return render(request, 'proposed_products.html')
 
 ################################################################################
+
 @login_required
 def user_substitutes(request):
     """
@@ -156,6 +184,7 @@ def user_substitutes(request):
     return render(request, 'user_substitutes.html', context)
 
 ################################################################################
+
 @login_required
 def delete_product(request, product_id):
     """
@@ -168,6 +197,7 @@ def delete_product(request, product_id):
     return redirect('user_substitutes/')
 
 ################################################################################
+
 @login_required
 def account(request):
     """
@@ -177,6 +207,7 @@ def account(request):
     return render(request, 'account.html')
 
 ################################################################################
+
 def mentions_legales(request):
     """
     This view just shows the Legales-Mentions of the site.

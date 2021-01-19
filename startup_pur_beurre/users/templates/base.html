@@ -31,14 +31,19 @@
                 <a href="/">
                     <img id="petit_beurre_icon" src="/static/icons/icon_petit_beurre.png" title="Accueil">
                 </a>
+                <div class="col-1"></div>
                 <a class="navbar-brand js-scroll-trigger" href="#page-top"><h3 title="Haut-de-page">Pur Beurre</h3></a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                        <form method="POST">
+
+                        <form id="product_name" method="post" action="/search_product/">
                             {% csrf_token %}
-                            <input type="text" placeholder="Chercher" title="Entre une catégorie de produit que tu aimerai pouvoir substituer" maxlength="40">
+                            <input id="name" type="text" placeholder="Chercher" title="Recherche un produit" maxlength="40">
+                            <input type="submit" value="Valider">
                         </form>
+
+                        <div class="col-1"></div>
                         {% if user.is_authenticated %}
                             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/user_substitutes/"><img id="carrot" src="/static/icons/carrot.png" title="Mes Produits"></a></li>
                             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/account/"><img src="/static/icons/icon_user_loged.png" title="Mon Compte"></a></li>

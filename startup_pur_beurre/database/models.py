@@ -19,6 +19,7 @@ class Products(models.Model):
     sugar_100g = models.CharField(max_length=10)
     salt_100g = models.CharField(max_length=10)
     photo = models.URLField(max_length=250)
+    link = models.URLField(max_length=250)
 
     def __str__(self):
         return self.name
