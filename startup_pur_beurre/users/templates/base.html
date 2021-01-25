@@ -36,11 +36,10 @@
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
-
-                        <form id="product_name" method="post" action="/search_product/">
+                    
+                        <form action="/search_product/" title="Recherche">
                             {% csrf_token %}
-                            <input id="name" type="text" placeholder="Chercher" title="Recherche un produit" maxlength="40">
-                            <input type="submit" value="Valider">
+                            {{ form_nav_bar }}
                         </form>
 
                         <div class="col-1"></div>

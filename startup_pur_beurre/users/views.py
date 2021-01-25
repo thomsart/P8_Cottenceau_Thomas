@@ -9,11 +9,14 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
 from django.http import HttpRequest, HttpResponse, HttpResponseRedirect, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.template import loader
 import requests
+
 
 import json
 from database.models import Products, SavedProducts, ClientUser
 from .form import *
+from . import context_processor
 
 # Create your views here.
 
@@ -49,11 +52,7 @@ def home(request):
                 return redirect('selected_product/', product_id=product_id)
 
             else:
-                """
-                If this product is not in the database we have to do something
-                to make the user aware
-                """
-                print("aucun produit n'as été trouvé")
+                return redirect('home', { "alert": "Visiblemet ce produit n'éxiste pas. Peu-être l'as tu mal orthographié ?"})
 
         else:
             print("Non valide")
@@ -67,21 +66,19 @@ def search_product(request):
     """
     This view present the product the user wants to substitute.
     """
-    if request.method == 'POST':
-        product_name = json.loads(request.body)
+    # template = loader.get_template("users/base.html")
 
+    query = request.GET.get("product_name_nav_bar")
+    
+    product = Products.objects.filter(name__iexact=query).values()
+    if product:
+        product_id = int(product[0]['id'])
 
-        print(product_name)
-        print(product_name['name'])
+        return redirect('selected_product/', product_id=product_id)
 
-        # if product_wanted_nav_bar.is_valid():
-        #     product_name = product_wanted_nav_bar.cleaned_data['product_name']
-        #     product = Products.objects.filter(name__iexact=product_name).values()
+    else:
+        return redirect('home', { "alert": "Visiblemet ce produit n'éxiste pas. Peu-être l'as tu mal orthographié ?"})
 
-        #     if product:
-        #         product_id = int(product[0]['id'])
-
-        return redirect('selected_product/')
 
 ################################################################################
 
@@ -176,7 +173,7 @@ def user_substitutes(request):
     for each_id in all_ids:
         product = Products.objects.filter(id=each_id).all().values()
         list_of_saved_products.append(product[0])
-        
+
     context = {
         'products': list_of_saved_products,
     }

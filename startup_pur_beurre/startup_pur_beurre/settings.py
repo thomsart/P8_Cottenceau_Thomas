@@ -68,10 +68,12 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'users.context_processor.form_renderer'
             ],
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'startup_pur_beurre.wsgi.application'
 

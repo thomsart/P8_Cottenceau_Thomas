@@ -75,7 +75,6 @@ function postFormData(url, data){
 }
 
 var btn = document.getElementsByClassName("btn btn-primary");
-
 for(var i = 0; i <= btn.length; i++) {
     (function(index) {
     btn[index].addEventListener("click", function() {
@@ -85,3 +84,7 @@ for(var i = 0; i <= btn.length; i++) {
     })
     })(i);
 }
+
+
+
+
