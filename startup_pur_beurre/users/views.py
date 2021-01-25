@@ -12,7 +12,6 @@ from django.views.decorators.csrf import csrf_exempt
 from django.template import loader
 import requests
 
-
 import json
 from database.models import Products, SavedProducts, ClientUser
 from .form import *
@@ -52,10 +51,9 @@ def home(request):
                 return redirect('selected_product/', product_id=product_id)
 
             else:
-                return redirect('home', { "alert": "Visiblemet ce produit n'éxiste pas. Peu-être l'as tu mal orthographié ?"})
+                messages.info(request, "Aucun produit n'a été trouvé, Vérifie que l'orthographe est la bonne !")
 
         else:
-            print("Non valide")
             product_wanted = SearchProductForm(request.GET)
 
     return render(request, 'home.html', context)
@@ -68,16 +66,16 @@ def search_product(request):
     """
     # template = loader.get_template("users/base.html")
 
-    query = request.GET.get("product_name_nav_bar")
+    query = request.POST.get("product_name_nav_bar")
     
     product = Products.objects.filter(name__iexact=query).values()
     if product:
         product_id = int(product[0]['id'])
-
         return redirect('selected_product/', product_id=product_id)
 
     else:
-        return redirect('home', { "alert": "Visiblemet ce produit n'éxiste pas. Peu-être l'as tu mal orthographié ?"})
+        messages.info(request, "Aucun produit n'a été trouvé, Vérifie que l'orthographe est la bonne !")
+        return redirect('home')
 
 
 ################################################################################
@@ -144,12 +142,11 @@ def save_product(request, product_id):
                         user_id=id_login_user)
 
         if is_product:
-            print("Ce produit à déjà été sauvegardé")
+            pass
         else:
             product_to_save = SavedProducts(product_id=id_product,
                                 user_id=id_login_user)
             product_to_save.save()
-            print("Produit enregistré")
 
     return render(request, 'proposed_products.html')
 

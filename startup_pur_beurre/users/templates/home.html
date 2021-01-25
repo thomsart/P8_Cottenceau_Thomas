@@ -20,6 +20,9 @@
                         {{ search_product }}
                         <input type="submit" value="Valider">
                     </form>
+                    {%  for message in messages %}
+                        <div {% if message.tags %} class="{{message.tags}}" style="background-color: red; width: 70%;" {% endif %}><p>{{message}}</p></div>
+                    {% endfor %}
                     <!-- <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Recherche</a> -->
                 </div>
             </div>
