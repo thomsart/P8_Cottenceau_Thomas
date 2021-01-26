@@ -80,7 +80,7 @@ def search_product(request):
 
 def selected_product(request, product_id):
     """
-    This view present the product the user wants to substitute.
+    This view show all features of the product the user wants to substitute.
     """
     product = Products.objects.filter(id=product_id).all().values()
     context = {
@@ -117,11 +117,17 @@ def proposed_products(request, product_id):
                 else:
                     all_proposed_products.append(each_product)
 
-    context = {
-        'products': all_proposed_products,
-    }
+    if all_proposed_products == []:
+        messages.info(request, "Visiblement il n'y a pas de meilleurs substitus à ce produit")
 
-    return render(request, 'proposed_products.html', context)
+        return render(request, 'proposed_products.html')
+
+    else:
+        context = {
+            'products': all_proposed_products,
+        }
+
+        return render(request, 'proposed_products.html', context)
 
 ################################################################################
 

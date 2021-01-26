@@ -10,7 +10,13 @@
         <div class="container h-100">
             <div class="row h-100 align-items-center justify-content-center text-center">
                 <div class="col-lg-10 align-self-end">
-                    <h1 class="text-white font-weight-bold">Voici des substituts plus sains !</h1>
+                    <h1 class="text-white font-weight-bold">
+                        {% for message in messages %}
+                            {{message}}
+                        {% empty %}
+                            Voici des substituts plus sains !
+                        {% endfor %}
+                    </h1>
                     <hr class="divider my-4" />
                 </div>
             </div>
