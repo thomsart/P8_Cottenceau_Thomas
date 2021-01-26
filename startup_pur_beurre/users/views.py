@@ -33,8 +33,8 @@ class SignUpView(CreateView):
 
 def home(request):
     """
-    This view just generate the home-page and listen GET requests from the two
-    forms.
+    This view just generate the home-page and listen GET requests from the forms
+    in the body.
     """
     product_wanted = SearchProductForm(request.GET)
     context = {'search_product': product_wanted}
@@ -64,19 +64,17 @@ def search_product(request):
     """
     This view present the product the user wants to substitute.
     """
-    # template = loader.get_template("users/base.html")
-
     query = request.POST.get("product_name_nav_bar")
-    
     product = Products.objects.filter(name__iexact=query).values()
+
     if product:
         product_id = int(product[0]['id'])
+
         return redirect('selected_product/', product_id=product_id)
 
     else:
         messages.info(request, "Aucun produit n'a été trouvé, Vérifie que l'orthographe est la bonne !")
         return redirect('home')
-
 
 ################################################################################
 
@@ -85,7 +83,6 @@ def selected_product(request, product_id):
     This view present the product the user wants to substitute.
     """
     product = Products.objects.filter(id=product_id).all().values()
-
     context = {
         'product': product,
     }
@@ -100,19 +97,23 @@ def proposed_products(request, product_id):
     the product.
     """
     product_to_substitute = Products.objects.filter(id=product_id).values()
-
     all_proposed_products = []
     indices = ['a', 'b', 'c', 'd', 'e']
+
     for indice in indices:
         if indice == product_to_substitute[0]['nutriscore']:
             break
+
         else:
             proposed_products = Products.objects.filter(
                                 cat=product_to_substitute[0]['cat'],
                                 nutriscore=indice).all().values()
+
             for each_product in proposed_products:
+
                 if each_product['store'] == '':
                     continue
+
                 else:
                     all_proposed_products.append(each_product)
 
@@ -137,12 +138,12 @@ def save_product(request, product_id):
         id_product = Products.objects.get(id=productId)
         userId = request.user.id
         id_login_user = ClientUser.objects.get(id=userId)
-
         is_product = SavedProducts.objects.filter(product_id=id_product,
                         user_id=id_login_user)
 
         if is_product:
             pass
+
         else:
             product_to_save = SavedProducts(product_id=id_product,
                                 user_id=id_login_user)
@@ -160,9 +161,10 @@ def user_substitutes(request):
     id_login_user = request.user.id
     all_id_of_saved_products = SavedProducts.objects.filter(
                             user_id=id_login_user).all().values('product_id_id')
-    
+
     all_ids = []
     for id_save_product in all_id_of_saved_products:
+
         for key, value in id_save_product.items():
             all_ids.append(value)
 
