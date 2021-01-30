@@ -25,6 +25,3 @@ class SearchProductForm(forms.Form):
 
 class FormNavBar(forms.Form):
     product_name_nav_bar = forms.CharField(label='', max_length=70)
-
-    
-
