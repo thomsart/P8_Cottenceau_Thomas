@@ -28,6 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# os.environ['DJANGO_SETTINGS_MODULE'] = 'mysite.settings'
 
 # Application definition
 
