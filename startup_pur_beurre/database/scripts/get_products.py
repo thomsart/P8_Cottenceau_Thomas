@@ -17,50 +17,33 @@ def run():
         brand and nutritional composition.
     """
 
-    name_file = input("quel json veux tu traiter ?")
+    name_file = input("quel json veux tu traiter ?    ")
     file_json = tools.open_json_file(name_file)
 
-    count = 0
-    while count < file_json['number_of_products']:
-        """
-        Now we do a while loop to browse and catch all the values which
-        we need for our table 'products'.
-        """
-        try:
-            productApi = file_json['list_of_products'][0][count]
-            product = Products()
+    if file_json == False:
 
-            product.cat = file_json['category']
-            product.name = productApi['product_name']
-            product.brand = productApi['brands']
-            product.store = productApi['stores']
-            product.nutriscore = productApi['nutriscore_grade']
-            product.fat_lipids_100g = productApi['nutriments']['fat_100g']
-            product.saturated_fatty_acids_100g = productApi['nutriments']['saturated-fat_100g']
-            product.sugar_100g = productApi['nutriments']['sugars_100g']
-            product.salt_100g = productApi['nutriments']['salt_100g']
-            product.photo = productApi['image_url']
-            product.link = productApi['url']
+        return print("End !")
 
-            product_list = [product.cat, product.name, product.brand, product.store,
-            product.nutriscore, product.fat_lipids_100g, product.saturated_fatty_acids_100g,
-            product.sugar_100g, product.salt_100g, product.photo]
-            print(product_list)
-            print("\n")
+    else:
+        if tools.is_product_in_file(file_json) == True:
+            tools.put_products_in_db(file_json)
 
-            # product.save()
+        else:
+            pass
 
-        except Exception:
-            """
-            We choose to not take products for which the headers are empty or missed.
-            """
-            print("==========Incomplete product==========\n")
-            count += 1
-            continue
+        return print("End !")
 
-        count += 1
+################################################################################
 
-    return print("End !")
+
+
+
+
+
+
+
+
+
 
     # category = input("Quelle categorie veux tu importer ?\n")
     # url = 'https://fr-en.openfoodfacts.org/category/' + category + '/1.json'
