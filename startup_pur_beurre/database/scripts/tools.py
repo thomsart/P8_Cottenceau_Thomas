@@ -16,7 +16,7 @@ from ..json_folder import *
 ################################################################################
 
 def open_json_file(name_file):
-    
+
     """
         This method open a json and put all the datas we need in a dictionary.
     """
@@ -54,7 +54,7 @@ def is_product_in_file(dict):
     if dict['number_of_products'] == 0:
         print("Aucun produit n'est présent dans ce fichier.")
         return False
-    
+
     else:
         return True
 
@@ -77,7 +77,6 @@ def put_products_in_db(dict):
         try:
             productApi = dict['list_of_products'][0][count]
             product = Products()
-
             product.cat = dict['category']
             product.name = productApi['product_name']
             product.brand = productApi['brands']
@@ -89,7 +88,7 @@ def put_products_in_db(dict):
             product.salt_100g = productApi['nutriments']['salt_100g']
             product.photo = productApi['image_url']
             product.link = productApi['url']
-            # product.save
+            product.save()
             new_product_in_db += 1
 
         except Exception:
@@ -100,7 +99,7 @@ def put_products_in_db(dict):
             continue
 
         count += 1
-    
+
     if new_product_in_db > 0:
         print(str(new_product_in_db) + " produit(s) vient(nent) d'être ajouté(s) dans la base.")
         return True
