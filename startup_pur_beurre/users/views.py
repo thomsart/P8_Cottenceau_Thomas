@@ -23,7 +23,7 @@ from . import context_processor
 
 class SignUpView(CreateView):
     """
-    This view allows the user to login or create an account.
+        This view allows the user to login or create an account.
     """
     form_class = AccountForm
     success_url = reverse_lazy('login')
@@ -33,8 +33,8 @@ class SignUpView(CreateView):
 
 def home(request):
     """
-    This view just generate the home-page and listen GET requests from the forms
-    in the body.
+        This view just generate the home-page and listen GET requests from the forms
+        in the body.
     """
     product_wanted = SearchProductForm(request.GET)
     context = {'search_product': product_wanted}
@@ -62,7 +62,9 @@ def home(request):
 
 def search_product(request):
     """
-    This view present the product the user wants to substitute.
+        This view present the product the user wants to substitute. If the product
+        doesn't exists a message appears in the view to inform the user that maybe
+        the orthograph wasn't good or unknow.  
     """
     query = request.POST.get("product_name_nav_bar")
     product = Products.objects.filter(name__iexact=query).values()
@@ -80,7 +82,7 @@ def search_product(request):
 
 def selected_product(request, product_id):
     """
-    This view show all features of the product the user wants to substitute.
+        This view show all features of the product the user wants to substitute.
     """
     product = Products.objects.filter(id=product_id).all().values()
     context = {
@@ -93,8 +95,8 @@ def selected_product(request, product_id):
 
 def proposed_products(request, product_id):
     """
-    This view shows to the user all the healthier products that could replace
-    the product.
+        This view shows to the user all the healthier products that could replace
+        the product.
     """
     product_to_substitute = Products.objects.filter(id=product_id).values()
     all_proposed_products = []
@@ -135,8 +137,8 @@ def proposed_products(request, product_id):
 @csrf_exempt
 def save_product(request, product_id):
     """
-    This view allows the user to save products if he wants. This required of
-    course from him to register to the site.  
+        This view allows the user to save products if he wants. This required of
+        course from him to register to the site.  
     """
     if request.method == 'POST':
         productId = json.loads(request.body)
@@ -162,7 +164,7 @@ def save_product(request, product_id):
 @login_required
 def user_substitutes(request):
     """
-    In this view the user can see all his substitutes.
+        In this view the user can see all his substitutes.
     """
     id_login_user = request.user.id
     all_id_of_saved_products = SavedProducts.objects.filter(
@@ -190,7 +192,7 @@ def user_substitutes(request):
 @login_required
 def delete_product(request, product_id):
     """
-    This view allows the user to delete from his account a product he saved.
+        This view allows the user to delete from his account a product he saved.
     """
     id_login_user = request.user.id
     SavedProducts.objects.filter(user_id=id_login_user,
@@ -203,8 +205,8 @@ def delete_product(request, product_id):
 @login_required
 def account(request):
     """
-    This view just show all the account details of the user like his name and
-    e-mail for exemple.
+        This view just show all the account details of the user like his name and
+        e-mail for exemple.
     """
     return render(request, 'account.html')
 
@@ -212,6 +214,6 @@ def account(request):
 
 def mentions_legales(request):
     """
-    This view just shows the Legales-Mentions of the site.
+        This view just shows the Legales-Mentions of the site.
     """
     return render(request, 'mentions_legales.html')
