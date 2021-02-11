@@ -24,13 +24,25 @@ class TestViews(TestCase):
 
         self.client = Client()
 
-        self.user = ClientUser.objects.create(
-            password='hidao1985+',
-            username='Dédé',
-            first_name='Dédé',
-            last_name='Patel',
-            email='theemail@gmail.com',
+        self.user_signup = {
+            'username': 'dédé',
+            'first_name': 'dédé',
+            'last_name': 'patel',
+            'email': 'dedepatel@gmail.com',
+            'password1': 'thepassword1985+',
+            'password2': 'thepassword1985+',
+        }
+
+        self.user_login = ClientUser.objects.create(
+            password='21virgulegigawatts+',
+            username='george',
+            first_name='george',
+            last_name='mcfly',
+            email='backtothefutur@gmail.com',
+            is_active=True
             )
+
+        self.user_login_datas = ClientUser.objects.filter(last_name='mcfly').values('first_name', 'password')[0]
 
         self.product = Products.objects.create(
             cat= 'test',
@@ -45,6 +57,8 @@ class TestViews(TestCase):
             photo='https://static.openfoodfacts.org/images/products.jpg',
             link='https://fr-en.openfoodfacts.org/product/comte-12-mois-juraflore'
             )
+        
+        self.product_datas = Products.objects.filter(name='product').values()[0]
 
         self.product_without_substitute = Products.objects.create(
             cat='test',
@@ -73,6 +87,8 @@ class TestViews(TestCase):
             photo='https://static.openfoodfacts.org/images/products.jpg',
             link='https://fr-en.openfoodfacts.org/product/comte-12-mois-juraflore'
             )
+
+        return super().setUp()
 
     def test_home(self):
         response = self.client.get(reverse('home'))
@@ -106,27 +122,44 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'mentions_legales.html')  
 
-    def test_signup(self):
-
-    def test_login(self):
-
-    def test_save_product(self):
-        id_product = Products.objects.get(name="product").id
-        response = self.client.get(reverse('save_product/', args=[id_product]))
+    def test_signup_page(self):
+        response = self.client.get(reverse('signup'))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'proposed_products.html')
+        self.assertTemplateUsed(response, 'registration/signup.html')
+
+    def test_login_page(self):
+        response = self.client.get(reverse('login'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'registration/login.html')
+
+    def test_signup_success(self):
+        response = self.client.post(reverse('signup'), self.user_signup, format='text/html')
+        self.assertEqual(response.status_code, 302)
+
+    def test_login_success(self):
+        self.user_login.save()
+        response = self.client.post(reverse('login'), self.user_login_datas, format='text/html')
+        self.assertEqual(response.status_code, 302)
+
+    # def test_save_product(self):
+    #     id_product = Products.objects.get(name="product").id
+    #     response = self.client.get(reverse('save_product/', args=[id_product]))
+    #     self.assertEqual(response.status_code, 200)
+    #     self.assertTemplateUsed(response, 'proposed_products.html')
+
+    # def test_delete_product(self):
+    #     response = self.client.get(reverse('delete_product/'))
+    #     self.assertEqual(response.status_code, 200)
+    #     self.assertTemplateUsed(response, 'user_substitutes.html')
 
     def test_user_substitutes(self):
-        response = self.client.get(reverse('user_substitutes/'))
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'user_substitutes.html')
-
-    def test_delete_product(self):
-        response = self.client.get(reverse('delete_product/'))
+        self.client.force_login(self.user_login)
+        response = self.client.get(reverse('user_substitutes/'), self.product_datas, format='text/html')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'user_substitutes.html')
 
     def test_account(self):
+        self.client.force_login(self.user_login)
         response = self.client.get(reverse('account/'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'account.html')

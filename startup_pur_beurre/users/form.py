@@ -13,7 +13,7 @@ from .models import ClientUser
 class AccountForm(UserCreationForm):
     class Meta:
         model = ClientUser
-        fields = ('username','first_name', 'last_name', 'email', 'password')
+        fields = ('username','first_name', 'last_name', 'email')
 
 class LoginForm(UserChangeForm):
     class Meta:
