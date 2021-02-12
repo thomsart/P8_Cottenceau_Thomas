@@ -33,7 +33,7 @@ class TestViews(TestCase):
             'password2': 'thepassword1985+',
         }
 
-        self.user_login = ClientUser.objects.create(
+        self.user_login = ClientUser.objects.create_user(
             password='21virgulegigawatts+',
             username='george',
             first_name='george',
@@ -41,8 +41,6 @@ class TestViews(TestCase):
             email='backtothefutur@gmail.com',
             is_active=True
             )
-
-        self.user_login_datas = ClientUser.objects.filter(last_name='mcfly').values('first_name', 'password')[0]
 
         self.product = Products.objects.create(
             cat= 'test',
@@ -118,8 +116,7 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 302)
 
     def test_login_success(self):
-        self.user_login.save()
-        response = self.client.post(reverse('login'), self.user_login_datas, format='text/html')
+        response = self.client.post(reverse('login'), {'username': 'george', 'password': '21virgulegigawatts+'})
         self.assertEqual(response.status_code, 302)
 
     def test_save_product(self):
