@@ -5,7 +5,6 @@ from django.test import TestCase
 
 from database.models import Products
 from database.scripts import tools
-import database.json_folder as jf
 
 # Create your tests here
 

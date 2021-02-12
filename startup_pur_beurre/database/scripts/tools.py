@@ -16,7 +16,6 @@ from ..json_folder import *
 ################################################################################
 
 def open_json_file(name_file):
-
     """
         This method open a json and put all the datas we need in a dictionary.
     """
@@ -46,7 +45,6 @@ def open_json_file(name_file):
 ################################################################################
 
 def is_product_in_file(dict):
-
     """
         This methode just check if at least one product exist in the dictionary
         and return 'True' when it's the case if not 'False'. 
@@ -61,7 +59,6 @@ def is_product_in_file(dict):
 ################################################################################
 
 def put_products_in_db(dict):
-
     """
         This method extracts from the dict the products from the dictionary
         and return 'True' when at least one product was saved in db and 'False'
