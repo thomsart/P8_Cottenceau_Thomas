@@ -19,21 +19,21 @@ def run():
         brand and nutritional composition.
     """
 
-    # name_file = input("quel json veux tu traiter ?    ")
-    # file_json = tools.open_json_file(name_file)
+    name_file = input("quel json veux tu traiter ?    ")
+    file_json = tools.open_json_file(name_file)
 
-    # if file_json == False:
+    if file_json == False:
 
-    #     return print("End !")
+        return print("End !")
 
-    # else:
-    #     if tools.is_product_in_file(file_json) == True:
-    #         tools.put_products_in_db(file_json)
+    else:
+        if tools.is_product_in_file(file_json) == True:
+            tools.put_products_in_db(file_json)
 
-    #     else:
-    #         pass
+        else:
+            pass
 
-    #     return print("End !")
+        return print("End !")
 
 ################################################################################
 
@@ -47,14 +47,14 @@ def run():
 
 
 
-    category = input("Quelle categorie veux tu importer ?\n")
-    url = 'https://fr-en.openfoodfacts.org/category/' + category + '/1.json'
-    requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
-    response = requests.get(url, verify=False)
-    data = response.json()
-    print(data)
+    # category = input("Quelle categorie veux tu importer ?\n")
+    # url = 'https://fr-en.openfoodfacts.org/category/' + category + '/1.json'
+    # requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
+    # response = requests.get(url, verify=False)
+    # data = response.json()
+    # print(data)
 
-    return
+    # return
 
     # i = 1
     # try:

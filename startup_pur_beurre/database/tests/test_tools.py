@@ -5,7 +5,7 @@ from django.test import TestCase
 
 from database.models import Products
 from database.scripts import tools
-
+import database.json_folder as jf
 
 # Create your tests here
 
@@ -94,6 +94,30 @@ class TestViews(TestCase):
                     }
                 ]]
             }
+
+        self.open_json_file_good_return = {
+            'category': 'test', 
+            'number_of_products': 1, 
+            'list_of_products': [[{
+                'product_name': 'tube_head_667', 
+                'brands': 'randall', 
+                'particularity': "it's_makes_me_happy_when_I_plug_it_and_play", 
+                'stores': 'carrouf', 
+                'nutriscore_grade': 'a', 
+                'nutriments': {
+                    'fat_100g': 0.5, 
+                    'saturated-fat_100g': 0.5, 
+                    'sugars_100g': 0.5, 'salt_100g': 0.5
+                    }, 
+                'image_url': 'https://static.openfoodfacts.org/images/products/261/front_fr.jpg', 
+                'url': 'https://en-fr.openfoodfacts.org/the_url_of_the_product.com', 
+                'an_other_header': 'lets_imagine_an_other_header_to_check_'
+            }]]
+        }
+
+    def test_open_json_file(self):
+        assert tools.open_json_file("fake_file.json") == False
+        assert tools.open_json_file("test_1.json") == self.open_json_file_good_return
 
     def test_is_product_in_file(self):
         assert tools.is_product_in_file(self.dict_without_product) == False
