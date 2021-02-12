@@ -90,7 +90,7 @@ class TestViews(TestCase):
     def test_search_product_failed(self):
         response = self.client.get(reverse('search_product/'))
         self.assertEqual(response.status_code, 302)
-    
+
     def test_selected_product(self):
         id_product = Products.objects.get(name="product").id
         response = self.client.get(reverse('selected_product/', args=[id_product]))
