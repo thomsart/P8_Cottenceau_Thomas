@@ -36,7 +36,7 @@ Répetez autant de fois l'opération que vous désirez de produits dans votre ba
 <em>http://localhost:8000</em> (ici '8000' sur ma machine mais regardez le numéro du votre dans le terminal lors de l'activation de votre server.)
 
 6. Il vous est possible de lancer les tests ou le coverage (couverture des test) après amélioration de votre part en éxécutant les commandes suivantes:<br>
-<em>pytest</em> (lance tout les tests des applications)
+<em>pytest</em> (lance tout les tests des applications)<br>
 Et pour avoir la couverture des tests faites:<br>
 <em>pytest --cov=users</em> (pour l'application 'users')<br>
 <em>pytest --cov=database</em> (pour l'application 'database')<br>
