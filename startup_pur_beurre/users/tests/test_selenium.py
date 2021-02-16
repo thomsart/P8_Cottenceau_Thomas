@@ -1,40 +1,48 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from selenium import webdriver
+import pytest
+
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
+
+from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as ex_co
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support.expected_conditions import presence_of_element_located
-import time
 
-options = Options()
-options.add_argument("--disable-extensions")
-driver = webdriver.Chrome("C:\Program Files (x86)\chromedriver.exe", options=options)
-driver.maximize_window()
-driver.implicitly_wait(10)
-driver.get("http://localhost:8000/")
+""" In this file we do one functional-test in the 'users' application. """
 
-search = driver.find_element(By.ID, "id_product_name")
-search.send_keys("frosties")
-search.send_keys(Keys.ENTER)
-search.clear()
-time.sleep(5)
+################################################################################
+##                                   TESTS                                    ##
+################################################################################
 
-try:
-    result = WebDriverWait(driver, 10).until(ex_co.presence_of_element_located((By)))
-except Exception:
-    print("erreur: La page ne s'est pas ouverte!!!")
+class TestViews(StaticLiveServerTestCase):
+    """ We create this test class with the 'StaticLiveServerTestCase' of Django 
+    in order to automatise this functionnal test of our plateforme. """
 
+    @classmethod
+    def setUpClass(cls):
+        """ All the features of our driver like the path to run it. """
+        
+        super().setUpClass()
+        cls.selenium = WebDriver(executable_path="C:\Program Files (x86)\chromedriver.exe")
+        cls.selenium.implicitly_wait(10)
 
-driver.quit()
+    @classmethod
+    def tearDownClass(cls):
+        """ The attribute to close our driver. """
 
+        cls.selenium.quit()
+        super().tearDownClass()
 
-# with driver:
-#     wait = WebDriverWait(driver, 20)
-#     driver.get("http://localhost:8000/")
-#     driver.find_element(By.ID, "search_product_home").send_keys("frosties" + Keys.RETURN)
-#     first_result = wait.until(presence_of_element_located((By.CSS_SELECTOR, "h3>div")))
-#     print(first_result.get_attribute("textContent"))
+    def test_is_product_show(self):
+        """ This test allows us to check if the fact that enter in the home-page
+        formulaire the 'frosties' product redirect to the 'selected_products/'
+        url by checking if the 'selected_products.html' template is used. """
+
+        self.selenium.get("http://localhost:8000/")
+        response = self.selenium.find_element(By.ID, "id_product_name")
+        response.send_keys("frosties")
+        response.send_keys(Keys.ENTER)
+        self.assertTemplateUsed('selected_product.html')
+
+################################################################################

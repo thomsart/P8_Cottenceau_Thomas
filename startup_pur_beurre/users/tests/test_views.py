@@ -9,18 +9,17 @@ from database.models import Products
 from users.models import ClientUser
 from django.contrib import messages
 
+""" In this file we test all our views in the 'users' application in asserting
+of the used templates, the requests code or the urls redirections. """
 
-
-# Create your tests here.
-
+################################################################################
+##                                 TESTS                                      ##
 ################################################################################
 
 class TestViews(TestCase):
 
     def setUp(self):
-        """
-            We defined here all the datas we need to do the tests.
-        """
+        """ We defined here all the datas we create to do our tests. """
 
         self.client = Client()
 
@@ -81,7 +80,8 @@ class TestViews(TestCase):
 
     def test_search_product(self):
         id_product = Products.objects.get(name="product").id
-        response = self.client.get(reverse('selected_product/', args=[id_product]))
+        response = self.client.get(reverse('selected_product/',
+                                            args=[id_product]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'selected_product.html')
 
@@ -91,13 +91,15 @@ class TestViews(TestCase):
 
     def test_selected_product(self):
         id_product = Products.objects.get(name="product").id
-        response = self.client.get(reverse('selected_product/', args=[id_product]))
+        response = self.client.get(reverse('selected_product/',
+                                            args=[id_product]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'selected_product.html')
     
     def test_proposed_products(self):
         id_product = Products.objects.get(name="product").id
-        response = self.client.get(reverse('proposed_products/', args=[id_product]))
+        response = self.client.get(reverse('proposed_products/',
+                                            args=[id_product]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'proposed_products.html')
 
@@ -112,34 +114,37 @@ class TestViews(TestCase):
         self.assertTemplateUsed(response, 'registration/login.html')
 
     def test_signup_success(self):
-        response = self.client.post(reverse('signup'), self.user_signup, format='text/html')
+        response = self.client.post(reverse('signup'), self.user_signup,
+                                    format='text/html')
         self.assertEqual(response.status_code, 302)
 
     def test_login_success(self):
-        response = self.client.post(reverse('login'), {'username': 'george', 'password': '21virgulegigawatts+'})
+        response = self.client.post(reverse('login'),
+                                    {'username': 'george',
+                                    'password': '21virgulegigawatts+'
+                                    })
         self.assertEqual(response.status_code, 302)
 
     def test_save_product(self):
         self.client.force_login(self.user_login)
         id_product = Products.objects.get(name="product").id
-        response = self.client.post(reverse('proposed_products/', args=[id_product]))
+        response = self.client.post(reverse('proposed_products/',
+                                            args=[id_product]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'proposed_products.html')
 
     def test_user_substitutes(self):
         self.client.force_login(self.user_login)
-        response = self.client.get(reverse('user_substitutes/'), self.product_datas, format='text/html')
+        response = self.client.get(reverse('user_substitutes/'),
+                                    self.product_datas, format='text/html')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'user_substitutes.html')
 
     def test_delete_product(self):
         self.client.force_login(self.user_login)
         id_product = Products.objects.get(name="product").id
-        response = self.client.post(reverse('delete_product/', args=[id_product]))
-        # product = Products.objects.get(name="product")
-        # product.delete()
-        # is_product=Products.objects.get(name="product")
-        # self.assertEqual(is_product, is_product.DoesNotExist)
+        response = self.client.post(reverse('delete_product/',
+                                            args=[id_product]))
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, '/user_substitutes/')
 
@@ -153,3 +158,5 @@ class TestViews(TestCase):
         response = self.client.get(reverse('mentions_legales/'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'mentions_legales.html')
+
+################################################################################
