@@ -1,0 +1,24 @@
+{
+    "page": "1",
+    "page_size": 24,
+    "skip": 0,
+    "count": 2042,
+    "page_count": 24,
+    "products": [
+        {"product_name": "tube_head_667",
+            "brands": "randall",
+            "particularity": "it's_makes_me_happy_when_I_plug_it_and_play",
+            "stores": "carrouf",
+            "nutriscore_grade": "a",
+            "nutriments": {
+                "fat_100g": 0.5,
+                "saturated-fat_100g": 0.5,
+                "sugars_100g": 0.5,
+                "salt_100g": 0.5
+                },
+            "image_url": "https://static.openfoodfacts.org/images/products/261/front_fr.jpg",
+            "url": "https://en-fr.openfoodfacts.org/the_url_of_the_product.com",
+            "an_other_header": "lets_imagine_an_other_header_to_check_"
+        }
+    ]
+}
