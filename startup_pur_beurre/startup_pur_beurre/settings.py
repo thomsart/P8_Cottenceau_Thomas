@@ -26,7 +26,7 @@ SECRET_KEY = os.environ['STARTUP_PUR_BEURRE_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['pur-beurre-cottenceau-thomas.herokuapp.com']
 
 # os.environ['DJANGO_SETTINGS_MODULE'] = 'mysite.settings'
 
