@@ -30,7 +30,7 @@ if os.environ.get('ENV') == 'PRODUCTION':
 else:
     DEBUG = True
 
-ALLOWED_HOSTS = ['pur-beurre-cottenceau-thomas.herokuapp.com']
+ALLOWED_HOSTS = ['pur-beurre-cottenceau-thomas.herokuapp.com', 'localhost']
 
 # os.environ['DJANGO_SETTINGS_MODULE'] = 'mysite.settings'
 
@@ -59,7 +59,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
 ]
 
 ROOT_URLCONF = 'startup_pur_beurre.urls'
