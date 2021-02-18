@@ -1,0 +1,11 @@
+env
+json_folder
+startup_pur_beurre/__pycache__
+database/__pycache__/
+database/migrations/__pycache__/
+database/scripts/__pycache__/
+database/tests/__pycache__/
+startup_pur_beurre/startup_pur_beurre/__pycache__
+users/__pycache__/
+users/migrations/__pycache__/
+users/tests/__pycache__/

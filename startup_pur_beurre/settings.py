@@ -30,7 +30,7 @@ if os.environ.get('ENV') == 'PRODUCTION':
 else:
     DEBUG = True
 
-ALLOWED_HOSTS = ['pur-beurre-cottenceau-thomas.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 # os.environ['DJANGO_SETTINGS_MODULE'] = 'mysite.settings'
 
@@ -80,9 +80,7 @@ TEMPLATES = [
     },
 ]
 
-
 WSGI_APPLICATION = 'startup_pur_beurre.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
@@ -93,8 +91,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'pur_beurre_db',
         'USER': 'postgres',
-        'PASSWORD': 'metalspirit77+',
-        'HOST': '127.0.0.1',
+        'PASSWORD': '',
+        'HOST': '',
         'PORT': '5432',
     }
 }
