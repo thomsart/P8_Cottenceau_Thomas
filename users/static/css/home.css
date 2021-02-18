@@ -1,0 +1,121 @@
+.close:not(:disabled):not(.disabled):hover, .close:not(:disabled):not(.disabled):focus {
+  opacity: 0.75;
+}
+
+.bg-primary {
+  background-color: #c45525 !important;
+}
+
+.d-block {
+  display: block !important;
+}
+
+.justify-content-center {
+  justify-content: center !important;
+}
+
+.align-items-center {
+  align-items: center !important;
+}
+
+.align-self-end {
+  align-self: flex-end !important;
+}
+
+.align-self-baseline {
+  align-self: baseline !important;
+}
+
+@supports ((position: -webkit-sticky) or (position: sticky)) {
+}
+
+.h-100 {
+  height: 100% !important;
+}
+
+.mt-0 {
+  margin-top: 0 !important;
+}
+
+.mb-3 {
+  margin-bottom: 1rem !important;
+}
+
+.my-4 {
+  margin-top: 1.5rem !important;
+}
+
+.my-4 {
+  margin-bottom: 1.5rem !important;
+}
+
+.mb-5 {
+  margin-bottom: 3rem !important;
+}
+
+.mr-auto {
+  margin-right: auto !important;
+}
+
+.ml-auto {
+  margin-left: auto !important;
+}
+@media (min-width: 992px) {
+
+  .mb-lg-0 {
+    margin-bottom: 0 !important;
+  }
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-uppercase {
+  text-transform: uppercase !important;
+}
+
+.font-weight-light {
+  font-weight: 300 !important;
+}
+
+.font-weight-bold {
+  font-weight: 700 !important;
+}
+
+.text-white {
+  color: #fff !important;
+}
+
+.text-muted {
+  color: #262c31 !important;
+}
+
+
+
+
+
+
+.text-white-75 {
+  color: white;
+  text-shadow: 0 0 0.05em whitesmoke, 0 0 0.05em whitesmoke, 0 0 0.05em whitesmoke;
+}
+
+
+
+
+
+
+#colette_et_rémy
+{
+    /* border: solid black 1px; */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#rémy
+{
+    /* border: solid black 1px; */
+    max-width: 3em;
+    height: auto;
+}
