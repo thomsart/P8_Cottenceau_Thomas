@@ -44,8 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
-    'database',
-    'users',
+    'startup_pur_beurre.database',
+    'startup_pur_beurre.users',
 ]
 
 AUTH_USER_MODEL = 'users.ClientUser'
