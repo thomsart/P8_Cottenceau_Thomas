@@ -30,7 +30,7 @@ if os.environ.get('ENV') == 'PRODUCTION':
 else:
     DEBUG = True
 
-ALLOWED_HOSTS = ['pur-beurre-cottenceau-thomas.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 # os.environ['DJANGO_SETTINGS_MODULE'] = 'mysite.settings'
 
@@ -81,7 +81,7 @@ TEMPLATES = [
 ]
 
 
-WSGI_APPLICATION = 'startup_pur_beurre.wsgi.application'
+WSGI_APPLICATION = 'startup_pur_beurre.startup_pur_beurre.wsgi.application'
 
 
 # Database
