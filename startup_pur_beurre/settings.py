@@ -91,7 +91,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'pur_beurre_db',
         'USER': 'postgres',
-        'PASSWORD': '',
+        'PASSWORD': 'metalspirit77+',
         'HOST': '',
         'PORT': '5432',
     }

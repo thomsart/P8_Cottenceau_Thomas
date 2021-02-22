@@ -6,6 +6,11 @@ from urllib3.exceptions import InsecureRequestWarning
 import requests
 from ..models import Products
 from . import tools
+import urllib3
+import logging
+import ssl
+from urllib3.poolmanager import PoolManager
+from requests.adapters import HTTPAdapter
 
 ################################################################################
 
@@ -37,24 +42,16 @@ def run():
 
 ################################################################################
 
-
-
-
-
-
-
-
-
-
-
     # category = input("Quelle categorie veux tu importer ?\n")
     # url = 'https://fr-en.openfoodfacts.org/category/' + category + '/1.json'
-    # requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
-    # response = requests.get(url, verify=False)
+    # response = requests.get(url)
     # data = response.json()
+    # key = data.get("products")
     # print(data)
+    # print(key)
 
     # return
+
 
     # i = 1
     # try:
