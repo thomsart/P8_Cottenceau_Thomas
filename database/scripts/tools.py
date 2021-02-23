@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 import json
 
-from ..models import Products
-from ..json_folder import *
+from database.models import Products
+from database.json_folder import *
 
 ################################################################################
 

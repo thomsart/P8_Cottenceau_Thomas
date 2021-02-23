@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import json
+
 from urllib3.exceptions import InsecureRequestWarning
 import requests
 
-from database.models import Products
 from . import tools
 
 import urllib3
@@ -40,12 +39,11 @@ def run():
             pass
 
         return print("End !")
-        
-################################################################################
 
-    # category = input("Quelle categorie veux tu importer ?\n")
+
+    # category = input("Quelle categorie veux-tu importer ?\n")
     # url = 'https://fr-en.openfoodfacts.org/category/' + category + '/1.json'
-    # response = requests.get(url)
+    # response = requests.get(url, verify=False)
     # data = response.json()
     # key = data.get("products")
     # print(data)
@@ -53,11 +51,4 @@ def run():
 
     # return
 
-
-    # i = 1
-    # try:
-    #     url = 'https://fr-en.openfoodfacts.org/category/' + category + '/' + str(i + 1) + '.json'
-    #     response = requests.get(url)
-    #     data = response.json()
-    #     i += 1
-    # except
+################################################################################
