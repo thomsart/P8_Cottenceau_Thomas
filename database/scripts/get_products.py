@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import json
-
 from urllib3.exceptions import InsecureRequestWarning
 import requests
-from ..models import Products
+
+from database.models import Products
 from . import tools
+
 import urllib3
 import logging
 import ssl
@@ -39,7 +40,7 @@ def run():
             pass
 
         return print("End !")
-
+        
 ################################################################################
 
     # category = input("Quelle categorie veux tu importer ?\n")
