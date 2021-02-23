@@ -4,7 +4,7 @@
 from urllib3.exceptions import InsecureRequestWarning
 import requests
 
-from . import tools
+from database.scripts import tools
 
 import urllib3
 import logging
