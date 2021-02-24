@@ -1,28 +1,40 @@
+{% extends 'base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
+{% block content %}
 
-<html>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" media="all"/>
 
-    <head>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" media="all"/>
-        <link rel="stylesheet" type="text/css" href="{% static 'css/registration.css' %}" media="all"/>
-        <title>Pur Beurre</title>
-    </head>
+    <header class="masthead">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center text-center">
+                <div class="col-lg-10 align-self-end">
+                    <h1 class="text-white font-weight-bold">Connecte-toi !</h1>
+                    <hr class="divider my-4" />
+                    <div class="row">
+                        <div class="col-auto-1 col-md-3"></div>
+                        <div class="col-auto-10 col-md-6">
+                            <img class="photo_product_selected" src={{product.photo}}>
+                        </div>
+                        <div class="col-auto-1 col-md-3"></div>
+                    </div>
+                </div>
+            </div>
 
-    <body>
-        <div id="petit_beurre_div">
-            <a href="/">
-                <img id="petit_beurre_icon" src="/static/icons/icon_petit_beurre.png" title="Accueil">
-            </a>
+            <div id="container" style="background-color: #c45525; padding-left: 20%;">
+                <div class="col-3">
+                </div>
+                <div class="col-4">
+                    <form id="form_login_register" method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit">valider</button>
+                    </form>
+                </div>
+                <div class="col-3">
+                </div>
+            </div>
         </div>
-        <h2>Connecte-toi</h2>
-        <form id="form_login_register" method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">valider</button>
-        </form>
-    </body>
+    </header>
 
-</html>
+{% endblock content %}
