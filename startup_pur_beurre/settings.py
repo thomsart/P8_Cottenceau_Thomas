@@ -46,9 +46,11 @@ INSTALLED_APPS = [
     'django_extensions',
     'database',
     'users',
+    'django_use_email_as_username.apps.DjangoUseEmailAsUsernameConfig',
+    'custom_user.apps.CustomUserConfig',
 ]
 
-AUTH_USER_MODEL = 'users.ClientUser'
+AUTH_USER_MODEL = 'custom_user.ClientUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

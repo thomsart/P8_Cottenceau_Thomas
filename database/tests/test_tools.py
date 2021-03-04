@@ -7,7 +7,7 @@ import json
 from django.test import TestCase
 
 from database.models import Products
-from database.scripts import tools
+from database.management.commands import _tools as tools
 
 """ Here are all our tools-tests which allows us to fill our database with json
 files we dowloaded from 'Open Food facts API'. """

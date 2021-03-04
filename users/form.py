@@ -5,7 +5,7 @@ from django import forms
 from django.contrib.auth.forms import forms, UserCreationForm, UserChangeForm
 from django.core import validators
 
-from .models import ClientUser
+from custom_user.models import ClientUser
 
 
 # Create your models here.
@@ -13,7 +13,7 @@ from .models import ClientUser
 class AccountForm(UserCreationForm):
     class Meta:
         model = ClientUser
-        fields = ('username','first_name', 'last_name', 'email')
+        fields = ('first_name', 'email',)
 
 class LoginForm(UserChangeForm):
     class Meta:

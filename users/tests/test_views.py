@@ -6,8 +6,10 @@ import pytest
 from django.test import TestCase, Client
 from django.urls import reverse
 from database.models import Products
-from users.models import ClientUser
+from custom_user.models import ClientUser
 from django.contrib import messages
+import datetime
+
 
 """ In this file we test all our views in the 'users' application in asserting
 of the used templates, the requests code or the urls redirections. """
@@ -24,7 +26,6 @@ class TestViews(TestCase):
         self.client = Client()
 
         self.user_signup = {
-            'username': 'dédé',
             'first_name': 'dédé',
             'last_name': 'patel',
             'email': 'dedepatel@gmail.com',
@@ -32,13 +33,14 @@ class TestViews(TestCase):
             'password2': 'thepassword1985+',
         }
 
-        self.user_login = ClientUser.objects.create_user(
+        self.user_login = ClientUser.objects._create_user(
             password='21virgulegigawatts+',
-            username='george',
+            is_superuser=False,
             first_name='george',
             last_name='mcfly',
-            email='backtothefutur@gmail.com',
-            is_active=True
+            email='martymcfly@hotmail.fr',
+            is_staff=False,
+            is_active=True,
             )
 
         self.product = Products.objects.create(
@@ -120,10 +122,10 @@ class TestViews(TestCase):
 
     def test_login_success(self):
         response = self.client.post(reverse('login'),
-                                    {'username': 'george',
+                                    {'email': 'martymcfly@hotmail.fr',
                                     'password': '21virgulegigawatts+'
                                     })
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, 200)
 
     def test_save_product(self):
         self.client.force_login(self.user_login)
