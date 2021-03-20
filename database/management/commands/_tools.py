@@ -1,30 +1,35 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import json
+import requests
 
 from database.models import Products
 from database.json_folder import *
 
 ################################################################################
 
-"""
-    This module contains all the methods used to create new 'Product' model in
-    the database. From the opening of the json file to the saving of the products
-    in the database.
-"""
+""" This module contains all the methods used to create new 'Product' model in
+the database. From the opening of the json file to the saving of the products
+in the database. """
 
 ################################################################################
 
-def open_json_file(name_file):
+def search_json_file(category, num_of_page):
+    """ 
+        This method open a json and put all the datas we need in a dictionary. 
     """
-        This method open a json and put all the datas we need in a dictionary.
-    """
-    category = name_file.split('_')
+ 
+    url = 'https://fr-en.openfoodfacts.org/category/' + category + '/' + num_of_page + '.json'
+    response = requests.get(url)
+    data = response.json()
+    key = data.get("products")
+    print(data)
+    print(key)
     number_of_product = 0
     list_of_products = []
 
     try:
-        with open("database/json_folder/" + name_file + "", encoding='utf-8') as js:
+        with open("database/json_folder/" + category + "", encoding='utf-8') as js:
 
             data = json.load(js)
             key = data.get("products")
@@ -32,7 +37,7 @@ def open_json_file(name_file):
             list_of_products.append(key)
 
     except Exception:
-        print("Aucun fichier '" + name_file + "' n'éxiste dans ce repertoire.")
+        print("Il n'y a plus de '" + category + "' à télécharger.")
 
         return False
 

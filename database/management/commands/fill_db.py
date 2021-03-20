@@ -3,7 +3,6 @@
 
 from django.core.management.base import BaseCommand, CommandError
 from urllib3.exceptions import InsecureRequestWarning
-import requests
 
 from . import _tools as tools
 
@@ -27,22 +26,26 @@ brand and nutritional composition. """
 
 class Command(BaseCommand):
 
-    help = "Fill the database with all products from the json files in the folder named 'json_folder'"
+    help = "Fill the database with requesting the Open Food Facts API."
 
     def handle(self, *args, **options):
 
-        name_file = input("quel json veux tu traiter ?    ")
-        file_json = tools.open_json_file(name_file)
+        category = input("Quelle categorie veux-tu importer ?\n")
+        num_of_page = input("A partir de qu'elle page veux tu commencer ?\n")
 
-        if file_json == False:
+        while num_of_page != 0:
+            json = tools.search_json_file(category, num_of_page)
 
-            return print("End !")
+            if json == False:
+                num_of_page == 0
 
-        else:
-            if tools.is_product_in_file(file_json) == True:
-                tools.put_products_in_db(file_json)
+                return print("End !")
 
             else:
-                pass
+                num_of_page += 1
+                
+                if tools.is_product_in_file(json) == True:
+                    tools.put_products_in_db(json)
 
-            return print("End !")
+                else:
+                    pass

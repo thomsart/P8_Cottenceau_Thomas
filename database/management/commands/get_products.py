@@ -40,15 +40,4 @@ def run():
 
         return print("End !")
 
-
-    # category = input("Quelle categorie veux-tu importer ?\n")
-    # url = 'https://fr-en.openfoodfacts.org/category/' + category + '/1.json'
-    # response = requests.get(url, verify=False)
-    # data = response.json()
-    # key = data.get("products")
-    # print(data)
-    # print(key)
-
-    # return
-
 ################################################################################
