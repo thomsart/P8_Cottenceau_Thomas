@@ -1,3 +1,5 @@
 env
 __pycache__
 P8_Cottenceau_Thomas/settings/production.py
+pur-beurre/settings/production.py
+
