@@ -44,4 +44,4 @@ Et pour avoir la couverture des tests faites:<br>
 <h2>Liens de la plateforme sur le web</h2>
 
 <p>Vous pouvez toute-fois vous rendre sur le site en ligne à cette adresse:<br>
-<em>https://pur-beurre-cottenceau-thomas.herokuapp.com/</em></p>
+<em>178.62.70.233</em></p>
