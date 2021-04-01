@@ -4,7 +4,6 @@ import json
 import requests
 
 from database.models import Products
-from database.json_folder import *
 
 ################################################################################
 
@@ -18,23 +17,19 @@ def search_json_file(category, num_of_page):
     """ 
         This method open a json and put all the datas we need in a dictionary. 
     """
- 
-    url = 'https://fr-en.openfoodfacts.org/category/' + category + '/' + num_of_page + '.json'
-    response = requests.get(url)
-    data = response.json()
-    key = data.get("products")
-    print(data)
-    print(key)
+
     number_of_product = 0
     list_of_products = []
 
     try:
-        with open("database/json_folder/" + category + "", encoding='utf-8') as js:
-
-            data = json.load(js)
-            key = data.get("products")
-            number_of_product += len(key)
-            list_of_products.append(key)
+        url = 'https://fr-en.openfoodfacts.org/category/' + category + '/' + num_of_page + '.json'
+        response = requests.get(url)
+        data = response.json()
+        key = data.get("products")
+        print(data)
+        print(key)
+        number_of_product += len(key)
+        list_of_products.append(key)
 
     except Exception:
         print("Il n'y a plus de '" + category + "' à télécharger.")
@@ -42,7 +37,7 @@ def search_json_file(category, num_of_page):
         return False
 
     return {
-        'category': category[0],
+        'category': category,
         'number_of_products': number_of_product,
         'list_of_products': list_of_products
     }
