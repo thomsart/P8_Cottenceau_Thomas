@@ -30,22 +30,24 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
-        category = input("Quelle categorie veux-tu importer ?\n")
-        num_of_page = input("A partir de qu'elle page veux tu commencer ?\n")
+        category = ['camembert', 'comte', 'corn-flakes', 'spaghetti']
 
-        while num_of_page != 0:
-            json = tools.search_json_file(category, num_of_page)
+        for product in category:
 
-            if json == False:
-                num_of_page == 0
+            for i in range(10):
 
-                return print("End !")
-
-            else:
-                num_of_page += 1
-                
-                if tools.is_product_in_file(json) == True:
-                    tools.put_products_in_db(json)
+                if i == 0:
+                    continue
 
                 else:
-                    pass
+                    json = tools.search_json_file(product, str(i))
+
+                    if json == False:
+                        return print("End !")
+
+                    else:                        
+                        if tools.is_product_in_file(json) == True:
+                            tools.put_products_in_db(json)
+                        
+                        else:
+                            pass

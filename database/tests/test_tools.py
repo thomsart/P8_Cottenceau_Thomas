@@ -92,33 +92,6 @@ class TestViews(TestCase):
                 ]]
             }
 
-        self.open_json_file_good_return = {
-            'category': 'test', 
-            'number_of_products': 1, 
-            'list_of_products': [[{
-                'product_name': 'tube_head_667', 
-                'brands': 'randall', 
-                'particularity': "it's_makes_me_happy_when_I_plug_it_and_play", 
-                'stores': 'carrouf', 
-                'nutriscore_grade': 'a', 
-                'nutriments': {
-                    'fat_100g': 0.5, 
-                    'saturated-fat_100g': 0.5, 
-                    'sugars_100g': 0.5, 'salt_100g': 0.5
-                    }, 
-                'image_url': 'https://static.openfoodfacts.org/images/products/261/front_fr.jpg', 
-                'url': 'https://en-fr.openfoodfacts.org/the_url_of_the_product.com', 
-                'an_other_header': 'lets_imagine_an_other_header_to_check_'
-            }]]
-        }
-
-    def test_open_json_file(self):
-        """ Here we check that if we open a json file wich doesn't exist our
-        funstion return False and in the case that it exist the function
-        return the json file. """
-
-        assert tools.open_json_file("fake_file.json") == False
-        assert tools.open_json_file("test_1.json") == self.open_json_file_good_return
 
     def test_is_product_in_file(self):
         """ Here we make sure that there's at least one good product that matchs
