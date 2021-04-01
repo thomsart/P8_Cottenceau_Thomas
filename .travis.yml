@@ -6,13 +6,13 @@ branches:
     only:
         - stage
 
-before_script:
-        - wget http://chromedriver.storage.googleapis.com/2.24/chromedriver_linux64.zip88.0.4324.96
-        - unzip chromedriver_linux64.zip -d /home/thomas/pur-beurre
-        - export CHROME_BIN=chromium-browser
-
-
 install:
+        - psql -c 'create user postgres;'
+        - psql -c 'ALTER USER postgres SUPERUSER;'
+        - psql -c 'create database pur_beurre_db;'
+        - wget -N https://chromedriver.storage.googleapis.com/87.0.4280.88/chromedriver_linux64.zip -P ~/
+        - unzip chromedriver_linux64.zip -d /home/thomas/pur-beurree
+        - export CHROME_BIN=chromium-browser
         - pip install -r requirements.txt
 
 services:
