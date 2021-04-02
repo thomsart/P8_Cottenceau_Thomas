@@ -10,7 +10,7 @@ install:
         - psql -c 'create user thoms;'
         - psql -c 'ALTER USER thoms SUPERUSER;'
         - psql -c 'create database pur_beurre_db;'
-        - psql -c "INSERT INTO products Values('selenium', 'frosties', 'frosties de kelloggs', 'carrouf', 'a', '0.1', '0.1', '0.1', '0.1', 'https://static.openfoodfacts.org/images/products/505/382/710/4081/front_fr.89.full.jpg', 'https://fr.openfoodfacts.org/produit/5053827104081/frosties-kellogg-s')"
+        - psql -c "INSERT INTO Products VALUES('selenium', 'frosties', 'frosties de kelloggs', 'carrouf', 'a', '0.1', '0.1', '0.1', '0.1', 'https://static.openfoodfacts.org/images/products/505/382/710/4081/front_fr.89.full.jpg', 'https://fr.openfoodfacts.org/produit/5053827104081/frosties-kellogg-s')"
         - wget -N https://chromedriver.storage.googleapis.com/87.0.4280.88/chromedriver_linux64.zip -P ~/
         - unzip ~/chromedriver_linux64.zip -d ~/
         - rm ~/chromedriver_linux64.zip
