@@ -8,7 +8,7 @@ DATABASES = {
         'NAME': 'pur_beurre_db',
         'USER': 'thoms',
         'PASSWORD': '',
-        'HOST': '',
+        'HOST': '127.0.0.1',
         'PORT': '',
     }
 }
