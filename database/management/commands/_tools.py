@@ -4,7 +4,6 @@ import json
 import requests
 
 from database.models import Products
-from database.json_folder import *
 
 ################################################################################
 
