@@ -21,9 +21,13 @@ services:
 before_script:
         - psql -c 'create user thoms;'
         - psql -c 'ALTER USER thoms SUPERUSER;'
-        - psql -c 'create database pur_beurre_db;'
+        - psql -c 'create database pur_beurre_db;
+          \?;
+          \l;
+          \dn;'
         - python ./manage.py migrate
 
 script:
+        - 
         - psql -c "INSERT INTO Products (cat, name, brand, store, nutriscore, fat_lipids_100g, saturated_fatty_acids_100g, sugar_100g, salt_100g, photo, link) VALUES ('selenium', 'frosties', 'frosties de kelloggs', 'carrouf', 'a', '0.1','0.1', '0.1', '0.1', 'https://static.openfoodfacts.org/images/products/505/382/710/4081/front_fr.89.full.jpg', 'https://fr.openfoodfacts.org/produit/5053827104081/frosties-kellogg-s');"
         - pytest
