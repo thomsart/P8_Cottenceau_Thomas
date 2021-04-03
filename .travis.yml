@@ -22,9 +22,9 @@ before_script:
         - psql -c 'create user thoms;'
         - psql -c 'ALTER USER thoms SUPERUSER;'
         - psql -c 'create database pur_beurre_db;'
-        - \?
-        - \l
-        - \dn
+        - psql \?
+        - psql \l
+        - psql \dn
         - python ./manage.py migrate
 
 script:
