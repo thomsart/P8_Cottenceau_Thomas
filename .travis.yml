@@ -25,5 +25,5 @@ before_script:
         - python ./manage.py migrate
 
 script:
-        - psql -d pur_beurre_db -U thoms -c "INSERT INTO Products (id, cat, name, brand, store, nutriscore, fat_lipids_100g, saturated_fatty_acids_100g, sugar_100g, salt_100g, photo, link) VALUES (0, 'selenium', 'frosties', 'frosties de kelloggs', 'carrouf', 'a', '0.1','0.1', '0.1', '0.1', 'https://static.openfoodfacts.org/images/products/505/382/710/4081/front_fr.89.full.jpg', 'https://fr.openfoodfacts.org/produit/5053827104081/frosties-kellogg-s');"
+        - psql -d pur_beurre_db -U thoms -c "INSERT INTO database_products (id, cat, name, brand, store, nutriscore, fat_lipids_100g, saturated_fatty_acids_100g, sugar_100g, salt_100g, photo, link) VALUES (0, 'selenium', 'frosties', 'frosties de kelloggs', 'carrouf', 'a', '0.1','0.1', '0.1', '0.1', 'https://static.openfoodfacts.org/images/products/505/382/710/4081/front_fr.89.full.jpg', 'https://fr.openfoodfacts.org/produit/5053827104081/frosties-kellogg-s');"
         - pytest
