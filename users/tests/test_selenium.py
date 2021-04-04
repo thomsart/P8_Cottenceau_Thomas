@@ -24,7 +24,7 @@ class TestViews(StaticLiveServerTestCase):
         """ All the features of our driver like the path to run it. """
         
         super().setUpClass()
-        cls.selenium = WebDriver(executable_path="~/")
+        cls.selenium = WebDriver(executable_path="../../")
         cls.selenium.implicitly_wait(10)
 
     @classmethod

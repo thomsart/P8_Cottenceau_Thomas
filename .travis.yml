@@ -6,6 +6,9 @@ branches:
     only:
         - stage
 
+addons:
+  chrome: stable
+
 env: DJANGO_SETTINGS_MODULE="startup_pur_beurre.settings.travis"
 
 install:
