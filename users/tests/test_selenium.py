@@ -23,8 +23,16 @@ class TestViews(StaticLiveServerTestCase):
     def setUpClass(cls):
         """ All the features of our driver like the path to run it. """
 
-        super().setUpClass()
         #cls.selenium = WebDriver(executable_path="~/")
+        chrome_options = Options()
+        chrome_options.add_argument("--no-sandbox")
+        chrome_options.add_argument("--no-default-browser-check")
+        chrome_options.add_argument("--no-first-run")
+        chrome_options.add_argument("--disable-default-apps")
+        chrome_options.add_argument("--disable-dev-shm-usage")
+        chrome_options.add_argument("--headless")
+        super().setUpClass()
+        cls.selenium = Chrome(options=chrome_options)
         cls.selenium.implicitly_wait(10)
 
     @classmethod
