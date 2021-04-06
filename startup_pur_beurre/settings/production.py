@@ -40,17 +40,19 @@ urlpatterns = [
     path('sentry-debug/', trigger_error),
     # ...
 ]
+
 INSTALLED_APPS += [
-            'raven.contrib.django.raven_compat',
-            ]
+    'raven.contrib.django.raven_compat',
+]
 
 
 RAVEN_CONFIG = {
-            'dsn': 'https://somethingverylong@sentry.io/216272', # caution replace by your own!!
-                # If you are using git, you can also automatically configure the
-                    # release based on the git info.
-                        'release': raven.fetch_git_sha(os.path.dirname(os.pardir)),
-                        }
+        'dsn': 'https://ffa08fcca6f7465689fad60dab6448da@o565870.ingest.sentry.io/5707926',
+    # caution replace by your own!!
+    # If you are using git, you can also automatically configure the
+    # release based on the git info.
+    'release': raven.fetch_git_sha(os.path.dirname(os.pardir)),
+}
 
 LOGGING = {
     'version': 1,
