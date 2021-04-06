@@ -48,7 +48,7 @@ class TestViews(StaticLiveServerTestCase):
         formulaire the 'frosties' product redirect to the 'selected_products/'
         url by checking if the 'selected_products.html' template is used. """
 
-        self.selenium.get('%s%s' % (self.live_server_url, 'home'))
+        self.selenium.get(self.live_server_url)
         response = self.selenium.find_element(By.ID, "id_product_name")
         response.send_keys("frosties")
         response.send_keys(Keys.ENTER)
