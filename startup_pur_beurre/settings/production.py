@@ -2,7 +2,7 @@ from . import *
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 from django.urls import path
-
+import raven
 
 SECRET_KEY = 'dd65h51h61rlbs<dsrr51hdtdf16171sf15y6jf611nf'
 DEBUG = False
@@ -45,9 +45,8 @@ INSTALLED_APPS += [
     'raven.contrib.django.raven_compat',
 ]
 
-
 RAVEN_CONFIG = {
-        'dsn': 'https://ffa08fcca6f7465689fad60dab6448da@o565870.ingest.sentry.io/5707926',
+    'dsn': 'https://ffa08fcca6f7465689fad60dab6448da@o565870.ingest.sentry.io/5707926',
     # caution replace by your own!!
     # If you are using git, you can also automatically configure the
     # release based on the git info.
@@ -64,7 +63,7 @@ LOGGING = {
     'formatters': {
         'verbose': {
             'format': '%(levelname)s %(asctime)s %(module)s '
-            '%(process)d %(thread)d %(message)s'
+                      '%(process)d %(thread)d %(message)s'
         },
     },
     'handlers': {
