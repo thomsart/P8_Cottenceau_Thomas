@@ -36,7 +36,7 @@ def home(request):
         This view just generate the home-page and listen GET requests from the forms
         in the body.
     """
-    hey_batard_j_m_en_bat_lec
+
     product_wanted = SearchProductForm(request.GET)
     context = {'search_product': product_wanted}
 
