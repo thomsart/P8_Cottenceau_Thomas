@@ -16,8 +16,12 @@ import json
 from database.models import Products, SavedProducts, ClientUser
 from .form import *
 from . import context_processor
+import logging
 
 # Create your views here.
+################################################################################
+
+logger = logging.getLogger(__name__) 
 
 ################################################################################
 
@@ -56,6 +60,10 @@ def home(request):
 
         else:
             product_wanted = SearchProductForm(request.GET)
+
+    logger.info('Produit recherché', exc_info=True, extra={ # Optionally pass a request and we'll grab any information we can
+                                                        'request': request,}
+    )
 
     return render(request, 'home.html', context)
 
