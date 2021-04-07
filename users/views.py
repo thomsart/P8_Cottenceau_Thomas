@@ -61,10 +61,6 @@ def home(request):
         else:
             product_wanted = SearchProductForm(request.GET)
 
-    logger.info('Produit recherché', exc_info=True, extra={ # Optionally pass a request and we'll grab any information we can
-                                                        'request': request,}
-    )
-
     return render(request, 'home.html', context)
 
 ################################################################################
@@ -76,6 +72,9 @@ def search_product(request):
         the orthograph wasn't good or unknow.  
     """
     query = request.POST.get("product_name_nav_bar")
+    logger.info('Produit recherché', exc_info=True, extra={
+        # Optionally pass a request and we'll grab any information we can
+        'request': request,})
     product = Products.objects.filter(name__iexact=query).values()
 
     if product:
