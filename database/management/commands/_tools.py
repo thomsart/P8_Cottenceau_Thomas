@@ -29,7 +29,6 @@ def search_json_file(category, num_of_page):
         list_of_products.append(key)
 
     except Exception:
-        print("Il n'y a plus de '" + category + "' à télécharger.")
 
         return False
     
@@ -47,7 +46,7 @@ def is_product_in_file(dict):
         and return 'True' when it's the case if not 'False'. 
     """
     if dict['number_of_products'] == 0:
-        print("Aucun produit n'est présent dans ce fichier.")
+
         return False
 
     else:
@@ -95,11 +94,11 @@ def put_products_in_db(dict):
         count += 1
 
     if new_product_in_db > 0:
-        print(str(new_product_in_db) + " produit(s) vient(nent) d'être ajouté(s) dans la base.")
+
         return True
     
     else:
-        print("Aucun produit n'a été ajouté dans la base.")
+
         return False
 
 ################################################################################
