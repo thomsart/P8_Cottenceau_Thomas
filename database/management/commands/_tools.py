@@ -83,6 +83,7 @@ def put_products_in_db(dict):
             product.link = productApi['url']
             product.save()
             new_product_in_db += 1
+            # print(productApi['product_name'])
 
         except Exception:
             """
