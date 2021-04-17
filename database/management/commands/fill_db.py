@@ -30,7 +30,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
-        category = ['corn-flakes', 'camembert', 'comte', 'spaghetti']
+        category = ['camembert', 'comte']
         
         for product in category:
 
@@ -43,8 +43,7 @@ class Command(BaseCommand):
                     json = tools.search_json_file(product, str(i))
 
                     if json == False:
-
-                        return
+                        continue
 
                     else:
                         if tools.is_product_in_file(json) == True:
@@ -52,3 +51,5 @@ class Command(BaseCommand):
 
                         else:
                             pass
+
+        return print("End !")
