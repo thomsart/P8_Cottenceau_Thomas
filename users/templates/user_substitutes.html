@@ -31,7 +31,11 @@
                 <div class="col-auto-10 col-md-4" style="background-color:  #c45525;">
                     <div class="card" style="width: 15em; background-color: #c45525;">
                         <div class="card-body">
-			    <h5 class="card-category">{{product.category}}</h5>
+			    <h5 class="card-category">
+				    {% if product.category %}
+				    	{{product.category}}
+				    {% endif  %}
+			    </h5>
                             <img class="float-right" src="/static/icons/nut_{{product.nutriscore}}.png">
                             <img class="card-img-top" src={{product.photo}} alt="Card image cap" style="height: 14em;">
                             <h5 class="card-title">{{product.name}}</h5>
