@@ -30,7 +30,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
-        category = ['camembert', 'comte']
+        category = ['coppa', 'popcorn-sale']
         
         for product in category:
 
